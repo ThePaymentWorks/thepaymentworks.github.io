@@ -1,0 +1,15 @@
+.btn-shadow {
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+}
+.btn-light {
+  color: $teal;
+}
+.btn-light:hover {
+  color: $teal;
+}
+.btn-long {
+  padding-right: 3rem;
+  padding-left: 3rem;
+}

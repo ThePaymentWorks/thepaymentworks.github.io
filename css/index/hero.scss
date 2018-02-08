@@ -1,0 +1,47 @@
+.hero-section {
+  min-height: 720px;
+  background: url(../../img/home-bg2.jpg) no-repeat center top;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+
+  .container {
+  }
+
+  .title {
+    font-size: 2em;
+  }
+
+  .description {
+    font-size: 1.5em;
+    font-weight: 100;
+    max-width: 630px;
+
+    .keyword {
+      font-weight: 400;
+    }
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 768px) {
+  .hero-section {
+    background: url(../../img/home-bg2-tab.jpg) no-repeat center top;
+    background-size: cover;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .hero-section {
+    background: url(../../img/home-bg2-tab.jpg) no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .hero-section {
+    min-height: 325px;
+    background: url(../../img/home-bg2-mob.jpg) no-repeat center center;
+    background-size: cover;
+    padding-top: 2rem;
+  }
+}
