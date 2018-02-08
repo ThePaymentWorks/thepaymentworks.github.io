@@ -1,0 +1,14 @@
+---
+---
+
+@import 'variables';
+@import 'bootstrap/bootstrap';
+@import 'navbar';
+@import 'buttons';
+
+@import 'index/hero';
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
