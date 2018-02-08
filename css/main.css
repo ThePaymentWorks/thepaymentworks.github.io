@@ -513,7 +513,7 @@ ul.load-harness-icon-list {
   margin: 0;
   color: #6bbfa3; }
 .price-box hr {
-  margin: 30px 0;
+  margin: 25px 0;
   width: 100%;
   float: left;
   color: #f8f7f7; }
@@ -557,6 +557,12 @@ ul.load-harness-icon-list {
   font-family: "Gotham SSm A", "Gotham SSm B", sans-serif; }
 .price-box span.per-sim-month {
   font-size: 16px;
+}
+.price-box span.pricing-note {
+  margin-top: -5px;
+  display: block;
+  height: 11px;
+  font-size: 11px;
 }
 
 .basic-account-box, .pro-rata-box {
