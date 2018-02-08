@@ -843,14 +843,16 @@ footer {
   ul.list-payment-gateways li {
     margin: 30px 40px; }
 
+  .price-box h4 {
+      font-size: 20px; }
   .price-box {
     padding: 30px 25px; }
     .price-box span.pricing {
       font-size: 46px; }
       .price-box span.pricing:before {
-        font-size: 21px; }
+        font-size: 20px; }
     .price-box span.requests {
-      font-size: 21px; }
+      font-size: 20px; }
 
   .basic-account-box, .pro-rata-box {
     padding: 30px 25px; }
