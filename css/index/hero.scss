@@ -1,11 +1,9 @@
 .hero-section {
   min-height: 720px;
   background: url(../../img/home-bg2.jpg) no-repeat center top;
+  background-size: cover;
   padding-top: 6rem;
   padding-bottom: 6rem;
-
-  .container {
-  }
 
   .title {
     font-size: 2em;
@@ -26,14 +24,12 @@
 @media only screen and (max-width: 768px) {
   .hero-section {
     background: url(../../img/home-bg2-tab.jpg) no-repeat center top;
-    background-size: cover;
   }
 }
 
 @media only screen and (max-width: 1200px) {
   .hero-section {
     background: url(../../img/home-bg2-tab.jpg) no-repeat center center;
-    background-size: cover;
   }
 }
 
@@ -41,7 +37,6 @@
   .hero-section {
     min-height: 325px;
     background: url(../../img/home-bg2-mob.jpg) no-repeat center center;
-    background-size: cover;
     padding-top: 2rem;
   }
 }
