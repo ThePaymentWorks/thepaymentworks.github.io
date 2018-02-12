@@ -22,3 +22,9 @@ $light-background: $white-lilac;
 $dark-background: $dark;
 
 $gray-text: rgba(64,64,64,0.7);
+
+.shadow {
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+}
