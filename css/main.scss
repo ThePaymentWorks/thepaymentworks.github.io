@@ -9,11 +9,13 @@
 @import 'index/hero';
 @import 'index/brands-bar';
 @import 'index/benefits';
+@import 'index/developers';
 
 body {
-  margin: 0;
+  background-color: $light-background;
   font-family: 'Roboto', sans-serif;
   color: $dark;
+  margin: 0;
 }
 
 @media (min-width: 1200px) {

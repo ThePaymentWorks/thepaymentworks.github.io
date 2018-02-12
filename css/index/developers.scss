@@ -1,0 +1,54 @@
+.developers-section {
+  background-color: $light-background;
+  min-height: 600px;
+  padding-top: 4rem;
+  padding-bottom: 100px;
+
+  .col:first-of-type { padding: 0 3rem; }
+  #runkit-element { overflow: hidden; }
+
+  .title {
+    color: $teal;
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+
+  p {
+    color: rgba(64, 64, 64, 0.7);
+    font-size: 0.9rem;
+  }
+
+  hr { border-top: 1px solid $teal; }
+
+  .tab {
+    display: block;
+
+    text-align: left;
+    font-size: 1rem;
+
+    max-width: 190px;
+    padding: 6px 20px;
+
+    background-color: transparent;
+  }
+  .tab.active {
+    @extend .shadow;
+    color: $teal;
+    background-color: $white;
+    transition: color .3s;
+  }
+}
+
+@media (max-width: 991px) {
+  .developers-section {
+    padding-top: 2rem;
+
+    .col:first-of-type {
+      text-align: center;
+      padding: 0 15px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 330px;
+    }
+  }
+}
