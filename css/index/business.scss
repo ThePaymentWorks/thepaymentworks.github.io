@@ -1,0 +1,28 @@
+.business-section {
+  padding: 6rem 0;
+  background-color: $white;
+
+  .icon-container { margin-top: 2rem; }
+
+  h2.title {
+    color: $gray-text;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 200;
+  }
+
+  svg {
+    margin-bottom: 2rem !important;
+    color: $primary;
+  }
+
+  p.title {
+    color: $teal;
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+  p.text {
+    font-size: 1.1rem;
+    max-width: 270px;
+  }
+}
