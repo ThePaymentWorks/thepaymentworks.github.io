@@ -1,0 +1,35 @@
+.testimonials-section {
+  background-color: $light-background;
+  padding: 3rem 0 6rem 0;
+
+  h2.title {
+    color: $gray-text;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 200;
+    margin-bottom: 50px;
+  }
+
+  .card {
+    @extend .shadow;
+    border: none;
+    border-radius: 0;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 300px;
+  }
+  .card-body { padding: 0; }
+  .card-title {
+    padding: .6rem .9rem;
+    background-color: $dark;
+    color: $white;
+    font-weight: 300;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+  .card-text {
+    padding: 1rem;
+    color: $gray-text;
+    font-size: 0.9rem;
+  }
+}
