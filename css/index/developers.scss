@@ -37,6 +37,21 @@
     background-color: $white;
     transition: color .3s;
   }
+
+  .tab {
+    .symbol {
+      width: 1rem;
+      margin-right: 0.5rem;
+    }
+    svg {
+      @extend .symbol;
+      color: $dark;
+    }
+    img {
+      @extend .symbol;
+      padding-bottom: 4px;
+    }
+  }
 }
 
 @media (max-width: 991px) {
