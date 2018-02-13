@@ -19,7 +19,7 @@ layout: default
 
     <div class="row">
       <div class="col text-center mt-4">
-        <button class="btn btn-lg btn-primary btn-shadow btn-long">Signup</button>
+        <a href="https://admin.testingpays.com/sign-up" class="btn btn-lg btn-primary btn-shadow btn-long">Signup</a>
       </div>
     </div>
   </div>
@@ -153,10 +153,8 @@ layout: default
         <p>We support a number of apis so you only need to worry about a single sandbox.</p>
         <br>
         <div class="d-none d-lg-block">
-          <button class="btn btn-block tab active" id="stripe">Stripe</button>
-          <button class="btn btn-block tab" id="realex">Realex</button>
-          <button class="btn btn-block tab" id="paypal">PayPal</button>
-          <button class="btn btn-block tab" id="worldpay">Worldpay</button>
+          <button onclick="setActive('stripe');" class="btn btn-block tab active" id="stripe"><i class="fab fa-stripe-s fa-sm"></i> Stripe</button>
+          <button onclick="setActive('optimal');" class="btn btn-block tab" id="optimal"><img src="img/logos/optimal-symbol.png"/> Optimal</button>
         </div>
       </div>
 
@@ -168,7 +166,25 @@ layout: default
         <script>
           var notebook = RunKit.createNotebook({
             element: document.getElementById("runkit-element"),
-            source: "var stripe = require('stripe')( '30d0b8f9c831bcdb2ae501f37e7f48e4');\n// Point the app at Testing Pays' Stripe charge Sim\nstripe.setHost('api.testingpays.com', 443, 'https');\nstripe._setApiField('basePath', '30d0b8f9c831bcdb2ae501f37e7f48e4/stripe/v1/');\nstripe._prepResources();\n\nstripe.charges.create({\n  amount: 2000,\n  currency: 'usd',\n  source: 'tok_189fPm2eZvKYlo2CEBNBHYzB', // obtained with Stripe.js\n  description: 'Charge for testing.pays@example.com'\n}, function(err, charge) {\n  // Handle error / success here\n });"
+            source: `var stripe = require('stripe')('30d0b8f9c831bcdb2ae501f37e7f48e4');
+
+// Point the app at Testing Pays' Stripe charge Sim
+stripe.setHost('api.testingpays.com', 443, 'https');
+stripe._setApiField('basePath', '30d0b8f9c831bcdb2ae501f37e7f48e4/stripe/v1/');
+stripe._prepResources();
+
+stripe.charges.create({
+  amount: 2000,
+  currency: 'usd',
+  source: 'tok_189fPm2eZvKYlo2CEBNBHYzB',
+  // obtained with Stripe.js
+  description: 'Charge for testing.pays@example.com'
+}, function(err, charge) {
+  // Handle error/success here
+  console.log('charge ', charge);
+  console.log('error ', err);
+});
+`
         })
         </script>
       </div>
@@ -249,3 +265,59 @@ layout: default
     </div>
   </div>
 </section>
+
+<script>
+  function setActive (sim) {
+    // Set the active tab
+    elements = document.getElementsByClassName('tab active');
+    [].forEach.call(elements, function(e) { e.classList.toggle('active'); });
+    document.getElementById(sim).classList.toggle('active');
+
+    const source = getSource(sim);
+    this.notebook.setSource(source);
+  }
+
+  function getSource (sim) {
+    switch(sim) {
+      case 'optimal':
+        return `var request = require('request');
+
+request({
+  method: 'POST',
+  url: 'https://api.testingpays.com/30d0b8f9c831bcdb2ae501f37e7f48e4/optimal/v1/orders/12345',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer 30d0b8f9c831bcdb2ae501f37e7f48e4'
+  },
+  body: JSON.stringify({
+    totalAmount: '100',
+    currencyCode: 'EUR',
+    merchantRefNum: '12345b'
+  })
+}, function (error, response, body) {
+  console.log('Status:', response.statusCode);
+  console.log('Headers:', JSON.stringify(response.headers));
+  console.log('Response:', body);
+});`
+      default:
+        return `var stripe = require('stripe')('30d0b8f9c831bcdb2ae501f37e7f48e4');
+
+// Point the app at Testing Pays' Stripe charge Sim
+stripe.setHost('api.testingpays.com', 443, 'https');
+stripe._setApiField('basePath', '30d0b8f9c831bcdb2ae501f37e7f48e4/stripe/v1/');
+stripe._prepResources();
+
+stripe.charges.create({
+  amount: 2000,
+  currency: 'usd',
+  source: 'tok_189fPm2eZvKYlo2CEBNBHYzB',
+  // obtained with Stripe.js
+  description: 'Charge for testing.pays@example.com'
+}, function(err, charge) {
+  // Handle error/success here
+  console.log('charge ', charge);
+  console.log('error ', err);
+});`
+    }
+  }
+</script>
