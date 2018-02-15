@@ -151,14 +151,19 @@ layout: default
         <h2 class="title">Built for developers</h2>
         <hr/>
         <p>We support a number of apis so you only need to worry about a single sandbox.</p>
+        <p>You can try out a few of our sims here. Simply change the amount field to get back a different response.</p>
+        <a href="https://admin.testingpays.com" class="text-primary">Learn more</a>
+        <br>
         <br>
         <div class="d-none d-lg-block">
-          <button onclick="setActive('stripe');" class="btn btn-block tab active" id="stripe"><i class="fab fa-stripe-s fa-sm"></i> Stripe</button>
+          <button onclick="setActive('paypal');" class="btn btn-block tab active" id="paypal"><i class="fab fa-paypal fa-sm"></i> PayPal</button>
+          <button onclick="setActive('stripe');" class="btn btn-block tab" id="stripe"><i class="fab fa-stripe-s fa-sm"></i> Stripe</button>
           <button onclick="setActive('optimal');" class="btn btn-block tab" id="optimal"><img src="img/logos/optimal-symbol.png"/> Optimal</button>
         </div>
       </div>
 
       <div class="col-lg-8">
+        <script src="js/developers.js"></script>
         <script src="https://embed.runkit.com"></script>
 
         <div id="runkit-element"></div>
@@ -166,26 +171,8 @@ layout: default
         <script>
           var notebook = RunKit.createNotebook({
             element: document.getElementById("runkit-element"),
-            source: `var stripe = require('stripe')('30d0b8f9c831bcdb2ae501f37e7f48e4');
-
-// Point the app at Testing Pays' Stripe charge Sim
-stripe.setHost('api.testingpays.com', 443, 'https');
-stripe._setApiField('basePath', '30d0b8f9c831bcdb2ae501f37e7f48e4/stripe/v1/');
-stripe._prepResources();
-
-stripe.charges.create({
-  amount: 2000,
-  currency: 'usd',
-  source: 'tok_189fPm2eZvKYlo2CEBNBHYzB',
-  // obtained with Stripe.js
-  description: 'Charge for testing.pays@example.com'
-}, function(err, charge) {
-  // Handle error/success here
-  console.log('charge ', charge);
-  console.log('error ', err);
-});
-`
-        })
+            source: getSource()
+          })
         </script>
       </div>
     </div>
@@ -267,59 +254,3 @@ stripe.charges.create({
     </div>
   </div>
 </section>
-
-<script>
-  function setActive (sim) {
-    // Set the active tab
-    elements = document.getElementsByClassName('tab active');
-    [].forEach.call(elements, function(e) { e.classList.toggle('active'); });
-    document.getElementById(sim).classList.toggle('active');
-
-    const source = getSource(sim);
-    this.notebook.setSource(source);
-  }
-
-  function getSource (sim) {
-    switch(sim) {
-      case 'optimal':
-        return `var request = require('request');
-
-request({
-  method: 'POST',
-  url: 'https://api.testingpays.com/30d0b8f9c831bcdb2ae501f37e7f48e4/optimal/v1/orders/12345',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer 30d0b8f9c831bcdb2ae501f37e7f48e4'
-  },
-  body: JSON.stringify({
-    totalAmount: '100',
-    currencyCode: 'EUR',
-    merchantRefNum: '12345b'
-  })
-}, function (error, response, body) {
-  console.log('Status:', response.statusCode);
-  console.log('Headers:', JSON.stringify(response.headers));
-  console.log('Response:', body);
-});`
-      default:
-        return `var stripe = require('stripe')('30d0b8f9c831bcdb2ae501f37e7f48e4');
-
-// Point the app at Testing Pays' Stripe charge Sim
-stripe.setHost('api.testingpays.com', 443, 'https');
-stripe._setApiField('basePath', '30d0b8f9c831bcdb2ae501f37e7f48e4/stripe/v1/');
-stripe._prepResources();
-
-stripe.charges.create({
-  amount: 2000,
-  currency: 'usd',
-  source: 'tok_189fPm2eZvKYlo2CEBNBHYzB',
-  // obtained with Stripe.js
-  description: 'Charge for testing.pays@example.com'
-}, function(err, charge) {
-  // Handle error/success here
-  console.log('charge ', charge);
-  console.log('error ', err);
-});`
-    }
-  }
-</script>
