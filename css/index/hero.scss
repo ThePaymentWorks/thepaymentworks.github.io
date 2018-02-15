@@ -1,23 +1,19 @@
 .hero-section {
   min-height: 650px;
   background: url(../../img/home-bg2.jpg) no-repeat center top;
-  background-size: cover;
+  background-size: cover !important;
   padding-top: 6rem;
   padding-bottom: 6rem;
   color: $white;
+  font-size: 1.5rem;
 
-  .title {
-    font-size: 2em;
-  }
+  .title { font-size: 2rem; }
 
   .description {
-    font-size: 1.5em;
     font-weight: 100;
     max-width: 630px;
 
-    .keyword {
-      font-weight: 400;
-    }
+    .keyword { font-weight: 400; }
   }
 }
 
