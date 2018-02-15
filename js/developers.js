@@ -36,7 +36,7 @@ await request({
       }
     }]
   })
-});` 
+});`;
 }
 
 function getStripeInstructions() {
@@ -55,7 +55,7 @@ await stripe.charges.create({
   source: 'tok_189fPm2eZvKYlo2CEBNBHYzB',
   // obtained with Stripe.js
   description: 'Charge for testing.pays@example.com'
-});`
+});`;
 }
 
 function getOptimalInstructions() {
@@ -73,5 +73,5 @@ await request({
     currencyCode: 'EUR',
     merchantRefNum: '12345b'
   })
-});`
+});`;
 }
