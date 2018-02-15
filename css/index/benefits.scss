@@ -1,7 +1,5 @@
 .benefits-section {
   background-color: $dark-background;
- // min-height: 740px;
-  max-height: 850px;
   overflow: hidden;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
@@ -19,7 +17,6 @@
     border: none;
     min-height: 130px;
     min-width: 250px;
-    max-width: 355px;
     border-radius: 0;
   }
   .card:hover {
