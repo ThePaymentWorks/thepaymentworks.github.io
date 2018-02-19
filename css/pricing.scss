@@ -1,0 +1,90 @@
+.pricing-section {
+  min-height: 80vh;
+  background-color: $dark-background;
+
+  .card {
+    text-align: center;
+    border-radius: 0;
+    min-height: 400px;
+    max-width: 200px;
+  }
+  .card.flat {
+    text-align: left;
+    min-height: 80px;
+    max-width: 950px;
+    margin: auto;
+    padding: 0 15px;
+
+    a {
+      position: absolute;
+      right: 20px;
+      top: 20%;
+      color: white;
+    }
+  }
+
+  .header {
+    .title {
+      margin: 1em 0 0 0;
+      font-weight: 300;
+      font-size: 1.2em;
+    }
+    small {
+      margin: 0;
+      color: $gray-text;
+      font-weight: 300;
+    }
+    hr {
+      margin-top: .5em;
+      border-color: $teal;
+    }
+  }
+
+  .body {
+    .feature {
+      margin-bottom: 1em;
+
+      h5 {
+        margin: 0;
+        font-weight: 400;
+        font-size: 1.5em;
+      }
+    }
+  }
+
+  .footer {
+    padding: 1em;
+
+    button { max-width: 135px; }
+    button.non-zero {
+      line-height: .75em;
+      padding-bottom: 0.2em;
+      p { margin: 0 }
+      small { font-size: 10px; }
+    }
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .pricing-section {
+    .container { max-width: 1000px; }
+  }
+}
+
+@media (max-width: 576px) {
+  .pricing-section {
+    .card.flat {
+      text-align: left;
+      min-height: 80px;
+      max-width: 100%;
+
+      a {
+        top: auto;
+        right: auto;
+        margin: 20px 0;
+        position: inherit;
+      }
+    }
+  }
+}
