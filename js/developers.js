@@ -45,7 +45,7 @@ var stripe = require('stripe')('30d0b8f9c831bcdb2ae501f37e7f48e4');
 
 // Point the app at Testing Pays' Stripe charge Sim
 stripe.setHost('api.testingpays.com', 443, 'https');
-stripe._setApiField('basePath', '30d0b8f9c831bcdb2ae501f37e7f48e4/stripe/v1/');
+stripe._setApiField('basePath', '/30d0b8f9c831bcdb2ae501f37e7f48e4/stripe/v1/');
 stripe._prepResources();
 
 // Create a charge, change the total to get a different response
