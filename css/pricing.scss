@@ -1,19 +1,18 @@
 .pricing-section {
+  padding-top: 2rem;
   min-height: 80vh;
   background-color: $dark-background;
 
   .card {
     text-align: center;
     border-radius: 0;
-    min-height: 400px;
-    max-width: 200px;
+    min-height: 300px;
   }
   .card.flat {
     text-align: left;
-    min-height: 80px;
-    max-width: 950px;
     margin: auto;
-    padding: 0 15px;
+    padding: 0 15px 25px;
+    min-height: unset;
 
     a {
       position: absolute;
@@ -55,8 +54,8 @@
   .footer {
     padding: 1em;
 
-    button { max-width: 135px; }
-    button.non-zero {
+    a { max-width: 135px; }
+    a.non-zero {
       line-height: .75em;
       padding-bottom: 0.2em;
       p { margin: 0 }
@@ -69,6 +68,12 @@
 @media (min-width: 1200px) {
   .pricing-section {
     .container { max-width: 1000px; }
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-section {
+    .container { max-width: 740px }
   }
 }
 
