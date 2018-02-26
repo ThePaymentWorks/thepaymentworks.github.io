@@ -1,0 +1,18 @@
+.contact-section {
+  min-height: 85vh;
+  padding: 5rem 0;
+
+  // This aligns the hubspot form correctly
+  #hsformContainer { padding-left: 5%; }
+
+  fieldset {
+    text-align: left;
+    margin: auto !important;
+  }
+  .title {
+    color: $dark;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+}

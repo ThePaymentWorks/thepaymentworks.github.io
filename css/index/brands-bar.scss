@@ -1,0 +1,14 @@
+.brands-bar-section {
+  background-color: $light-background;
+  max-height: 70px;
+  overflow: hidden;
+
+  .col { padding: 1.25rem 15px; }
+  .neteller { padding: 2px; }
+  .instadebit { padding: 2px; }
+  img { max-height: 1.5rem; }
+}
+
+@media only screen and (max-width: 768px) {
+  img { max-height: 1rem; }
+}

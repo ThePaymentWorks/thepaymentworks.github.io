@@ -1,0 +1,14 @@
+.footer-section {
+  background-color: $dark-background;
+  min-height: 130px;
+  color: $white;
+  padding: 3rem;
+
+  a { color: $white; }
+
+  .nav-link {
+    font-weight: 200;
+    font-size: 0.8rem;
+    float: left;
+  }
+}

@@ -1,0 +1,39 @@
+.hero-section {
+  min-height: 650px;
+  background: url(../../img/home-bg2.jpg) no-repeat center top;
+  background-size: cover !important;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  color: $white;
+  font-size: 1.5rem;
+
+  .title { font-size: 2rem; }
+
+  .description {
+    font-weight: 100;
+    max-width: 630px;
+
+    .keyword { font-weight: 400; }
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 768px) {
+  .hero-section {
+    background: url(../../img/home-bg2-tab.jpg) no-repeat center top;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .hero-section {
+    background: url(../../img/home-bg2-tab.jpg) no-repeat center center;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .hero-section {
+    min-height: 325px;
+    background: url(../../img/home-bg2-mob.jpg) no-repeat center center;
+    padding-top: 2rem;
+  }
+}

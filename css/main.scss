@@ -1,0 +1,36 @@
+---
+---
+
+@import 'variables';
+@import 'bootstrap/bootstrap';
+@import 'navbar';
+@import 'buttons';
+
+@import 'index/hero';
+@import 'index/brands-bar';
+@import 'index/benefits';
+@import 'index/developers';
+@import 'index/business';
+@import 'index/testimonials';
+@import 'footer';
+@import 'contact';
+@import 'pricing';
+
+body {
+  background-color: $light-background;
+  font-family: 'Roboto', sans-serif;
+  color: $dark;
+  margin: 0;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1280px;
+  }
+}

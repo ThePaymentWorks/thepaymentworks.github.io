@@ -1,0 +1,59 @@
+.benefits-section {
+  background-color: $dark-background;
+  overflow: hidden;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 95%);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 95%);
+  padding: 4rem 0 1.5rem 0;
+
+  svg.right {
+    position: absolute;
+    color: $teal;
+    top: 50%;
+    right: 15px;
+  }
+
+  .card {
+    background-color: transparent;
+    border: none;
+    min-height: 130px;
+    min-width: 250px;
+    border-radius: 0;
+  }
+  .card:hover {
+    transition-property: box-shadow,transform;
+    transition-duration: .25s;
+    transform: translateY(-2px);
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.15), 0 2px 10px rgba(0,0,0,.5);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.15), 0 2px 10px rgba(0,0,0,.5);
+    box-shadow: 0 1px 4px rgba(0,0,0,.15), 0 2px 10px rgba(0,0,0,.5);
+  }
+  .card-body { padding-right: 2rem; }
+  .card-title {
+    color: $teal;
+    font-weight: 300;
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+  }
+  .card-text { color: $white; }
+
+  .dashboard-image {
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .benefits-section {
+    .dashboard-image {
+      float: none;
+      margin-top: 1rem;
+      max-height: 34rem;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .benefits-section {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 95%);
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 95%);
+  }
+}
