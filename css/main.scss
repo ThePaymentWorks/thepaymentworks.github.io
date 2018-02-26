@@ -3,8 +3,10 @@
 
 @import 'variables';
 @import 'bootstrap/bootstrap';
+@import 'defaults';
 @import 'navbar';
 @import 'buttons';
+@import 'footer';
 
 @import 'includes/brands-bar';
 
@@ -13,7 +15,9 @@
 @import 'index/developers';
 @import 'index/business';
 @import 'index/testimonials';
-@import 'footer';
+
+@import 'enterprise/hero';
+
 @import 'contact';
 @import 'pricing';
 
