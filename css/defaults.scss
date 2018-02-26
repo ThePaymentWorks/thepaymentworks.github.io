@@ -1,0 +1,16 @@
+.hero {
+  min-height: 600px;
+  background-size: cover !important;
+  color: $white;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  font-size: 1.5em;
+
+  h2.title {
+    font-weight: 400;
+    line-height: 1.5em;
+  }
+  p.description {
+    font-weight: 100;
+  }
+}
