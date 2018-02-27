@@ -64,9 +64,7 @@
   .card.clear { max-width: 460px; }
 }
 
-.delivery-section {
-
-}
+.delivery-section { @extend .icon-group-3; }
 
 .call-to-action-section {
   background-color: $dark-background;
@@ -74,4 +72,10 @@
 
   h3 { font-weight: 400; }
   .btn.btn-primary { font-size: 1.5em; }
+}
+
+@media only screen and (max-width: 992px) {
+  .call-to-action-section {
+    h3 { text-align: center; }
+  }
 }
