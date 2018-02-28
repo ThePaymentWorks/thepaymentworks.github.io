@@ -3,16 +3,21 @@
 
 @import 'variables';
 @import 'bootstrap/bootstrap';
+@import 'defaults';
 @import 'navbar';
 @import 'buttons';
+@import 'footer';
+
+@import 'includes/brands-bar';
+@import 'includes/testimonials';
 
 @import 'index/hero';
-@import 'index/brands-bar';
 @import 'index/benefits';
 @import 'index/developers';
 @import 'index/business';
-@import 'index/testimonials';
-@import 'footer';
+
+@import 'enterprise';
+
 @import 'contact';
 @import 'pricing';
 
