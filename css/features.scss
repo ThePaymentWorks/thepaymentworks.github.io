@@ -13,3 +13,13 @@
     padding-bottom: 1rem;
   }
 }
+
+.test-section {
+  padding-bottom: 6rem;
+  .card.clear { max-width: 400px; }
+  img {
+    width: 100%;
+    max-width: 535px;
+    max-height: 500px;
+  }
+}
