@@ -3,7 +3,7 @@
 
 @import 'variables';
 @import 'bootstrap/bootstrap';
-@import 'defaults';
+@import 'extendables';
 @import 'navbar';
 @import 'buttons';
 @import 'footer';
@@ -17,6 +17,7 @@
 @import 'index/business';
 
 @import 'enterprise';
+@import 'features';
 
 @import 'contact';
 @import 'pricing';

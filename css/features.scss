@@ -1,0 +1,15 @@
+.features-hero {
+  @extend .hero;
+  min-height: unset;
+  background-color: $dark-background;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
+  padding-top: 4rem;
+
+  .row { max-width: 880px; }
+  h2.title {
+    border-bottom: 1px solid $primary;
+    max-width: 350px;
+    padding-bottom: 1rem;
+  }
+}
