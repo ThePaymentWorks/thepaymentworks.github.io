@@ -23,3 +23,15 @@
     max-height: 500px;
   }
 }
+
+.payment-flows {
+  padding: 3rem 0;
+  background-color: $dark-background;
+
+  h3 { font-weight: 400; }
+  img {
+    width: 100%;
+    max-width: 470px;
+    margin-bottom: 3rem;
+  }
+}
