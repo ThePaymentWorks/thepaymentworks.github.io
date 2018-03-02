@@ -1,4 +1,4 @@
-.developers-section {
+.runkit-section {
   background-color: $light-background;
   min-height: 600px;
   padding-top: 5rem;
@@ -57,7 +57,7 @@
 }
 
 @media (max-width: 991px) {
-  .developers-section {
+  .runkit-section {
     padding-top: 2rem;
 
     .col:first-of-type {
