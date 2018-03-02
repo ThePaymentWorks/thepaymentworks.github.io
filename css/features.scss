@@ -70,7 +70,7 @@
 
 .github-bar {
   padding: 3rem 0;
-  color: $dark;
+  a { color: $dark; }
   h3 {
     font-style: italic;
     font-weight: 300;
