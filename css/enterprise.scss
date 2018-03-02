@@ -1,8 +1,3 @@
-.enterprise-side-image {
-  background-color: $dark-background;
-  min-height: 575px;
-}
-
 // Hero Section
 .enterprise-hero {
   @extend .hero;
@@ -37,7 +32,7 @@
   background-color: $white;
 
   .customer-image {
-    @extend .enterprise-side-image;
+    @extend .side-image;
     background: url(../../img/enterprise/customers.png) no-repeat center center;
     background-size: cover;
   }
@@ -56,7 +51,7 @@
   background-color: $white;
 
   .risk-image {
-    @extend .enterprise-side-image;
+    @extend .side-image;
     background: url(../../img/enterprise/risk.png) no-repeat center top;
     background-size: cover;
   }
