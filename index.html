@@ -9,58 +9,27 @@ layout: default
 
         <h1 hidden>Payments Testing</h1>
 
-        <div class="title mb-4">Make the best payment experiences for your customers</div>
+        <h2 class="title mb-4">
+          Make the best payment experiences for your customers
+        </h2>
 
-        <div class="description mx-auto">
+        <p class="description mx-auto">
           Testing Pays is a payments testing platform built for software teams. Whether a <span class="keyword">freelancer</span> or a large <span class="keyword">enterprise</span> team, you can build, test and scale your payments systems with <span class="keyword">confidence</span>.
-        </div>
+        </p>
       </div>
     </div>
 
     <div class="row">
-      <div class="col text-center mt-4">
-        <a href="https://admin.testingpays.com/sign-up" class="btn btn-lg btn-primary btn-shadow btn-long">Signup</a>
+      <div class="col text-center">
+        <a href="https://admin.testingpays.com/sign-up" class="btn btn-lg btn-primary btn-shadow btn-long mt-2 mr-1 ml-1">Signup</a>
+        <a href="/features" class="btn btn-lg btn-light btn-shadow btn-long mt-2 mr-1 ml-1">Features</a>
       </div>
     </div>
   </div>
 
 </section>
 
-<section id="brands-bar" class="brands-bar-section">
-  <div class="container">
-    <div class="row">
-
-      <div class="col text-center">
-        <img height="30" class="paypal" src="img/logos/brands-bar/paypal.png"/>
-      </div>
-
-      <div class="col text-center">
-        <img height="30" class="stripe" src="img/logos/brands-bar/stripe.png"/>
-      </div>
-
-      <div class="col text-center">
-        <img height="30" class="realex" src="img/logos/brands-bar/realex.png"/>
-      </div>
-
-      <div class="col text-center">
-        <img height="30" class="worldpay" src="img/logos/brands-bar/worldpay.png"/>
-      </div>
-
-      <div class="col text-center">
-        <img height="25" class="neteller" src="img/logos/brands-bar/neteller.png"/>
-      </div>
-
-      <div class="col text-center">
-        <img height="20" class="instadebit" src="img/logos/brands-bar/instadebit.png"/>
-      </div>
-
-      <div class="col text-center">
-        <img height="30" class="payvision" src="img/logos/brands-bar/payvision.png"/>
-      </div>
-
-    </div>
-  </div>
-</section>
+{% include brands_bar.html %}
 
 <section id="benefits" class="benefits-section">
   <div class="container">
@@ -116,40 +85,7 @@ layout: default
   </div>
 </section>
 
-<section id="developers" class="developers-section">
-  <div class="container">
-    <div class="row">
-      <div class="col col-lg-4">
-        <h2 class="title">Built for developers</h2>
-        <hr/>
-        <p>Testing Pays is built for developers.</p>
-        <p>We provide powerful simulators for common payment APIs. Say goodbye to frustrating sandboxes.</p>
-        <p>Sign up in seconds, get your account key, paste it into your code. Done! Start your payments testing.</p>
-        <a href="https://admin.testingpays.com" class="text-primary">Try these examples:</a>
-        <br>
-        <div class="d-none d-lg-block">
-          <button onclick="setActive('paypal');" class="btn btn-block tab active" id="paypal"><i class="fab fa-paypal fa-sm"></i> PayPal</button>
-          <button onclick="setActive('stripe');" class="btn btn-block tab" id="stripe"><i class="fab fa-stripe-s fa-sm"></i> Stripe</button>
-          <button onclick="setActive('optimal');" class="btn btn-block tab" id="optimal"><img src="img/logos/optimal-symbol.png"/> Optimal</button>
-        </div>
-      </div>
-
-      <div class="col-lg-8">
-        <script src="js/developers.js"></script>
-        <script src="https://embed.runkit.com"></script>
-
-        <div id="runkit-element"></div>
-
-        <script>
-          var notebook = RunKit.createNotebook({
-            element: document.getElementById("runkit-element"),
-            source: getSource()
-          })
-        </script>
-      </div>
-    </div>
-  </div>
-</section>
+{% include runkit.html %}
 
 <section id="business" class="business-section text-center">
   <div class="container">
@@ -193,58 +129,4 @@ layout: default
   </div>
 </section>
 
-<section id="customer-testimonials" class="testimonials-section">
-  <div class="container">
-    <div class="row">
-      <div class="col text-center">
-        <h2 class="title">Customer Testimonials</h2>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg">
-
-        <div class="card mx-auto">
-          <div class="card-body">
-            <div class="card-title">
-              <img src="img/logos/fusioneer.png" />
-            </div>
-            <p class="card-text">
-              <i>
-              Having a way to reliably work through many different user journeys – happy paths and problems – on test environments opens up the possibility for the identification of significant improvements we can make to our product.
-            </i>
-            <br/>
-            <br/>
-            <span>
-              - Roger Martin,
-              VP of Engineering
-            </span>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg">
-        <div class="card mx-auto">
-          <div class="card-body">
-            <div class="card-title">
-              <img src="img/logos/eyesparks.png" />
-            </div>
-            <p class="card-text">
-              <i>
-              Before using TestingPays we were dropping transactions due to untested payment responses. Now our customers are given the correct information to help complete their transactions and our revenue has increased by 20%.
-            </i>
-            <br/>
-            <br/>
-            <span>
-              - Tony Woods,
-              CEO, Eyesparks
-            </span>
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
+{% include testimonials.html %}
