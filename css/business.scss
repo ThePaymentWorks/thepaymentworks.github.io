@@ -1,28 +1,28 @@
 // Hero Section
-.enterprise-hero {
+.business-hero {
   @extend .hero;
-  background: url(../../img/enterprise/hero.png) no-repeat center top;
+  background: url(../../img/business/hero.png) no-repeat center top;
   background-color: $dark-background;
   button.btn { font-size: 1em; }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 768px) {
-  .enterprise-hero {
-    background: url(../../img/enterprise/hero-tab.png) no-repeat center top;
+  .business-hero {
+    background: url(../../img/business/hero-tab.png) no-repeat center top;
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  .enterprise-hero {
-    background: url(../../img/enterprise/hero-tab.png) no-repeat center center;
+  .business-hero {
+    background: url(../../img/business/hero-tab.png) no-repeat center center;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .enterprise-hero {
+  .business-hero {
     min-height: 325px;
-    background: url(../../img/enterprise/hero-mob.png) no-repeat center center;
+    background: url(../../img/business/hero-mob.png) no-repeat center center;
     padding-top: 2rem;
   }
 }
@@ -33,7 +33,7 @@
 
   .customer-image {
     @extend .side-image;
-    background: url(../../img/enterprise/customers.png) no-repeat center center;
+    background: url(../../img/business/customers.png) no-repeat center center;
     background-size: cover;
   }
 
@@ -52,7 +52,7 @@
 
   .risk-image {
     @extend .side-image;
-    background: url(../../img/enterprise/risk.png) no-repeat center top;
+    background: url(../../img/business/risk.png) no-repeat center top;
     background-size: cover;
   }
 
