@@ -1,0 +1,30 @@
+// Hero Section
+.about-hero {
+  @extend .hero;
+  min-height: 440px;
+
+  background: url(../../img/about/hero.png) no-repeat center top;
+  background-color: $dark-background;
+}
+
+.about-profiles {
+  min-height: 400px;
+  position: relative;
+
+  .profiles {
+    position: absolute;
+    top: -9rem;
+    font-size: 1.1rem;
+
+    p {
+      max-width: 375px;
+    }
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 767px) {
+  .about-profiles {
+    min-height: 800px;
+  }
+}
