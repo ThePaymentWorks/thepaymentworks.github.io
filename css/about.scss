@@ -8,7 +8,7 @@
 }
 
 .about-profiles {
-  min-height: 400px;
+  min-height: 300px;
   position: relative;
 
   .profiles {
@@ -25,6 +25,6 @@
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 767px) {
   .about-profiles {
-    min-height: 800px;
+    min-height: 650px;
   }
 }
