@@ -8,6 +8,7 @@ $dark: #3A3D3D;
 $teal: #61C0A2;
 $light: $white;
 $primary: $teal;
+$gray: #9B9B9B;
 $gray-900: $white;
 
 // Navbar
@@ -21,10 +22,4 @@ $white-lilac: #F6F9FC;
 $light-background: $white-lilac;
 $dark-background: $dark;
 
-$gray-text: #9B9B9B;
-
-.shadow {
-  -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
-  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
-}
+$gray-text: $gray;
