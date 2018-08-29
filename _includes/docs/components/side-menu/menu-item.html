@@ -1,0 +1,5 @@
+{% if include.active == include.id %}
+  <a id="{{include.id}}" class="side-menu-item active" href="{{include.href}}">{{include.text}}</a>
+{% else %}
+  <a id="{{include.id}}" class="side-menu-item" href="{{include.href}}">{{include.text}}</a>
+{% endif %}
