@@ -2,6 +2,7 @@
 ---
 
 @import 'variables';
+@import 'utils';
 @import 'bootstrap/bootstrap';
 @import 'extendables';
 @import 'navbar';
@@ -11,6 +12,11 @@
 @import 'includes/brands-bar';
 @import 'includes/testimonials';
 @import 'includes/runkit';
+
+// Doc components
+@import 'includes/docs/components/side-menu';
+@import 'includes/docs/components/side-menu/heading';
+@import 'includes/docs/components/side-menu/menu-item';
 
 @import 'index/hero';
 @import 'index/benefits';
