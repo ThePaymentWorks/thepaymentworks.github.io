@@ -1,0 +1,16 @@
+<div class="col-4 mh-100">
+  <div class="side-menu text-left ml-auto pt-4 pr-3 h-100">
+    {% include docs/components/side-menu/heading.html text="Getting Started" %}
+    {% include docs/components/side-menu/menu-item.html id="welcome" href="./welcome" text="Welcome" active=include.active %}
+    {% include docs/components/side-menu/menu-item.html id="start-integration" href="./start-integration" text="Start Integration" active=include.active %}
+    {% include docs/components/side-menu/menu-item.html id="using-a-simulator" href="./using-a-simulator" text="Using a Simulator" active=include.active %}
+
+    <br/>
+
+    {% include docs/components/side-menu/heading.html text="Configuration" %}
+    {% include docs/components/side-menu/menu-item.html id="authorization" href="./authorization" text="Authorization" active=include.active %}
+
+    <br/>
+
+  </div>
+</div>
