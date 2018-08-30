@@ -3,3 +3,25 @@
   -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
 }
+
+// Background colors
+.dark-background {
+  background-color: $dark-background;
+}
+.light-background {
+  background-color: $light-background;
+}
+.white-background {
+  background-color: $white;
+}
+
+// text utils
+.text-gray {
+  @extend .text-secondary;
+}
+
+
+// Sizing
+.fill-screen-minus-footer-and-nav {
+  min-height: calc(100vh - 139px);
+}
