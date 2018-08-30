@@ -2,8 +2,8 @@
 ---
 
 @import 'variables';
-@import 'utils';
 @import 'bootstrap/bootstrap';
+@import 'utils';
 @import 'extendables';
 @import 'navbar';
 @import 'buttons';
@@ -34,6 +34,7 @@ body {
   font-family: 'Roboto', sans-serif;
   color: $dark;
   margin: 0;
+  font-weight: 300;
 }
 
 @media (min-width: 1200px) {
