@@ -1,0 +1,9 @@
+{% if include.color %}
+  <button class="btn btn-{{include.color}} {{include.classes}}">
+    {{include.text}}
+  </button>
+{% else %}
+  <button class="btn btn-primary {{include.classes}}">
+    {{include.text}}
+  </button>
+{% endif %}

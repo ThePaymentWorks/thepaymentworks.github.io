@@ -1,0 +1,9 @@
+{% if include.color %}
+  <a href="{{include.href}}" class="btn btn-{{include.color}} {{include.classes}}">
+    {{include.text}}
+  </a>
+{% else %}
+  <a href="{{include.href}}" class="btn btn-primary {{include.classes}}">
+    {{include.text}}
+  </a>
+{% endif %}
