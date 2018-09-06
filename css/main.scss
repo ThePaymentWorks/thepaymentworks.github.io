@@ -38,6 +38,8 @@ body {
   font-weight: 300;
 }
 
+pre { border-radius: 4px; }
+
 @media (min-width: 1200px) {
   .container {
     max-width: 1280px;
