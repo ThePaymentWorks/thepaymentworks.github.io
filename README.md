@@ -48,6 +48,32 @@ will exist under `SimName/code`.
 
 ### Styleguide & Components
 
+#### Headings
+##### page-heading
+For the Docs we have a number of headings. Firstly each page should have a `page-header`
+that describes the contents of the page. Often this will co-inside with the url, for
+instance the "/welcome" pages header is "Welcome".
+
+In order to create a page header we use a `<h1>` tag with the `page-heading` class like so:
+
+```html
+<h1 class="page-heading">Some Heading</h1>
+```
+
+##### section-heading
+Currently our only other header is the `section-heading` class. These are used to break up
+larger content into smaller sections. These tags also ___always___ have an id so they can
+be linked to.
+
+For SEO reasons these headings use `<h2>` tags even though their font-size is much lower
+than that of the the page headings.
+
+```html
+<h2 id="some-section-heading" class="section-heading">Some Section Heading</h2>
+```
+
+> Note that headings shoult not be placed inside a `text-block` class
+
 #### Side Menu
 Side menus are made up from a number of smaller components collected into a single
 file which is specific to a particular Simulator or actions. For example the
@@ -58,6 +84,25 @@ Using this structure and the same small components allows us to maintain the sam
 style where needed but without limiting the structure of the `side-menu` components
 too much.
 
+
+#### Whats Next
+The "Whats Next" section should be present at the end of every document, except for
+the last page of a series. These are important because they will be the main method
+of navigation through the docs on smaller devices for the moment. Since we can rely
+on the browsers built in "Back" function we need only provide a method of advancing.
+
+In order to add a "Whats Next" section simply import the component with a title and
+reference to where your sending the user. Generally it will be a description of the
+next step in the series.
+
+```liquid
+{% include docs/components/whats-next.html
+  text="An overview of what the developer playground can do."
+  link_href="./using-a-simulator"
+  link_text="Working with Simulators"
+%}
+```
+
 #### Code Blocks
 Code blocks are made up of two components. Firstly the code snippet that we wish
 to display (such as `authipay/code/test.html`) and the `code-block` component.
@@ -65,7 +110,7 @@ to display (such as `authipay/code/test.html`) and the `code-block` component.
 In order to use these together we must first capture the code snippet so we can
 pass it to the code block component. This can be done like:
 
-```html
+```liquid
 {% capture code_block %}{% include authipay/code/test.html %}{% endcapture %}
 {% include docs/components/code-block.html content=code_block %}
 ```
