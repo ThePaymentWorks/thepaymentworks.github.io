@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<div class="container-fluid white-background fill-screen-minus-footer-and-nav">
+  <div class="row">
+    {% include authipay/docs/side-menu.html active="what-can-i-do-in-the-playground" %}
+
+    <div class="col-6 pt-4">
+      <div class="row pl-3">
+        <div class="col">
+          {% include docs/components/page-header.html text="What Can I do in the Playground?" %}
+          <p class="text-gray">When you create Authipay Developer Playground account, you're getting your very own <i>stable</i>, <i>reliable</i> test environment. Say goodbye to crappy sandboxes and pesky test card numbers!</p>
+            
+          <p class="text-gray">
+              Here are some of the things you can do:
+              <ul>
+                  <li style="list-style: circle inside"><a style="font-weight: 400;color: #286EFA;text-decoration: none;margin-left: 29px" href="./what-can-i-do-in-the-playground.html#section-start-an-api-integration">Start an API Integration</a></li>
+                  <li style="list-style: circle inside"><a style="font-weight: 400;color: #286EFA;text-decoration: none;margin-left: 29px" href="http://www.authipay.com">Simulate API responses</a></li>
+                  <li style="list-style: circle inside"><a style="font-weight: 400;color: #286EFA;text-decoration: none;margin-left: 29px" href="http://www.authipay.com">Collaborate with your team</a></li>
+                  <li style="list-style: circle inside"><a style="font-weight: 400;color: #286EFA;text-decoration: none;margin-left: 29px" href="http://www.authipay.com">Debug your Requests</a></li>
+                  <li style="list-style: circle inside"><a style="font-weight: 400;color: #286EFA;text-decoration: none;margin-left: 29px" href="http://www.authipay.com">Measure your test coverage</a></li>
+                  <li style="list-style: circle inside"><a style="font-weight: 400;color: #286EFA;text-decoration: none;margin-left: 29px" href="http://www.authipay.com">Automate your payments testing</a></li>
+          </p>
+        </div>
+      </div>
+      <div class="row border-top pt-4 pl-3">
+          <div class="col">
+              <h5>Start an API Integration</h5>
+              <p class="text-gray" id="section-start-an-api-integration">At the heart of the Developer Playground is its API simulators. There is a simulator for each Authipay payment operation, and under each simulator you'll find an "Integrate" tab containing instructions in various coding languages. There you'll also find coding tips from our own development team, as well as links to sample code on GitHub.
+              </p>
+              <p class="text-gray">To get started, <a style="font-weight: 400;color: #286EFA;text-decoration: none;" href="http://authipay.testingpays.com/sign-up">create your Developer Playground account</a>, find the simulator for the API operation you're interested in, check out the simulator's "Integrate" tab (as shown below).</p>
+
+              <img style="max-width:100%;max-height:100%;" src="/img/authipay/Sim_IntegrateTab_APIcard-Sale_anno.png" alt="Integration Instructions">
+              <p class="text-gray">
+                Use these resources to get a head start on your integration. 
+              </p>
+          </div>
+        </div>
+
+      {% include docs/components/whats-next.html
+        text="An overview of what the developer playground can do."
+        link_href="./using-a-simulator"
+        link_text="Working with Simulators"
+      %}
+    </div>
+  </div>
+</div>
