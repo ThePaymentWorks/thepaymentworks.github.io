@@ -1,3 +1,12 @@
 .docs-text-block {
   @extend .text-gray;
+  @extend .mb-45;
 }
+
+.doc-list {
+  font-weight: 400;
+  padding-inline-start: 1em;
+}
+
+.doc-link { color: #286EFA; }
+.doc-link:hover { color: #286EFA; }
