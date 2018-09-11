@@ -1,0 +1,36 @@
+.docs-card {
+  border: none;
+  border-radius: 4px;
+}
+.docs-card.primary {
+  .docs-card-title { color: $primary; }
+  a { color: $primary; }
+
+  border-left: 6px solid $primary;
+}
+.docs-card.info {
+  .docs-card-title { color: $info; }
+  a { color: $info; }
+
+  border-left: 6px solid $info;
+}
+.docs-card.raise:hover {
+  transition-property: box-shadow,transform;
+  transition-duration: .25s;
+  transform: translateY(-2px);
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.15), 0 2px 10px rgba(0,0,0,.5);
+  -moz-box-shadow: 0 1px 4px rgba(0,0,0,.15), 0 2px 10px rgba(0,0,0,.5);
+  box-shadow: 0 1px 4px rgba(0,0,0,.15), 0 2px 10px rgba(0,0,0,.5);
+}
+.docs-card-body {
+  @extend .card-body;
+  margin-left: 1.6em;
+}
+.docs-card-title {
+  @extend .card-title;
+  @extend .page-heading;
+  margin-left: -1.6em;
+}
+.docs-card-text {
+  @extend .card-text;
+}

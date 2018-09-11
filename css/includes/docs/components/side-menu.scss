@@ -1,1 +1,34 @@
 .side-menu { max-width: 200px; }
+
+.side-menu-heading {
+  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+  font-size: 1.15em;
+  padding: 6px 20px;
+}
+
+.side-menu-item {
+  display: block;
+
+  color: $gray-text;
+  text-align: left;
+  font-size: 0.9em;
+
+  padding: 6px 20px;
+  background-color: transparent;
+}
+
+.side-menu-item:focus {
+  box-shadow: none;
+}
+
+.side-menu-item:hover {
+  text-decoration: none;
+}
+
+.side-menu-item.active {
+  @extend .shadow;
+  color: $white;
+  background-color: $teal;
+  transition: color .3s;
+  border-radius: 4px;
+}

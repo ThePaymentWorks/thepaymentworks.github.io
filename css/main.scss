@@ -3,6 +3,7 @@
 
 @import 'variables';
 @import 'bootstrap/bootstrap';
+@import 'highlight/styles/atom-one-dark.css';
 @import 'utils';
 @import 'extendables';
 @import 'navbar';
@@ -13,10 +14,15 @@
 @import 'includes/testimonials';
 @import 'includes/runkit';
 
+// Doc styles
+@import 'docs/headings';
+@import 'docs/text';
+@import 'docs/card';
+@import 'docs/text-block-divider';
+@import 'docs/images';
+
 // Doc components
 @import 'includes/docs/components/side-menu';
-@import 'includes/docs/components/side-menu/heading';
-@import 'includes/docs/components/side-menu/menu-item';
 
 @import 'index/hero';
 @import 'index/benefits';
@@ -36,6 +42,8 @@ body {
   margin: 0;
   font-weight: 300;
 }
+
+pre { border-radius: 4px; }
 
 @media (min-width: 1200px) {
   .container {
