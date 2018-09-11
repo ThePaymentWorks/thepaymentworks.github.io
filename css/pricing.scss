@@ -1,6 +1,6 @@
 .pricing-section {
+  @extend .fill-screen-minus-footer-and-nav;
   padding-top: 2rem;
-  min-height: 80vh;
   background-color: $dark-background;
 
   .card {
