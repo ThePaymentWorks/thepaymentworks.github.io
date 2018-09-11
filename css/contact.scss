@@ -1,5 +1,5 @@
 .contact-section {
-  min-height: 85vh;
+  @extend .fill-screen-minus-footer-and-nav;
   padding: 5rem 0;
 
   // This aligns the hubspot form correctly
