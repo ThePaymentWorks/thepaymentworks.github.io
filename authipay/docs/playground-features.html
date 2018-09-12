@@ -4,51 +4,51 @@ layout: default
 
 <div class="container-fluid white-background fill-screen-minus-footer-and-nav">
   <div class="row">
-    {% include authipay/docs/side-menu.html active="what-can-i-do" %}
+    {% include authipay/docs/side-menu.html active="playground-features" %}
 
     <div class="col-6 pt-4">
       <div class="row pl-3">
         <div class="col">
-          <h1 class="page-heading">What can I do in the Playground?</h1>
+          <h1 class="page-heading">Playground Features</h1>
 
           <div class="docs-text-block">
             <p class="text-gray">
-              When you create Authipay Developer Playground account, you're getting your very own <i>stable</i>, <i>reliable</i> test environment. Say goodbye to crappy sandboxes and pesky test card numbers!
+              Your Authipay Developer Playground account provides features for you to test all aspects of your Authipay integration, so you can build the best payment features for your customers.
             </p>
 
             <p class="text-gray">
-              Here are some of the things you can do:
+              Check out some of the features:
             </p>
 
             <ul class="doc-list">
               <li>
-                <a class="doc-link" href="./what-can-i-do#section-start-an-api-integration">
-                  Start an API integration
+                <a class="doc-link" href="./playground-features#section-api-simulators">
+                  API Simulators
                 </a>
               </li>
               <li>
-                <a class="doc-link" href="./what-can-i-do#section-simulate-api-responses">
-                  Simulate API responses
+                <a class="doc-link" href="./playground-features#section-response-maps-and-triggers">
+                  API Response Maps & Triggers
                 </a>
               </li>
               <li>
-                <a class="doc-link" href="./what-can-i-do#section-collaborate-with-your-team">
-                  Collaborate with your team
+                <a class="doc-link" href="./playground-features#section-integration-guides">
+                  Integration Guides & Samples
                 </a>
               </li>
               <li>
-                <a class="doc-link" href="./what-can-i-do#section-debug-your-requests">
-                  Debug your requests
+                <a class="doc-link" href="./playground-features#section-test-reports">
+                  Test Reports
                 </a>
               </li>
               <li>
-                <a class="doc-link" href="./what-can-i-do#section-measure-your-test-coverage">
-                  Measure your test coverage
+                <a class="doc-link" href="./playground-features#section-live-logs">
+                  Live Logs
                 </a>
               </li>
               <li>
-                <a class="doc-link" href="./what-can-i-do#section-measure-your-test-coverage">
-                  Automate your payments testing
+                <a class="doc-link" href="./playground-features#section-load-test-simulators">
+                  Load Test Simulators
                 </a>
               </li>
             </ul>
@@ -56,108 +56,130 @@ layout: default
 
           {% include docs/components/text-block-divider.html %}
 
-          <div class="docs-text-block" id="section-start-an-api-integration">
-            <h2 class="section-heading">Start an API integration</h2>
+          <div class="docs-text-block" id="section-api-simulators">
+            <h2 class="section-heading">API Simulators</h2>
             <p class="text-gray">
-              At the heart of the Developer Playground is its API simulators. There is a simulator for each Authipay payment operation, and under each simulator you'll find an "Integrate" tab containing instructions in various coding languages. There you'll also find coding tips from our own development team, as well as links to sample code on GitHub.
+              The Developer Playground has powerful simulators for <i>every</i> Authipay API endpoint and operation. For example, there's a simulator for Authipay Connect, a simulator for 'card-sale', a simulator for 'card-void', etc.   
             </p>
             <p class="text-gray">
-              To get started, <a href="http://authipay.testingpays.com/sign-up">create your Developer Playground account</a>, find the simulator for the API operation you're interested in, check out the simulator's "Integrate" tab (as shown below).
+              With a simple copy&paste, you can point your development and test environments at your Playground, then start sending test transactions to the simulators - they'll respond as if your code is talkig to the real thing.
             </p>
           </div>
-
           <div class="doc-image-container">
-            <img class="doc-image" src="/img/authipay/Sim_IntegrateTab_APIcard-Sale_anno.png" alt="Integration Instructions">
+            <img class="doc-image" src="/img/authipay/DevEnv-Sims.png" alt="Testing with Simulators">
+          </div>
+          <div class="docs-text-block">                                                                     
+            <p class="text-gray">
+              And the icing on the cake? Your simulators are just for you (and your team). Unlike traditional sandboxes, your simulators aren't shared with other merchants. Even better, you get to control your own simulator settings such as latency values.
+            </p>
           </div>
 
           {% include docs/components/text-block-divider.html %}
 
-          <div class="docs-text-block" id="section-simulate-api-responses">
-            <h2 class="section-heading">Simulate API Responses</h2>
+          <div class="docs-text-block" id="section-response-maps-and-triggers">
+            <h2 class="section-heading">Response Code Maps & Triggers</h2>
 
             <p class="text-gray">
-              Still using 4111 1111 1111 1111 (aka the "<i>Fifteen Ones</i>") for all your cards testing?? Traditional sandboxes give you maybe a couple of test card numbers with different response code. With the Authipay Developer Playground, you can test <i><b>any</b></i> API response!
+              Each API simulator has a table of <i>all</i> its possible response codes. The table maps response codes to request values so that you can send in values in your test requests and trigger the response codes you want.  
             </p>
 
-            <p class="text-gray">How? It's as easy as setting a different amount in your transactions.</p>
+            <p class="text-gray">The default trigger parameter is the transaction amount... you pass in       different decimal value, you'll get different response codes. You can also use the card CVV     value or the Cardholder name as a trigger value - just select the trigger value you want in     the Settings of the simulator you're testing.</p>
 
             <p class="text-gray">
-              Log into your Playground account &gt;&gt; open the simulator you're testing &gt;&gt; go to the tab called "Test" for the simulator &gt;&gt; find the API response you need in the response table &gt;&gt; copy the corresponding transaction amount &gt;&gt; use that amount in your test transaction.
-            </p>
-
-            <p class="text-gray">
-              Note: you can also use "CVV" or "Cardholder Name" to generate specific responses - just update the Trigger Parameter in your simulators settings.
+             Say goodbye to crappy test cards. Enjoy testing <i>any</i> response you need. Your imagination is your limit.
             </p>
           </div>
-
+                                
           <div class="doc-image-container">
-            <img class="doc-image" src="/img/authipay/Sim_Testtab_APIcard-Sale_anno.png" alt="API Response Map Table">
+            <img class="doc-image" src="/img/authipay/FlightSimulator.png" alt="Test any payment scenario">
           </div>
 
           {% include docs/components/text-block-divider.html %}
 
-          <div class="docs-text-block" id="section-collaborate-with-your-team">
-            <h2 class="section-heading">Collaborate with your team</h2>
+          <div class="docs-text-block" id="section-integration-guides">
+            <h2 class="section-heading">Integration Guides</h2>
 
             <p class="text-gray">
-              While you can create your own team account in seconds, you can also invite your teammates to join playground and share in testing activity.
+              Every simulator comes with integration guides, tips and links to sample apps. The instructions come in multiple coding languagues.
             </p>
 
             <p class="text-gray">
-              Your Playground Dashboard is the centre of your teak collaboration. You can pin Simulator bookmarks to the Dashboard for all to see. Each bookmark shows live test activity for the Simulator.
+              <a href="http://authipay.testingpays.com/sign-up">Create your Developer Playground account</a>, open up the API simulator you want, and select the "Integrate" tab to see integration instructions." 
             </p>
           </div>
-
-          <div class="doc-image-container">
-            <img class="doc-image" src="/img/authipay/Sim_TeamDashboard_RequestsDials_anno.png" alt="Team Dashboard - test activity">
-          </div>
-
-          <div class="doc-image-container">
-            <img class="doc-image" src="/img/authipay/Sim_TeamDashboard_CoverageDials_anno.png" alt="Team Dashboard - test coverage">
-          </div>
-
-          {% include docs/components/text-block-divider.html %}
-
-          <div class="docs-text-block" id="section-debug-your-requests">
-            <h2 class="section-heading">Debug your requests</h2>
-            <p class="text-gray">
-              The playground let's you see inside each simulator so that you can debug your test requests. each simulator simulator has a <i>live tail</i> - a window into the simulator through which you can watch requests in real-time. you'll be able to see how the simulator validates request parameters and learn what it likes and doesn't like!
-            </p>
-            <p class="text-gray">
-              Or play test pong: open a command window on your local desktop, open the Live Tail in your browser, start firing test requests from your desktop and watch that transaction go back and forth. The nerdiest game of pong ever!
-            </p>
-          </div>
-
-          <div class="doc-image-container">
-            <img class="doc-image" src="/img/authipay/Sim_DebugTab_LiveTail_anno.png" alt="Team Dashboard - test activity">
+          <div class="docs-card info raise dark-background mb-45">
+            <div class="docs-card-body">
+              <h5 class="docs-card-title text-info mb-3">
+                <i class="fas fa-info-circle mr-2" ></i> Our Tip: accelerate your integration with our example apps
+              </h5>
+              <p class="docs-card-text text-light">
+                  <i class="fab fa-github-square fa-lg fa-3x fa-pull-right" ></i>We regularly build and update our own example applications. And we believe in sharing what we've learnt. You can check out the code for our examples on our <a class="text-info" href="https://github.com/TestingPays">Testing Pays GitHub account</a>.   
+              </p>
+            </div>
           </div>
 
           {% include docs/components/text-block-divider.html %}
 
-          <div class="docs-text-block" id="section-measure-your-test-coverage">
-            <h2 class="section-heading">Measure your test coverage</h2>
-
+          <div class="docs-text-block" id="section-test-reports">
+            <h2 class="section-heading">Test Reports</h2>
             <p class="text-gray">
-              Each simulator provides you with a Report section on which you can view stats on your current testing.
+              Each simulator also comes with its own test report. As you and your team hit the simulator with test transactions, the test reports will tell you what you've tested, what you haven't tested, the amount of response codes you've covered
             </p>
             <p class="text-gray">
-              Use this report to achieve higher levels of test coverage for your payments. Remember, the more response codes your software can handle gracefully, the less customer transactions will be lost.
+              Use the test reports to: firstly capture how much coverage you're achieving with your current test plans, then to drive higher levels of coverage in your testing. 
             </p>
           </div>
 
           <div class="doc-image-container">
-            <img class="doc-image" src="/img/authipay/Sim_ReportsTab_Dashboard_anno.png" alt="Team Dashboard - test activity">
+            <img class="doc-image" src="/img/authipay/Sim_ReportsTab_anno.png" alt="Simulator test report">
+          </div>
+
+          {% include docs/components/text-block-divider.html %}
+
+          <div class="docs-text-block" id="section-live-logs">
+            <h2 class="section-heading">Live Logs</h2>
+
+            <p class="text-gray">
+              Live Log gives you a window into each simulator as it processes your test requests. In real-time, you can see each transaction as it hits. The Live Log gives you visibility into how your request is treated, and the response being assembled and sent back. If the simulator finds a problem with your request, you'll also see verbose explanations in the Live Log. 
+            </p>
+            <p class="text-gray"> 
+              Everything is clearly timestamped so that you can be confident in the simulator roundtrip time for your testing. Simulator response time is consistently under 100ms - unless of course you've activated its 'latency' setting to introduce artificial overhead!
+            </p>
+          </div>
+
+          <div class="doc-image-container">
+            <img class="doc-image" src="/img/authipay/Sim_LiveLog_animated.gif" alt="Debugging with Live Log">
           </div>
 
           <div class="docs-card info raise dark-background mb-45">
             <div class="docs-card-body">
               <h5 class="docs-card-title text-info mb-3">
-                <i class="fas fa-info-circle mr-2" ></i> Our Tip: Measure your current payments coverage
+                <i class="fas fa-info-circle mr-2" ></i> Our Tip: Test Pong
               </h5>
               <p class="docs-card-text text-light">
-                Start by <a class="text-info" href="http://www.authipay.com">connecting your environment to the simulator</a>, then run through the payments test that you and your team would typically execute. Once complete, the Reports will tell you how much your current tests are covering. Betcha it's below 8%!
+                Ever played <a class="text-info" target="_blank" href="https://www.youtube.com/watch?v=e4VRgY3tkh0">Pong</a>? Tail your local logs on your dev machine, and in a browser window start the Live Logs on the simulator, then fire off some test requests. Sit back and watch your requests hitting the simulator, and responses bouncing back to your local logs.
               </p>
             </div>
+          </div>
+            
+          {% include docs/components/text-block-divider.html %}
+
+          <div class="docs-text-block" id="section-load-test-simulators">
+            <h2 class="section-heading">Load Test Simulators</h2>
+
+            <p class="text-gray">
+              Your site should <span style="text-decoration: underline">never</span> go down during Cyber Monday, Christmas sales or any big online peak sale event. If you need to test your online store under massive user load, then our load test simulators can support your efforts. 
+            </p>
+            <p class="text-gray"> 
+                You must book a time slot for our load test simulator. Once we send you connection details, so you can then ramp up your load test scripts. Our load test simulators can accept millions of requests for prolonged periods and handles up to 80 transaction per seconds at a constant 100ms response time.
+            </p>
+                <p class="text-gray"> 
+                To make a booking, log into your Developer Playground account, go to your "CURRENT TEAM" menu and complete the simple booking form. The team will respond within an hour. 
+            </p>
+          </div>
+
+          <div class="doc-image-container">
+            <img class="doc-image" src="/img/authipay/BookLoadTest.png" alt="Load Test Booking menu">
           </div>
         </div>
       </div>
