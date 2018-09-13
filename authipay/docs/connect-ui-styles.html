@@ -13,7 +13,7 @@ layout: docs
 
           <div class="docs-text-block">
             <p class="text-gray">
-              Connect supports 3 different UI/UX styles. The Developer Playground also supports an additional 'debug' style.  
+              Connect API supports 3 different UI/UX styles for your webstore. The Connect simulator supports these 3 styles plus 1 additional 'debug' style just for testing.  
             </p>
             <p class="text-gray">
                Use the simulator to explore the different styles and find the one that is best for your needs. You can switch between styles in the simulator settings (see below).
@@ -24,16 +24,16 @@ layout: docs
 
           <div class="docs-text-block" id="section-styles">
             <h2 class="section-heading">UI/UX Styles</h2>
-              <ul>
-                  <li><b>Classic</b>: a plain version of the payment form, designed to fit smaller screen footprint. 
+              <ol>
+                  <li><b>Classic</b>: a plain version of the payment form, designed to fit smaller screen sizes. 
                   </li>
-                  <li><b>Mobile</b>: a responsive form, all centre-aligned. Form input fields have rounded corners. Best suited for handheld devices. 
+                  <li><b>Mobile</b>: a responsive form, all centre-aligned. Form input fields have rounded corners. Best suited for handheld mobile devices. 
                   </li>
                   <li><b>Combined</b>: a fully responsive page built to fit both desktop and mobile devices. It can only can be used if transactions payment mode is set to "payonly". The Combined style is not supported in “payplus” or “fullpay” payment modes.
                   </li>
-                  <li><b>Developer</b>: almost no UI styling. Available to use only in the simulator evironment. Useful for debugging and testing the raw transaction parameters before you switch on one of the styled modes. "Developer" is the default mode on the Connect simulator.
+                  <li><b>Developer</b>: almost no UI styling. Available to use <span style="text-decoration: underline">only</span> in the simulator evironment. Useful for debugging and testing the raw transaction parameters before you switch on one of the styled modes. "Developer" is the default mode on the Connect simulator.
                   </li>
-              </ul>
+              </ol>
           </div>
           {% include docs/components/text-block-divider.html %}
           
