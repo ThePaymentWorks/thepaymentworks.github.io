@@ -13,7 +13,7 @@ layout: default
 
           <div class="docs-text-block">
             <p class="text-gray">
-              Your Authipay Developer Playground account provides features for you to test all aspects of your Authipay integration, so you can build the best payment features for your customers.
+              Your Developer Playground provides features for you to test all aspects of your Authipay integration. You can concentrate on building the best payment features for your customers.
             </p>
 
             <p class="text-gray">
@@ -59,10 +59,10 @@ layout: default
           <div class="docs-text-block" id="section-api-simulators">
             <h2 class="section-heading">API Simulators</h2>
             <p class="text-gray">
-              The Developer Playground has powerful simulators for <i>every</i> Authipay API endpoint and operation. For example, there's a simulator for Authipay Connect, a simulator for 'card-sale', a simulator for 'card-void', etc.   
+              The Developer Playground has powerful simulators for <i>every</i> Authipay API endpoint or operation. For example, there's a simulator for Authipay Connect, a simulator for 'card-sale', a simulator for 'card-void', etc.   
             </p>
             <p class="text-gray">
-              With a simple copy&paste, you can point your development and test environments at your Playground, then start sending test transactions to the simulators - they'll respond as if your code is talkig to the real thing.
+              With a simple copy&paste, you can point your development and test environments at your Playground, then you're ready to send test transactions to the simulators - they'll respond as if your code is talking to the real thing.
             </p>
           </div>
           <div class="doc-image-container">
@@ -70,23 +70,23 @@ layout: default
           </div>
           <div class="docs-text-block">                                                                     
             <p class="text-gray">
-              And the icing on the cake? Your simulators are just for you (and your team). Unlike traditional sandboxes, your simulators aren't shared with other merchants. Even better, you get to control your own simulator settings such as latency values.
+              And the icing on the cake? Your simulators are just for you (and your team). Unlike traditional sandboxes, your simulators aren't shared with other merchants. Even better, you have control over the simulator settings, such as latency settings.
             </p>
           </div>
 
           {% include docs/components/text-block-divider.html %}
 
           <div class="docs-text-block" id="section-response-maps-and-triggers">
-            <h2 class="section-heading">Response Code Maps & Triggers</h2>
+            <h2 class="section-heading">Response Maps & Triggers</h2>
 
             <p class="text-gray">
-              Each API simulator has a table of <i>all</i> its possible response codes. The table maps response codes to request values so that you can send in values in your test requests and trigger the response codes you want.  
+              Each API simulator has a table of <b>all</b> possible API response codes. The table maps the response codes to request values. If you send in a value in your test request, then it will trigger the simulator to send back the response code it maps to in the table.  
             </p>
 
-            <p class="text-gray">The default trigger parameter is the transaction amount... you pass in       different decimal value, you'll get different response codes. You can also use the card CVV     value or the Cardholder name as a trigger value - just select the trigger value you want in     the Settings of the simulator you're testing.</p>
+            <p class="text-gray">The default trigger parameter is the transaction amount ("charge_total") - you can trigger specific response codes with the decimal value in the transaction amount. You also have the option to use the CVV or the Cardholder name fields as trigger paramerts - just select the trigger value you want in the Settings of the simulator you're testing.</p>
 
             <p class="text-gray">
-             Say goodbye to crappy test cards. Enjoy testing <i>any</i> response you need. Your imagination is your limit.
+             Say goodbye to crappy test cards. Enjoy testing <b>any</b> response you need when you need. Your imagination is your limit.
             </p>
           </div>
                                 
@@ -97,7 +97,7 @@ layout: default
           {% include docs/components/text-block-divider.html %}
 
           <div class="docs-text-block" id="section-integration-guides">
-            <h2 class="section-heading">Integration Guides</h2>
+            <h2 class="section-heading">Integration Guides & Samples</h2>
 
             <p class="text-gray">
               Every simulator comes with integration guides, tips and links to sample apps. The instructions come in multiple coding languagues.
@@ -123,7 +123,7 @@ layout: default
           <div class="docs-text-block" id="section-test-reports">
             <h2 class="section-heading">Test Reports</h2>
             <p class="text-gray">
-              Each simulator also comes with its own test report. As you and your team hit the simulator with test transactions, the test reports will tell you what you've tested, what you haven't tested, the amount of response codes you've covered
+              Each simulator also comes with its own test report. As you and your team hit the simulator with test transactions, the reports will tell you what you've tested, what you haven't tested, the amount of response codes you've covered
             </p>
             <p class="text-gray">
               Use the test reports to: firstly capture how much coverage you're achieving with your current test plans, then to drive higher levels of coverage in your testing. 
@@ -168,13 +168,13 @@ layout: default
             <h2 class="section-heading">Load Test Simulators</h2>
 
             <p class="text-gray">
-              Your site should <span style="text-decoration: underline">never</span> go down during Cyber Monday, Christmas sales or any big online peak sale event. If you need to test your online store under massive user load, then our load test simulators can support your efforts. 
+              Your checkout should <span style="text-decoration: underline">never</span> go down during Cyber Monday, Christmas sales or any peak sale event. So testing your store under load is vital. Our load test simulators can support your efforts. 
             </p>
             <p class="text-gray"> 
-                You must book a time slot for our load test simulator. Once we send you connection details, so you can then ramp up your load test scripts. Our load test simulators can accept millions of requests for prolonged periods and handles up to 80 transaction per seconds at a constant 100ms response time.
+                Use our load test simulators in conjunction with <a class="text-info" target="_blank" href="https://www.softwaretestinghelp.com/performance-testing-tools-load-testing-tools/">a load test tool</a> to test your checkout. The simulators can handle millions of requests for overnight or weekend test runs, providing a constant response time of less than 100ms and concurrency up to 80 transaction per seconds.
             </p>
                 <p class="text-gray"> 
-                To make a booking, log into your Developer Playground account, go to your "CURRENT TEAM" menu and complete the simple booking form. The team will respond within an hour. 
+                    Our load test simulators mus be booked in advance. To book, <a class="text-info" href="https://authipay.testingpays.com/login">log into your Developer Playground account</a>, go to your "CURRENT TEAM" menu and complete the simple booking form. The team will respond within an hour with connecion details. 
             </p>
           </div>
 
@@ -185,9 +185,9 @@ layout: default
       </div>
 
         {% include docs/components/whats-next.html
-          text="An overview of what the developer playground can do."
-          link_href="./using-a-simulator"
-          link_text="Working with Simulators"
+          text="Find out some of the things you can do with the Developer Playground."
+          link_href="./what-can-i-doo"
+          link_text="What can I do in the Playground?"
         %}
     </div>
   </div>
