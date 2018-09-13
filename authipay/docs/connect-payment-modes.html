@@ -1,0 +1,82 @@
+---
+layout: docs
+---
+
+<div class="container-fluid white-background fill-screen-minus-footer-and-nav">
+  <div class="row">
+    {% include authipay/docs/side-menu.html active="connect-payment-modes" %}
+
+    <div class="col-sm col-md-6 pt-4">
+      <div class="row pl-3">
+        <div class="col">
+          <h1 class="page-heading">Choosing your Payment Mode</h1>
+
+          <div class="docs-text-block">
+            <p class="text-gray">
+              The hosted payment form that your customers see comes in 3 flavours or modes. The mode determines how many fields your customers must complete in order to complete a transaction. The mode is set by you in the initial Connect POST request.
+            </p>
+            <p class="text-gray">
+               Use the simulator to explore each mode to find the one that best suits your checkout needs. Here’s a brief outline:
+            </p>
+          </div>
+           
+          {% include docs/components/text-block-divider.html %}
+
+          <div class="docs-text-block" id="section-payonly">
+            <h2 class="section-heading">Mode = "payonly"</h2>
+            <ul class="doc-list">
+              <li>
+                Transactions require a minimum number of fields, just the customer card details
+              </li>
+              <li>
+                The customer sees a card form only (no billing or shipping details)
+              </li>
+              <li>
+                Supports 3D secure, if required
+              </li>
+            </ul>
+          </div>
+          {% include docs/components/text-block-divider.html %}
+
+          <div class="docs-text-block" id="section-payplus">
+            <h2 class="section-heading">Mode = "payplus"</h2>
+            <ul class="doc-list">
+              <li>
+                Transactions require card and billing information - suitable for AVS
+              </li>
+              <li>
+                The customer sees card and billing information form fields
+              </li>
+              <li>
+                Supports 3D secure, if required
+              </li>
+            </ul>
+          </div>
+            
+          {% include docs/components/text-block-divider.html %}
+
+          <div class="docs-text-block" id="section-fullpay">
+            <h2 class="section-heading">Mode = "fullpay"</h2>
+            <ul class="doc-list">
+              <li>
+                Transactions require the most amount of fields: card, billing and shipping details
+              </li>
+              <li>
+                The customer sees card, billing and shipping details form fields
+              </li>
+              <li>
+                Supports 3D secure, if required
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {% include docs/components/whats-next.html
+        text="Explore the different UI/UX style options"
+        link_href="./connect-ui-styles"
+        link_text="UI/UX Styles"
+      %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+---
+layout: docs
+---
+
+<div class="container-fluid white-background fill-screen-minus-footer-and-nav">
+  <div class="row">
+    {% include authipay/docs/side-menu.html active="connect-3d-flow" %}
+
+    <div class="col-sm col-md-6 pt-4">
+      <div class="row pl-3">
+        <div class="col">
+          <h1 class="page-heading">Testing 3D Secure Flows</h1>
+
+          <div class="docs-text-block">
+            <p class="text-gray">
+              The Connect simulator offers you the ability to try out 3D secure flows. Use the simulator to test and understand the customer experience when 3D secure is enabled for a Connect transaction.  
+            </p>
+            <p class="text-gray">
+               To initiate the 3D secure flow, you need to include the <i>authenticateTransaction</i> parameter with the value ‘true’ in your requests.
+            </p>
+            <p class="text-gray">
+               If this is received, the simulator will redirect you to a simulated bank verification screen (also known as an <a href="https://en.wikipedia.org/wiki/3-D_Secure#ACS_providers" class="doc-link">ACS</a> screen). On this screen, you can then select continue to successfully complete the 3D transaction, or select cancel to end the transaction.
+            </p>
+          </div>
+           
+          
+      </div>
+    </div>
+
+      {% include docs/components/whats-next.html
+        text="Testing 3D Secure with Connect"
+        link_href="./connect-3d-flow"
+        link_text="3D Secure"
+      %}
+    </div>
+  </div>
+</div>

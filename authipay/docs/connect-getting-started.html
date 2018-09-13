@@ -1,0 +1,126 @@
+---
+layout: docs
+---
+
+<div class="container-fluid white-background fill-screen-minus-footer-and-nav">
+  <div class="row">
+    {% include authipay/docs/side-menu.html active="connect-getting-started" %}
+
+    <div class="col-sm col-md-6 pt-4">
+      <div class="row pl-3">
+        <div class="col">
+          <h1 class="page-heading">Getting Started with Connect</h1>
+
+          <div class="docs-text-block">
+            <p class="text-gray">
+              Here's how to make your first Authipay Connect transaction in the Developer Playground.
+            </p>
+            <ol class="doc-list">
+              <li>
+                <a class="doc-link" href="./connect-getting-started.html#section-create-account">
+                  Create your Authipay Developer Playground account
+                </a>
+              </li>
+              <li>
+                <a class="doc-link" href="./connect-getting-started.html#section-open-sim">
+                  Open the Connect simulator
+                </a>
+              </li>
+              <li>
+                <a class="doc-link" href="./connect-getting-started.html#section-first-request">
+                  Making your first Connect request
+                </a>
+              </li>
+              <li>
+                <a class="doc-link" href="./connect-getting-started.html#section-get-the-hash-right">
+                  Calculate the hash correctly 
+                </a>
+              </li>
+            </ol>
+          </div>
+
+          {% include docs/components/text-block-divider.html %}
+            
+          <div class="docs-text-block" id="section-create-account">
+            <h2 class="section-heading">1. Create Your Playground Account</h2>
+            <p class="text-gray">
+              First, you’ll need an account on the Authipay testing environment. It takes seconds.
+            </p>
+              
+            {% include docs/components/button-link.html
+            href="https://admin.testingpays.com/sign-up"
+            text="Create your Developer Playground"
+            classes="mb-45"
+            %}
+          </div>
+            
+          {% include docs/components/text-block-divider.html %}
+            
+           <div class="docs-text-block" id="section-open-sim">
+            <h2 class="section-heading">2. Open the Connect Simulator</h2>
+            <p class="text-gray">
+              Once you’ve signed in to the testing environment, you’ll see your team Dashboard with bookmarks for all Authipay API simulators. Find the bookmark named “<span style="font-weight: 500">connect  (v1)</span>”, as highlighted below. Click the OPEN SIM button.
+            </p>
+          </div>
+          <div class="doc-image-container">
+            <img class="doc-image" src="/img/authipay/Dashboard_ConnectSim_anno.png" alt="Identifying the Connect Sim">
+          </div>
+          {% include docs/components/text-block-divider.html %}
+
+          <div class="docs-text-block" id="section-first-request">
+            <h2 class="section-heading">3. Making your first Connect request</h2>
+            <p class="text-gray">
+              Go to the “Integrate” tab on the Connect simulator. This contains instructions and tips to get going in various coding languages. Select the coding language of your choice and follow the instructions.
+            </p>
+            <p class="text-gray">
+              The first option you'll see on the "Integrate" tab is a <i>cURL</i> request - this is the quickest way to see a Connect transaction in action. Copy the cURL command and paste into your local command/terminal window, and hit return. The response from the simulator will contain a "Location" parameter containing a URL. This would be the URL that your customer would be automatically redirected to - copy & paste this URL into a browser to see the hosted payment form.  
+            </p>
+          </div>
+          <div class="doc-image-container">
+            <img class="doc-image" src="/img/authipay/Connect_curl_request.gif" alt="A Connect request over cURL">
+          </div>
+          
+          <div class="docs-text-block" id="section-get-the-hash-right">
+            <h2 class="section-heading">4. Calculate the hash correctly </h2>
+            <p class="text-gray">
+              All Connect requests must include a unique signature - a hash. Miscalculation of the hash signature is the biggest cause of integration delays. Here's how to get it right. 
+            </p>
+            <p class="text-gray">
+              Your code will need to concatenate the values of the following parameters in this order:
+              <ol><li>storename</li>
+                  <li>txndatetime</li>
+                  <li>txndatetime</li>
+                  <li>chargetotal</li>
+                  <li>currency</li>
+                  <li>sharedsecret<sup>*</sup></li>
+              </ol>
+              <sub>* For test transactions to the simulator set the sharedsecret parameter to the value "<i>dummy_secret</i>". We recommend you store this as an environment variable or configuration value for your test environments.
+              </sub>
+            </p>
+            <p class="text-gray">
+              Take the concatenated string and convert each character to it’s hexadecimal equivalent. 
+              Finally, apply SHA-256 to that hex string to generate the hash value.
+              Assign this value to the <i>hash</i> parameter in the Connect request.
+            </p>
+          </div>
+          <div class="docs-card info raise dark-background mb-45">
+            <div class="docs-card-body">
+              <h5 class="docs-card-title text-info mb-3">
+                <i class="fas fa-info-circle mr-2" ></i> Our Tip: use the Simulator to get the hash right
+              </h5>
+              <p class="docs-card-text text-light">
+                When the Connect simulator detects a miscalculated hash value, it will return a verbose error with instructions on what went wrong with the hash and what it was expecting. Use the simulator to send as many test requests as you need until you you get this calculation right - the simulator will tell you what’s missing until your hash is correct.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% include docs/components/whats-next.html
+        text="Explore the Connect payment modes"
+        link_href="./connect-payment-modes"
+        link_text="Payment Modes"
+      %}
+    </div>
+  </div>
+</div>
