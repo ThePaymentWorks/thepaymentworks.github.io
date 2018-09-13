@@ -1,0 +1,66 @@
+---
+layout: docs
+---
+
+<div class="container-fluid white-background fill-screen-minus-footer-and-nav">
+  <div class="row">
+    {% include authipay/docs/side-menu.html active="what-is-connect" %}
+
+    <div class="col-sm col-md-6 pt-4">
+      <div class="row pl-3">
+        <div class="col">
+          <h1 class="page-heading">What is Authipay Connect?</h1>
+
+          <div class="docs-text-block">
+            <p class="text-gray">
+              Authipay Connect provides online retailers with a hosted payment page for customer card payments. It works as straightforward POST of form data and, depending on the options you choose, results in your customer being redirected to the Authipay hosted payment pages.
+            </p>
+
+            <p class="text-gray">
+              As a developer, by going the Connect route you can minimise the coding required to add card payments to your site. By letting Authipay Connect handle your payments, you also have very little to worry about in terms <a class="doc-link" href="https://www.pcisecuritystandards.org/">PCI data security</a> requirements.
+            </p>
+
+            <p class="text-gray">
+              These docs show you how to get started with Authipay Connect in our testing environment and then to explore the various options provided by Authipay Connect.
+            </p>
+          </div>
+          {% include docs/components/text-block-divider.html %}
+
+          <div class="docs-text-block" id="section-connect-overview">
+            <h2 class="section-heading">Connect Overview</h2>
+            <p class="text-gray">
+              Authipay Connect is a hosted payment page option. Here’s how it works:
+            </p>
+            <ol class="doc-list">
+              <li>
+                The customer on your site chooses to pay for an item.
+              </li>
+              <li>
+                Your site sends the initial request to Connect. This contains parameters for the transaction, for example, the total amount to charge.
+              </li>
+              <li>
+                Connect API responds with a HTTP (302) redirect.
+              </li>
+              <li>
+                The paying customer is redirected to Authipay’s own checkout form.
+              </li>
+              <li>
+                The customer completes the payment form presented by Authipay.
+              </li>
+              <li>
+                Once completed, Authipay redirects the end-user back to a return URL specified in the initial request.
+              </li> 
+            </ol>
+          </div>
+
+        </div>
+      </div>
+
+      {% include docs/components/whats-next.html
+        text="Get going with Connect in the Developer Playground."
+        link_href="./connect-getting-started"
+        link_text="Getting Started"
+      %}
+    </div>
+  </div>
+</div>
