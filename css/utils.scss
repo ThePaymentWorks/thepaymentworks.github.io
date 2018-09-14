@@ -20,6 +20,10 @@
   @extend .text-secondary;
 }
 
+.fw-200 { font-weight: 200 !important; }
+.fw-300 { font-weight: 300 !important; }
+.fw-400 { font-weight: 400 !important; }
+.fw-500 { font-weight: 500 !important; }
 
 // Sizing
 .fill-screen-minus-footer-and-nav {
