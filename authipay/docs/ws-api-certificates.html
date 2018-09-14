@@ -1,0 +1,177 @@
+---
+layout: docs
+---
+
+<div class="container-fluid white-background fill-screen-minus-footer-and-nav">
+  <div class="row">
+    {% include authipay/docs/side-menu.html active="ws-api-certificates" %}
+
+    <div class="col-sm col-md-6 pt-4">
+      <div class="row pl-3">
+        <div class="col">
+          <h1 class="page-heading">Certificate Setup</h1>
+
+          <div class="docs-text-block">
+            <p class="text-gray">
+              In a live payments environment the communication between your application and the Authipay Web Service must be encrypted. The certificates for this encryption will be included in a Starter Pack that is provided by the Authipay team as part of client onboarding. 
+             </p>
+             <p class="text-gray">
+                Luckily the simulators in your Developer Playground work seamlessly with <span style="text-decoration: underline">or</span> without these certificates. This allows your to start your technical integration while you're waiting for your Starter Park. Then, once you've received and installed the certificates, you can continue seamlessly to develop against the simulators.
+             </p>
+             <p class="text-gray">
+                To help you with the certficate install, here are some guides:
+             </p>
+            <ol class="doc-list">
+              <li>
+                <a class="doc-link" href="./ws-api-certificates.html#section-cert-overview">
+                  Certificate Overview
+                </a>
+              </li>
+              <li>
+                <a class="doc-link" href="./ws-api-certificates.html#section-cert-prerequisites">
+                  Setup Prerequisites
+                </a>
+              </li>
+              <li>
+                <a class="doc-link" href="./ws-api-certificates.html#section-mac-install">
+                  Install on MAC OS X
+                </a>
+              </li>
+              <li>
+                <a class="doc-link" href="./ws-api-certificates.html#section-ubuntu-installt">
+                  Install on Ubuntu
+                </a>
+              </li>
+              <li>
+                <a class="doc-link" href="./ws-api-certificates.html#section-win-install">
+                  Install on Windows
+                </a>
+              </li>
+            </ol>
+          </div>
+
+          {% include docs/components/text-block-divider.html %}
+            
+          <div class="docs-text-block" id="section-cert-overview">
+            <h2 class="section-heading">Certificate Overview</h2>
+            <p class="text-gray">
+               The Authipay encrypted connection work like this:
+               Your application holds a client certificate which uniquely identifies it to the Web Services API. And the Authipay Internet Payment Gateway has a server certificate which uniquely identifies it to your application.
+            </p>
+           </div>
+            <div class="doc-image-container">
+              <img class="doc-image" src="/img/authipay/WS-API_CertificateOverview.png" alt="Web Service API encryption">
+            </div>
+           <div class="docs-text-block">
+             <p class="text-gray">
+               And as a final step, your application has to do a basic authorisation (with a username & password) before being allowed to communicate with the Web Service. 
+             </p>
+           </div>
+         
+          {% include docs/components/text-block-divider.html %}
+            
+           <div class="docs-text-block" id="section-cert-prerequisites">
+            <h2 class="section-heading">Setup Prerequisites</h2>
+            <p class="text-gray">
+              You'll need the following to send transactions to the real API:
+              <ul><li>Username and Password for basic authentication.<br>
+                      <ul><li>The username consist of your Store ID (e.g. 10012345678) and your User ID (e.g 7), concatenated as "WS10012345678._.7"</li> 
+                          <li>Your StoreID, UserID and Password will be provided by AIBMS in your Starter Pack. U   se dummy values with the simulators until you get these.</li>
+                      </ul>
+                  </li>
+                  <li>Client certificate file (p12)<br>
+                      <ul><li>For connecting with Java you need a ks-File, same naming convention, with the .ks file extension.</li> 
+                      </ul>
+                  </li>
+                      <li>Server Certificate PEM File: The server certificate stored in the PEM file <i>geotrust.pem</i> which is required for authenticating the server running the Web Service API<br>
+                      <ul><li>Same naming convention, with the .ks file extension</li> 
+                           <li>For connecting with Java you need the truststore.ks-file</li>
+                       </ul>
+                  </li>
+               </ul> 
+            </p>
+          </div>
+        
+          {% include docs/components/text-block-divider.html %}
+
+          <div class="docs-text-block" id="section-mac-install">
+            <h2 class="section-heading">Install on MAC OS X</h2>
+            <p class="text-gray">
+              The P12 file:
+              <ol><li>Double-click the client certificate p12 file</li>
+                  <li>Check the file name (which should be already set to the path of your client certificate p12 file). You will be asked to access the toolchain</li>
+                  <li>Provide the client certificate installation password.</li>
+              </ol>
+            </p>
+            <p class="text-gray">
+              The PEM file:
+              <ol><li>Double-click the PEM file and add it to your toolchain. You may be prompted to input your own password.</li>
+                  <li>Now open a browser window and go to the URL: https://test.ipg-online.com/ipgapi/services/order.wsdl</li>
+                  <li>After requesting the URL, the server will ask your browser to supply the client certificate to making sure that it is talking to your application correctly. Since you have installed the certificate in the previous steps, it will appear in a dropdown list within the browser window. Select the certificate and press OK.
+                  </li>
+                  <li>Then, the Authipay Gateway sends its server certificate (identifying it uniquely) to you. This certificate is verified against the trusted one you have installed above. This is done automatically without prompting you for any input. Now a secure connection is established and all data transferred between your application and the Web Service API will be SSL-encrypted.</li>
+                  <li>Next, you will be prompted to supply your credentials for authorisation (as above)</li>
+                  <li>The Web Service API WSDL file is displayed</li>
+              </ol>
+            </p>
+          </div>
+
+
+
+         {% include docs/components/text-block-divider.html %}
+
+          <div class="docs-text-block" id="section-ubuntu-install">
+            <h2 class="section-heading">Install on Ubuntu</h2>
+            <p class="text-gray">
+              The P12 file:
+              <ol><li>Double-click the client certificate p12 file</li>
+                  <li>Check the file name (which should be already set to the path of your client certificate p12 file).</li>
+                  <li>Provide the client certificate installation password and click on ‘Import’</li>
+              </ol>
+            </p>
+            <p class="text-gray">
+              The PEM file:
+              <ol><li>No need to do anything, just use the cert as part of your requests, i.e. as `--cert` parameter when you’re making a CURL request.</li>
+              </ol>
+            </p>
+          </div>
+
+         {% include docs/components/text-block-divider.html %}
+
+          <div class="docs-text-block" id="section-win-install">
+            <h2 class="section-heading">Install on Windows</h2>
+            <p class="text-gray">
+              The P12 file:
+              <ol><li>Double-click the client certificate p12 file</li>
+                  <li>Click “Next”. Check the file name (which should be already set to the path of your client certificate p12 file). Click “Next”</li>
+                  <li>Provide the client certificate installation password and click “Next”</li>
+                  <li>Choose the option Automatically select the certificate store based on the type of certificate and click Next. This will place the certificate in your personal certificate store (more precisely in the local Windows user’s personal certificate store)</li>
+                  <li>Check the displayed settings and click Finish. Your client certificate is now installed.</li>
+              </ol>
+            </p>
+            <p class="text-gray">
+              The PEM file:
+              <ol><li>Now, you have to install the server certificate. The most straightforward way to do this is to open the folder in which you have saved your server certificate PEM file and rename the file to geotrust.crt.</li>
+                  <li>Click Install Certificate. This starts the same wizard as above.</li>
+                  <li>Click Next. Select Place all certificates in the following store and browse for the Trusted Root Certification Authorities folder. Click Next.
+                  </li>
+                  <li>Check the displayed settings and click Finish (you might have to confirm the installation). The server certificate is now installed in the local computer’s trusted certificates store. Here, Microsoft Internet Explorer can lookup the server certificate for verifying the Authipay Gateway server certificate received when calling the WSDL URL above.</li>
+                  <li>Now, open a browser window and go to the URL:https://test.ipg-online.com/ipgapi/services/order.wsdl in the address field</li>
+                  <li>After requesting the URL, the server will ask your browser to supply the client certificate to making sure that it is talking to your application correctly. Since you have installed the certificate in the previous steps, it is transferred to the server without prompting you for any input (i.e. you will not notice this process). Then, the Authipay Gateway sends its server certificate (identifying it uniquely) to you. This certificate is verified against the trusted one you have installed above. Again, this is done automatically without prompting you for any input. Now, a secure connection is established and all data transferred between your application and the Web Service API is SSL-encrypted.
+                  </li>
+                  <li>Next, you will be prompted to supply your credentials for authorisation (See above).</li>
+                  <li>The Web Service API WSDL file is displayed</li>
+              </ol>
+            </p>
+          </div>
+
+      {% include docs/components/whats-next.html
+        text="Make your first WebService API test transaction"
+        link_href="./ws-api-1st-request"
+        link_text="My 1st Request"
+      %}
+    </div>
+  </div>
+</div>
+ </div>
+</div>
