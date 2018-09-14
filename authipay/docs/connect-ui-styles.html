@@ -13,49 +13,52 @@ layout: docs
 
           <div class="docs-text-block">
             <p class="text-gray">
-              Connect API supports 3 different UI/UX styles for your webstore. The Connect simulator supports these 3 styles plus 1 additional 'debug' style just for testing.  
+              Connect API supports 3 different UI/UX styles for your webstore. The Connect simulator supports these 3 styles plus 1 additional 'debug' style just for testing.
             </p>
+
             <p class="text-gray">
                Use the simulator to explore the different styles and find the one that is best for your needs. You can switch between styles in the simulator settings (see below).
             </p>
           </div>
-           
+
           {% include docs/components/text-block-divider.html %}
 
           <div class="docs-text-block" id="section-styles">
             <h2 class="section-heading">UI/UX Styles</h2>
-              <ol>
-                  <li><b>Classic</b>: a plain version of the payment form, designed to fit smaller screen sizes. 
-                  </li>
-                  <li><b>Mobile</b>: a responsive form, all centre-aligned. Form input fields have rounded corners. Best suited for handheld mobile devices. 
-                  </li>
-                  <li><b>Combined</b>: a fully responsive page built to fit both desktop and mobile devices. It can only can be used if transactions payment mode is set to "payonly". The Combined style is not supported in “payplus” or “fullpay” payment modes.
-                  </li>
-                  <li><b>Developer</b>: almost no UI styling. Available to use <span style="text-decoration: underline">only</span> in the simulator evironment. Useful for debugging and testing the raw transaction parameters before you switch on one of the styled modes. "Developer" is the default mode on the Connect simulator.
-                  </li>
-              </ol>
+            <ol class="doc-list fw-300">
+              <li><b>Classic</b>: a plain version of the payment form, designed to fit smaller screen sizes.</li>
+              <li><b>Mobile</b>: a responsive form, all centre-aligned. Form input fields have rounded corners. Best suited for handheld mobile devices.</li>
+              <li><b>Combined</b>: a fully responsive page built to fit both desktop and mobile devices. It can only can be used if transactions payment mode is set to "payonly". The Combined style is not supported in “payplus” or “fullpay” payment modes.
+              </li>
+              <li><b>Developer</b>: almost no UI styling. Available to use <span style="text-decoration: underline">only</span> in the simulator evironment. Useful for debugging and testing the raw transaction parameters before you switch on one of the styled modes. "Developer" is the default mode on the Connect simulator.
+              </li>
+            </ol>
           </div>
-          {% include docs/components/text-block-divider.html %}
-          
-           <div class="docs-text-block" id="section-switching-styles">
-            <h2 class="section-heading">Switching Styles</h2>
-            It’s super easy to switch between styles in the Developer Playground:
 
-              <ol><li>Go to the “Settings” tab on the Connect simulator</li>
-                  <li>Go to the “Redirect Mode” section</li>
-                  <li>Select the mode you want (default setting is "Developer mode")</li>
-                  <li>Save the changes. </li>
-                  <li>Then try another transaction.</li>
-               </ol>
-           </div>
+          {% include docs/components/text-block-divider.html %}
+
+          <div class="docs-text-block" id="section-switching-styles">
+            <h2 class="section-heading">Switching Styles</h2>
+            <p class="text-gray">
+              It’s super easy to switch between styles in the Developer Playground:
+            </p>
+
+            <ol class="doc-list fw-300">
+              <li>Go to the “Settings” tab on the Connect simulator</li>
+              <li>Go to the “Redirect Mode” section</li>
+              <li>Select the mode you want (default setting is "Developer mode")</li>
+              <li>Save the changes. </li>
+              <li>Then try another transaction.</li>
+            </ol>
+          </div>
+        </div>
       </div>
-    </div>
 
       {% include docs/components/whats-next.html
         text="Testing 3D Secure with Connect"
         link_href="./connect-3d-flow"
         link_text="3D Secure"
-      %}
+        %}
     </div>
   </div>
 </div>

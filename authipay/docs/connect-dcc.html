@@ -13,7 +13,7 @@ layout: docs
 
           <div class="docs-text-block">
             <p class="text-gray">
-              Authipay offers Dynamic Currency Conversion (DCC) on most of the Connect API. When activated for your merchant account, your customers will get a choice about the currency they'd like to use for the transaction: (a) the currency of the card, or (b) currency of your webstore. 
+              Authipay offers Dynamic Currency Conversion (DCC) on most of the Connect API. When activated for your merchant account, your customers will get a choice about the currency they'd like to use for the transaction: (a) the currency of the card, or (b) currency of your webstore.
             </p>
             <p class="text-gray">
                This is a common scenario in real life: someone wants to pay for online goods with their own card on a site in another country. Example: an Irish person with a EUR Visa card is buying someting on Amazon.co.uk in GBP.
@@ -24,42 +24,55 @@ layout: docs
           </div>
 
           {% include docs/components/text-block-divider.html %}
-            
+
           <div class="docs-text-block" id="section-switch-on-dcc">
             <h2 class="section-heading">1. Switch on DCC in the simulator settings</h2>
-            <p class="text-gray"> 
+
+            <p class="text-gray">
               Your requests need to include the following additional parameters in the initial Connect request:
-              </p>
-              <ol><li>Log into your Developer Playground account.</li>
-                  <li>Open the Authipay Connect simulator.</li>
-                  <li>Go to the "Settings" tab of the simulator.</li>
-                  <li>Check the setting for MCC 6012.</li>
-                  <li>Save the change.</li>
-              </ol>
-            </div>
+            </p>
+
+            <ol>
+              <li>Log into your Developer Playground account.</li>
+              <li>Open the Authipay Connect simulator.</li>
+              <li>Go to the "Settings" tab of the simulator.</li>
+              <li>Check the setting for MCC 6012.</li>
+              <li>Save the change.</li>
+            </ol>
+          </div>
+
           <div class="doc-image-container">
-            <img class="doc-image" src="/img/authipay/Connect_DCC_settings_anno.png" alt="Switching on DCC Settings">  
-          </div> 
-            
+            <img class="doc-image" src="/img/authipay/Connect_DCC_settings_anno.png" alt="Switching on DCC Settings">
+          </div>
+
           {% include docs/components/text-block-divider.html %}
-            
+
           <div class="docs-text-block" id="section-start-debugging">
             <h2 class="section-heading">2. Try a Connect transaction</h2>
-            <p class="text-gray"> 
+            <p class="text-gray">
               Send in a Connect request and follow the use journey through the hosted payments page. You'll see that the customer now has an option to select which currency to complete the transaction in. This selection is recorded when the transaction is made, and then returned in the final callback back to your store.
-              </p>
-         </div>
-         <div class="docs-card info raise dark-background mb-45">
+            </p>
+          </div>
+
+          <div class="docs-card info raise dark-background mb-45">
             <div class="docs-card-body">
               <h5 class="docs-card-title text-info mb-3">
                 <i class="fas fa-info-circle mr-2" ></i> Our Tip: Store the DCC results
               </h5>
               <p class="docs-card-text text-light">
-                  Store the DCC results of your transactions where you get them. This will allow you to record the choice the customer made, the currency conversion rate used, rate source, processing bank and the calculated payment. You can use some or all of this to confirm the transaction, as well as recording them for any future customer queries.   
+                Store the DCC results of your transactions where you get them. This will allow you to record the choice the customer made, the currency conversion rate used, rate source, processing bank and the calculated payment. You can use some or all of this to confirm the transaction, as well as recording them for any future customer queries.
               </p>
             </div>
           </div>
-    </div>
+        </div>
+      </div>
+
+      {% include docs/components/whats-next.html
+        text="Next we will go through the Web Servcies Endpoints."
+        link_href="./what-is-ws-api"
+        link_text="Web Services Endpoints"
+        %}
+
     </div>
   </div>
 </div>

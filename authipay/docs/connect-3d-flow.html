@@ -13,20 +13,29 @@ layout: docs
 
           <div class="docs-text-block">
             <p class="text-gray">
-              The Connect simulator offers you the ability to try out 3D secure flows. Use the simulator to test and understand the customer experience when 3D secure is enabled for a Connect transaction.  
+              The Connect simulator offers you the ability to try out 3D secure flows. Use the simulator to test and understand the customer experience when 3D secure is enabled for a Connect transaction.
             </p>
             <p class="text-gray">
-               To initiate the 3D secure flow, you need to include the <i>authenticateTransaction</i> parameter with the value ‘true’ in your requests.
+              To initiate the 3D secure flow, you need to include the <i>authenticateTransaction</i> parameter with the value ‘true’ in your requests.
             </p>
             <p class="text-gray">
-               If this is received, the simulator will redirect you to a simulated bank verification screen (also known as an <a href="https://en.wikipedia.org/wiki/3-D_Secure#ACS_providers" class="doc-link">ACS</a> screen). On this screen, you can then select continue to successfully complete the 3D transaction, or select cancel to end the transaction.
+              If this is received, the simulator will redirect you to a simulated bank verification screen (also known as an <a href="https://en.wikipedia.org/wiki/3-D_Secure#ACS_providers" class="doc-link">ACS</a> screen). On this screen, you can
+              then select continue to successfully complete the 3D transaction, or select cancel to end the transaction.
             </p>
-            </div>        
+          </div>
+
           <div class="doc-image-container">
-            <img class="doc-image" src="/img/authipay/3DSecure_UI.png" alt="Simulated 3D Secure ACS">  
-          </div>       
+            <img class="doc-image" src="/img/authipay/3DSecure_UI.png" alt="Simulated 3D Secure ACS">
+          </div>
+
+        </div>
       </div>
-    </div>
+
+      {% include docs/components/whats-next.html
+        text="Testing your system against MCC 6012 rules."
+        link_href="./connect-mcc-6012.html"
+        link_text="MCC 6012"
+      %}
     </div>
   </div>
 </div>

@@ -13,12 +13,12 @@ layout: docs
 
           <div class="docs-text-block">
             <p class="text-gray">
-              There's no better way to learn than to see a transaction in action. Here are the ways to send your first WebServices test transaction in the Developer Playground. 
-             </p>
-            <ol class="doc-list">
+              There's no better way to learn than to see a transaction in action. Here are the ways to send your first WebServices test transaction in the Developer Playground.
+            </p>
+            <ol class="doc-list fw-300">
               <li>
                 <a class="doc-link" href="./ws-api-1st-request.html#section-play-test-request">
-                  'Play Test Request' button 
+                  'Play Test Request' button
                 </a>
               </li>
               <li>
@@ -35,82 +35,103 @@ layout: docs
           </div>
 
           {% include docs/components/text-block-divider.html %}
-            
+
           <div class="docs-text-block" id="section-play-test-request">
             <h2 class="section-heading">'Play Test Request' button </h2>
+
             <p class="text-gray">
-               The quickest way to see a WS API transaction? Look for the "Play Test Request" buttons on any of the simulators. This will fire an actual test request to that simulator, as if you've made the request yourself. 
+               The quickest way to see a WS API transaction? Look for the "Play Test Request" buttons on any of the simulators. This will fire an actual test request to that simulator, as if you've made the request yourself.
             </p>
+
             <p class="text-gray">
              Examine the request and response as they fire in real-time.
             </p>
-           </div>
-            <div class="doc-image-container">
-              <img class="doc-image" src="/img/authipay/Sim_PlayTestRequest.gif" alt="Play Test Request">
-            </div>
-         
+          </div>
+
+          <div class="doc-image-container">
+            <img class="doc-image" src="/img/authipay/Sim_PlayTestRequest.gif" alt="Play Test Request">
+          </div>
+
           {% include docs/components/text-block-divider.html %}
-            
-           <div class="docs-text-block" id="section-curl-example">
+
+          <div class="docs-text-block" id="section-curl-example">
             <h2 class="section-heading">Make a cURL request</h2>
             <p class="text-gray">
               Another easy way to try your own test request? Make a cURL request from your local machine to the simulator. This method is described in the "Integration" tab of every WS API sim, including copy&paste commands for you to run in a terminal/command line on your local dev machine.
             </p>
           </div>
 
-         {% include docs/components/text-block-divider.html %}
+          {% include docs/components/text-block-divider.html %}
 
           <div class="docs-text-block" id="section-code-it">
             <h2 class="section-heading">Code it yourself</h2>
-            <p class="text-gray">The following will show you how straightforward it is to code your first transaction. In this example, we're using the WebService card <span style="font-weight: 400;font-style: italic">Sale</span> simulator. 
+            <p class="text-gray">The following will show you how straightforward it is to code your first transaction. In this example, we're using the WebService card <i>Sale</i> simulator.
             </p>
-            <p class="text-gray">Whatever your coding language, first thing you will need is a library to build up an XML payload. For example, in Ruby, we use the <a class="doc-link" href="https://rubygems.org/gems/nokogiri/versions/1.6.8">Nokogiri gem</a>, which is part of the standard Ruby-on-Rails distribution.
+            <p class="text-gray">
+              Whatever your coding language, first thing you will need is a library to build up an XML payload. For example, in Ruby, we use the <a class="doc-link" href="https://rubygems.org/gems/nokogiri/versions/1.6.8">Nokogiri gem</a>, which is part of the standard Ruby-on-Rails distribution.
+            </p>
+          </div>
+
+          <div class="docs-card info raise dark-background mb-45">
+            <div class="docs-card-body">
+              <h5 class="docs-card-title text-info mb-3">
+                <i class="fas fa-info-circle mr-2"></i> Our Tip: include all xmlns
+              </h5>
+              <p class="docs-card-text text-light">
+                Make sure you include all xmlns attributes (aka XML namespaces) mentioned in this guide. Without these the XML may not be parsed correctly on the server end.
               </p>
-              
-            <div class="docs-card info raise dark-background mb-45">
-              <div class="docs-card-body">
-                <h5 class="docs-card-title text-info mb-3">
-                  <i class="fas fa-info-circle mr-2" ></i> Our Tip: include all xmlns 
-                </h5>
-                <p class="docs-card-text text-light">
-                  </i>Make sure you include all xmlns attributes (aka XML namespaces) mentioned in this guide. Without these the XML may not be parsed correctly on the server end.   
-                </p>
-            </div>
-            </div>
-          
-           <p class="text-gray"> The XML body of the card <span style="font-weight: 400;font-style: italic"> Sale</span> has 2 main parts: (1) the CreditCardData and (2) Payment. 
-               <ul>
-                   <li>The card data structure holds all the information about the card that your customer entered in on your checkout form and includes: the card number (PAN), expiry month, expiry year and card code value (a.k.a. CVV)</li>
-                   <li>The payment block has the amount to be debited ("<span style="font-weight: 200;">ChargeTotal</span>") and the currency (currency codes follow the <a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO-4217</a>).</li>
-               </ul>
-           </p>
-           <p class="text-gray"> 
-               Once you have that XML constructed, send it as a POST request to the card <span style="font-weight: 400;font-style: italic">Sale</span> simulator (copy&paste the POST URL from the "Integration" tab of the simulator).
-           </p>
-           <p class="text-gray"> 
-               The simulator will first validate your test request is well-formed, that is, does the XML payload have the necessary values to carry out the sale simulation? If the simulator detects any issues, it will respond with verbose validation reasons so you quickly learn what needs to change.
-           </p>
-           <p class="text-gray"> 
-               Finally: your code has to handle the simulator response. It will send back an XML document that contains information about the transaction: the result from the gateway, the bank authorisation result, DCC information, etc. Your code must parse this.
-           </p>
-           <p class="text-gray"> 
-               The important parameter to look for in the response is the <span style="font-weight: 200;">ApprovalCode</span>. 
-                 <ul>
-                     <li>If the value starts with ‘Y’, that means everything went well, and the transaction was approved. </li>
-                     <li>If the value here starts with an ‘N’ followed by a colon ‘:’ and a negative number, that means the transaction failed. </li>
-                </ul>
-           </p>        
-            <div class="docs-card info raise dark-background mb-45">
-              <div class="docs-card-body">
-                <h5 class="docs-card-title text-info mb-3">
-                  <i class="fas fa-info-circle mr-2" ></i> Our Tip: rememer the <span style="font-weight: 200;">OrderId</span> 
-                </h5>
-                <p class="docs-card-text text-light">
-                    Each transaction will get its own <span style="font-weight: 200;">OrderId</span>, which you should store internally to your systems, should you need it later for chargebacks / disputes. You can also store the IpgTransactionId as well, making sure that lookups for these disputed transactions are short when you need to contact Authipay.  
-                </p>
-            </div>
             </div>
           </div>
+
+          <div class="docs-text-block">
+            <p class="text-gray">
+              The XML body of the card <b class="fw-400"><i>Sale</i></b> has 2 main parts: (1) the CreditCardData and (2) Payment.
+            </p>
+
+            <ul class="doc-list fw-300">
+              <li>
+                The card data structure holds all the information about the card that your customer entered in on your checkout form and includes: the card number (PAN), expiry month, expiry year and card code value (a.k.a. CVV)
+              </li>
+              <li>
+                The payment block has the amount to be debited ("<b class="fw-400"><i>ChargeTotal</i></b>") and the currency (currency codes follow the <a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO-4217</a>).
+              </li>
+            </ul>
+
+            <p class="text-gray">
+              Once you have that XML constructed, send it as a POST request to the card <b class="fw-400"><i>Sale</i></b> simulator (copy&paste the POST URL from the "Integration" tab of the simulator).
+            </p>
+
+            <p class="text-gray">
+              The simulator will first validate your test request is well-formed, that is, does the XML payload have the necessary values to carry out the sale simulation? If the simulator detects any issues, it will respond with verbose validation reasons so you quickly learn what needs to change.
+            </p>
+
+            <p class="text-gray">
+              Finally: your code has to handle the simulator response. It will send back an XML document that contains information about the transaction: the result from the gateway, the bank authorisation result, DCC information, etc. Your code must parse this.
+            </p>
+
+            <p class="text-gray">
+              The important parameter to look for in the response is the <span class="fw-200">ApprovalCode</span>.
+            </p>
+
+            <ul class="doc-list fw-300">
+              <li>If the value starts with ‘Y’, that means everything went well, and the transaction was approved. </li>
+              <li>If the value here starts with an ‘N’ followed by a colon ‘:’ and a negative number, that means the transaction failed. </li>
+            </ul>
+          </div>
+
+          <div class="docs-card info raise dark-background mb-45">
+            <div class="docs-card-body">
+              <h5 class="docs-card-title text-info mb-3">
+                <i class="fas fa-info-circle mr-2"></i>Our Tip: rememer the <span class="fw-200">OrderId</span>
+              </h5>
+              <p class="docs-card-text text-light">
+                Each transaction will get its own <span class="fw-200">OrderId</span>, which you should store internally to your systems, should you need it later for chargebacks / disputes. You can also store the IpgTransactionId as well, making sure that lookups for these disputed transactions are short when you need to contact Authipay.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
       {% include docs/components/whats-next.html
         text="Explore the Connect payment modes"
@@ -119,6 +140,4 @@ layout: docs
       %}
     </div>
   </div>
-</div>
- </div>
 </div>
