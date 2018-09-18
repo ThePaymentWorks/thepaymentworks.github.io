@@ -15,7 +15,7 @@ layout: docs
             <p class="text-gray">
               There's no better way to learn than to see a transaction in action. Here are the ways to send your first WebServices test transaction in the Developer Playground.
             </p>
-            <ol class="doc-list fw-300">
+            <ul class="doc-list">
               <li>
                 <a class="doc-link" href="./ws-api-1st-request.html#section-play-test-request">
                   'Play Test Request' button
@@ -31,13 +31,13 @@ layout: docs
                   Code it yourself
                 </a>
               </li>
-            </ol>
+            </ul>
           </div>
 
           {% include docs/components/text-block-divider.html %}
 
           <div class="docs-text-block" id="section-play-test-request">
-            <h2 class="section-heading">'Play Test Request' button </h2>
+            <h2 class="section-heading">Play Test Request' button </h2>
 
             <p class="text-gray">
                The quickest way to see a WS API transaction? Look for the "Play Test Request" buttons on any of the simulators. This will fire an actual test request to that simulator, as if you've made the request yourself.
@@ -50,18 +50,19 @@ layout: docs
 
           <div class="doc-image-container">
             <img class="doc-image" src="/img/authipay/Sim_PlayTestRequest.gif" alt="Play Test Request">
+            <p></p>
+            {% include docs/components/text-block-divider.html %}
           </div>
-
-          {% include docs/components/text-block-divider.html %}
 
           <div class="docs-text-block" id="section-curl-example">
             <h2 class="section-heading">Make a cURL request</h2>
             <p class="text-gray">
               Another easy way to try your own test request? Make a cURL request from your local machine to the simulator. This method is described in the "Integration" tab of every WS API sim, including copy&paste commands for you to run in a terminal/command line on your local dev machine.
             </p>
-          </div>
 
-          {% include docs/components/text-block-divider.html %}
+              {% include docs/components/text-block-divider.html %}
+
+          </div>
 
           <div class="docs-text-block" id="section-code-it">
             <h2 class="section-heading">Code it yourself</h2>
