@@ -15,47 +15,54 @@ layout: docs
             <p class="text-gray">
              The Connect simulator in your Developer Playground is for test transactions. The Connect live gateway is for real-money transactions.
             </p>
-            <p class="text-gray"> Switching from test transactions to live transactions is a simple as changing a single URL in your code. And vice versa.
-              </p>
+            <p class="text-gray">
+              Switching from test transactions to live transactions is a simple as changing a single URL in your code. And vice versa.
+            </p>
           </div>
+
           <div class="doc-image-container">
             <img class="doc-image" src="/img/authipay/SwitchingLiveTest.png" alt="Switching between Live and Test">
           </div>
-        
+
           {% include docs/components/text-block-divider.html %}
 
           <div class="docs-text-block" id="section-connect-test-url">
             <h2 class="section-heading">Test URL</h2>
-            <p class="text-gray"> The URL for sending <span style="text-decoration: underline">test</span> transactions to the Connect simulator should look like the following: <br>                   
-              <span style="background-color: #000000;padding-left: 5px;padding-right: 5px;">
-              <code>https://api.testingpays.com/API_KEY/authipay/v1/connect</code></span>
+            <p class="text-gray">
+              The URL for sending <span style="text-decoration: underline">test</span> transactions to the Connect simulator should look like the following:
             </p>
-            <p class="text-gray"> 
+
+            {% include docs/components/code-block.html content="https://api.testingpays.com/API_KEY/authipay/v1/connect" language="http"%}
+
+            <p class="text-gray">
               API_KEY is the unique key for connecting to your Developer Playground simulators. You’ll find your API key by <a href="https://authipay.testingpays.com/login" class="text-info">logging into your Playground account</a>, opening the Connect simulator and looking at the API key field on the Integration tab.
             </p>
-            </div>
-    
-            {% include docs/components/text-block-divider.html %}
+          </div>
+
+          {% include docs/components/text-block-divider.html %}
 
           <div class="docs-text-block" id="section-connect-live-url">
             <h2 class="section-heading">Live URL</h2>
-            <p class="text-gray"> 
-		 	  The URL for your code to start <span style="text-decoration: underline">real</span> transactions with the Connect live gateway is the following:<br>
-              <span style="background-color: #000000;padding-left: 5px;padding-right: 5px;">
-              <code>https://test.ipg-online.com/connect/gateway/processing</code></span>
+            <p class="text-gray">
+              The URL for your code to start <span style="text-decoration: underline">real</span> transactions with the Connect live gateway is the following:<br>
             </p>
-            <p class="text-gray"> 
-              <b>NOTE:</b> You will have received a link to the Connect live gateway in your Starter Pack from the AIBMS team. 
-            </p>
+
+            {% include docs/components/code-block.html content="https://test.ipg-online.com/connect/gateway/processing" language="http" %}
+
+            <blockquote class="doc-note mt-2">
+              <p class="text-gray">
+                You will have received a link to the Connect live gateway in your Starter Pack from the AIBMS team.
+              </p>
+            </blockquote>
           </div>
-     </div>
-  </div>
+        </div>
+      </div>
 
       {% include docs/components/whats-next.html
         text="Check out our Web Services SOAP API"
         link_href="./what-is-ws-api"
         link_text="Web Services API"
-        %}       
+        %}
     </div>
   </div>
 </div>
