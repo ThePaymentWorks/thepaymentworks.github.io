@@ -10,3 +10,8 @@
 
 .doc-link { color: #286EFA; }
 .doc-link:hover { color: #286EFA; }
+
+.doc-note { // This should be used on a <blockquote> tag
+  padding-left: 1em;
+  border-left: 3px solid $gray;
+}
