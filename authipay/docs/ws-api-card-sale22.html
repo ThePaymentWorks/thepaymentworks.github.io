@@ -2,33 +2,37 @@
 layout: docs
 ---
 
+
 <div class="container-fluid white-background fill-screen-minus-footer-and-nav">
   <div class="row">
-    {% include authipay/docs/side-menu.html active="ws-api-1st-request" %}
+    {% include authipay/docs/side-menu.html active="ws-api-card-sale" %}
 
     <div class="col-sm col-md-6 pt-4">
       <div class="row pl-3">
         <div class="col">
-          <h1 class="page-heading">Make Your First Request</h1>
+          <h1 class="page-heading">Testing Card Sale</h1>
 
           <div class="docs-text-block">
             <p class="text-gray">
-              There's no better way to learn than to see a transaction in action. Here are the ways to send your first WebServices test transaction in the Developer Playground.
+             The <b class="fw-400"><i>Sale</i></b> operation of the Web Services API is used to authorise and immediately capture an amount from a customer's credit/debit card in one take. 
+            </p>
+            <p class="text-gray">
+             Follow these simple steps to try out a test transaction against the <b class="fw-400"><i>Sale</i></b> simulator in your Developer Playground. We're using a simple cURL request in example code below, but the same steps apply to any language. 
             </p>
             <ul class="doc-list">
               <li>
                 <a class="doc-link" href="./ws-api-1st-request.html#section-play-test-request">
-                  'Play Test Request' button
+                  Build the XML body
                 </a>
               </li>
               <li>
                 <a class="doc-link" href="./ws-api-1st-request.html#section-curl-example">
-                  Make a cURL request
+                  Submit the XML to the simulator
                 </a>
               </li>
               <li>
                 <a class="doc-link" href="./ws-api-1st-request.html#section-code-it">
-                  Code it yourself
+                  Parse the response
                 </a>
               </li>
             </ul>
@@ -37,13 +41,16 @@ layout: docs
           {% include docs/components/text-block-divider.html %}
 
           <div class="docs-text-block" id="section-play-test-request">
-            <h2 class="section-heading">Play Test Request' button </h2>
+            <h2 class="section-heading">Step 1: Build the XML body</h2>
 
             <p class="text-gray">
                The quickest way to see a WS API transaction? Look for the "Play Test Request" buttons on any of the simulators. This will fire an actual test request to that simulator, as if you've made the request yourself.
-            </p>
-
-            <p class="text-gray">
+            </p>              
+              
+            {% capture code_block %}{% include authipay/code/card-sale-xml-example.html language="xml"%}{% endcapture %}
+            {% include docs/components/code-block.html content=code_block %}
+            
+              <p class="text-gray">
              Examine the request and response as they fire in real-time.
             </p>
           </div>
@@ -66,7 +73,7 @@ layout: docs
 
           <div class="docs-text-block" id="section-code-it">
             <h2 class="section-heading">Code it yourself</h2>
-            <p class="text-gray">The following will show you how straightforward it is to code your first transaction. In this example, we're using the WebService API <i>Sale</i> simulator.
+            <p class="text-gray">The following will show you how straightforward it is to code your first transaction. In this example, we're using the WebService card <i>Sale</i> simulator.
             </p>
             <p class="text-gray">
               Whatever your coding language, first thing you will need is a library to build up an XML payload. For example, in Ruby, we use the <a class="doc-link" href="https://rubygems.org/gems/nokogiri/versions/1.6.8">Nokogiri gem</a>, which is part of the standard Ruby-on-Rails distribution.
@@ -86,7 +93,7 @@ layout: docs
 
           <div class="docs-text-block">
             <p class="text-gray">
-                The XML body of the card <b class="fw-400"><i>Sale</i></b> has 2 main parts: (1) the <span class="fw-200">CreditCardData</span> and (2) <span class="fw-200">Payment</span>.
+              The XML body of the card <b class="fw-400"><i>Sale</i></b> has 2 main parts: (1) the CreditCardData and (2) Payment.
             </p>
 
             <ul class="doc-list fw-300">
@@ -94,7 +101,7 @@ layout: docs
                 The card data structure holds all the information about the card that your customer entered in on your checkout form and includes: the card number (PAN), expiry month, expiry year and card code value (a.k.a. CVV)
               </li>
               <li>
-                The payment block has the amount to be debited ("<span class="fw-200">ChargeTotal</span>") and the currency (currency codes follow the <a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO-4217</a>).
+                The payment block has the amount to be debited ("<b class="fw-400"><i>ChargeTotal</i></b>") and the currency (currency codes follow the <a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO-4217</a>).
               </li>
             </ul>
 
