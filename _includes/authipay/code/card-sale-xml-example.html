@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:v1="http://ipg-online.com/ipgapi/schemas/ipgapi"
+    xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+  <env:Body>
+    <ipgapi:IPGApiOrderRequest
+        xmlns:v1="http://ipg-online.com/ipgapi/schemas/v1"
+        xmlns:ipgapi="http://ipg-online.com/ipgapi/schemas/ipgapi">
+      <v1:Transaction>
+        <v1:CreditCardTxType>
+          <v1:Type>sale</v1:Type>
+        </v1:CreditCardTxType>
+        <v1:CreditCardData>
+          <v1:CardNumber>4111111111111111</v1:CardNumber>
+          <v1:ExpMonth>02</v1:ExpMonth>
+          <v1:ExpYear>22</v1:ExpYear>
+        </v1:CreditCardData>
+        <v1:Payment>
+          <v1:ChargeTotal>19.00</v1:ChargeTotal>
+          <v1:Currency>978</v1:Currency>
+        </v1:Payment>
+      </v1:Transaction>
+    </ipgapi:IPGApiOrderRequest>
+  </env:Body>
+</env:Envelope>
