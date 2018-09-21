@@ -4,19 +4,22 @@ layout: docs
 
 <div class="container-fluid white-background fill-screen-minus-footer-and-nav">
   <div class="row">
-    {% include authipay/docs/side-menu.html active="ws-api-card-sale" %}
+    {% include authipay/docs/side-menu.html active="ws-api-card-preauth" %}
 
     <div class="col-sm col-md-6 pt-4">
       <div class="row pl-3">
         <div class="col">
-          <h1 class="page-heading">Testing Card Sale</h1>
+          <h1 class="page-heading">Testing Card PreAuth</h1>
 
           <div class="docs-text-block">
             <p class="text-gray">
-              The <span class="fw-400"><i>Sale</i></span> operation of the Web Services API is used to authorise and take an amount from a customer's credit/debit card in one go.
+                The <span class="fw-400"><i>PreAuth</i></span> operation of the Web Services API is used to reserve - but not capture - an amount from a customer's credit/debit card. The reserved amount can be later captured with a separate <a class="doc-link" href="./ws-api-card-postauth.html"><span class="fw-400"><i>PostAuth</i></span></a>.
             </p>
             <p class="text-gray">
-              The steps below will show you how to use the <span class="fw-400"><i>Sale</i></span> simulator to build a transaction. Our examples here uses a simple cURL request, but the same steps apply to any coding language.
+              This is often used in online situations where money for a purchase is not taken from a customer card until a purchased item is shipped.
+            </p>
+            <p class="text-gray">
+              The steps below will show you how to use the <span class="fw-400"><i>PreAuth</i></span> simulator to build a transaction. Our examples here uses a simple cURL request, but the same steps apply to any coding language.
             </p>
             <ol class="doc-list">
               <li>
@@ -184,8 +187,8 @@ layout: docs
       </div>
 
       {% include docs/components/whats-next.html
-        text="Try out some PreAuth transactions"
-        link_href="./ws-api-card-preauth"
+        text="Try some PreAuth transactions"
+        link_href="./ws-api-card-pre"
         link_text="Test PreAuth"
         %}
     </div>
