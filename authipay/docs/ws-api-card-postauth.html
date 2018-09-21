@@ -111,7 +111,7 @@ layout: docs
             </blockquote>
 
             <p class="text-gray">
-              Below is an example SOAP request containing the minimum XML fields needed for a <span class="fw-400"><i>Sale</i></span> transaction.
+              Below is an example SOAP request containing the minimum XML fields needed for a <span class="fw-400"><i>postAuth</i></span> transaction.
             </p>
 
             {% capture code_block %}{% include authipay/code/card-postauth-xml-body.html %}{% endcapture %}
@@ -183,7 +183,7 @@ layout: docs
             </ul>
 
             <blockquote class="doc-note mt-2">
-              <p class="text-gray">Remember: you can trigger any <span class="fw-200">ApprovalCode</span> you'd like  from the simulator by the values you use in your request. By default, the simulator will use the <span class="fw-200">ChargeTotal</span> value as the trigger value. But you can also configure the simulator to use the card CVV value or cardholder name - go the Settings tab of the <span class="fw-400"><i>Sale</i></span> simulator.
+              <p class="text-gray">Remember: you can trigger any <span class="fw-200">ApprovalCode</span> you'd like  from the simulator by the values you use in your request. By default, the simulator will use the <span class="fw-200">ChargeTotal</span> value as the trigger value. But you can also configure the simulator to use the card CVV value or cardholder name - go the Settings tab of the <span class="fw-400"><i>postAuth</i></span> simulator.
               </p>
             </blockquote>
           </div>
