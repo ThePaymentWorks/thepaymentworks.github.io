@@ -21,11 +21,6 @@ layout: docs
             <ol class="doc-list">
               <li>
                 <a class="doc-link" href="./ws-api-card-sale.html#section-build-xml">
-                  View the <b class="fw-400"><i>Sale</i></b> simulator
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./ws-api-card-sale.html#section-build-xml">
                   Build the XML body
                 </a>
               </li>
@@ -44,32 +39,9 @@ layout: docs
 
          {% include docs/components/text-block-divider.html %}
 
-         <div class="docs-text-block" id="section-build-xml">   
-              <h2 class="section-heading">Step 1: View the Sale simulator</h2>
-            <p class="text-gray">
-              For the purposes of making test <b class="fw-400"><i>Sale</i></b> transaction, you'll be using the <b class="fw-400"><i>Sale</i></b> simulator in the Authipay Developer Playground. 
-            </p>                
-           <p class="text-gray">
-               To open the simulator interface, <a class="text-info" target="_blank" href="https://authipay.testingpays.com/login">login to your Authipay Developer Playground account</a> and click "OPEN" on the "card-sale" bookmark on your dashboard. You'll see the following sections in your simulator:
-               <ul>
-                   <li><span class="fw-400">Integrate</span>: coding instructions in various languages to help you connect your code to the simulator.</li>                                      
-                   <li><span class="fw-400">Debug</span>: use the Live Log to watch transctions being processed in real-time. Or download the file-based logs. </li>
-                   <li><span class="fw-400">Test</span>: a map of real Sale response codes that you can trigger with values in your test requests. Or custom your own. </li>
-                   <li><span class="fw-400">Reports</span>: real-time test reports showing the frequency and coverage of your Sale testing.</li>
-                   <li><span class="fw-400">Settings</span>: real-world settings you can activate for your testing, including MCC 6012, DCC, latency delays, etc.</li>
-               </ul>
-            </p>  
-
-         </div>
-         <div class="doc-image-container">
-            <img class="doc-image" src="/img/authipay/card-sale-sim.png" alt="Opening the card-sale simulator">
-         </div>  
-          
-         {% include docs/components/text-block-divider.html %}
-          
-         <div class="docs-text-block" id="section-build-xml">
+          <div class="docs-text-block" id="section-build-xml">
               
-              <h2 class="section-heading">Step 2: Build the XML body</h2>
+              <h2 class="section-heading">Step 1: Build the XML body</h2>
             <p class="text-gray">
               In a nutshell: your code must first assemble a XML document with the fields for a <b class="fw-400"><i>Sale</i></b> transaction, then wrap the XML into the body of a SOAP request. 
             </p>   
@@ -116,7 +88,7 @@ layout: docs
           {% include docs/components/text-block-divider.html %}
             
           <div class="docs-text-block" id="section-post-request">
-            <h2 class="section-heading">Step 3: Send the request to the <b class="fw-400"><i>Sale</i></b> simulator</h2>
+            <h2 class="section-heading">Step 2: Send the request to the <b class="fw-400"><i>Sale</i></b> simulator</h2>
             <p class="text-gray">
               Next, your code needs to send the assembled SOAP request to the <b class="fw-400"><i>Sale</i></b> simulator. The URL to POST to can be found under the "Integration" tab of the simulator - make sure to copy&paste this URL from your simulator as it contains your unique API_KEY.   
             </p>
@@ -136,7 +108,7 @@ layout: docs
             {% include docs/components/text-block-divider.html %}
 
           <div class="docs-text-block" id="section-parse-response">
-            <h2 class="section-heading">Step 4: Parse the <b class="fw-400"><i>Sale</i></b> response</h2>
+            <h2 class="section-heading">Step 3: Parse the <b class="fw-400"><i>Sale</i></b> response</h2>
             <p class="text-gray">
               The simulator will first validate your request. If it detects any issues, you'll see a verbose response indicating what is wrong with the request>.
             </p>
