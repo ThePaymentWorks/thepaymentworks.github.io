@@ -55,7 +55,7 @@ layout: docs
             </p>
           </div>
 
-          {% capture code_block %}{% include authipay/code/card-void-minimum-example.html %}{% endcapture %}
+          {% capture code_block %}{% include authipay/code/card/void/minimal-example.html %}{% endcapture %}
           {% include docs/components/code-block.html content=code_block language="xml" %}
 
           <div class="docs-text-block">
@@ -87,7 +87,7 @@ layout: docs
               The example show below shows how to make a <b class="fw-400"><i>Void</i></b> transaction using cURL. The <code>example.xml</code> contains the constructed SOAP request.
             </p>
 
-            {% capture code_block %}{% include authipay/code/card-void-curl.html %}{% endcapture %}
+            {% capture code_block %}{% include authipay/code/card/void/curl.html %}{% endcapture %}
             {% include docs/components/code-block.html content=code_block language="bash" %}
 
             <div class="docs-text-block">
@@ -122,7 +122,7 @@ layout: docs
               The example show below shows the response to a <span class="fw-400"><i>Void</i></span> transaction sent manually by cURL command to the simulator.
             </p>
 
-            {% capture code_block %}{% include authipay/code/card-void-curl-response.html %}{% endcapture %}
+            {% capture code_block %}{% include authipay/code/card/void/curl-response.html %}{% endcapture %}
             {% include docs/components/code-block.html content=code_block language="xml" %}
           </div>
 
@@ -153,7 +153,7 @@ layout: docs
 
       {% include docs/components/whats-next.html
         text="Test some Return transactions"
-        link_href="./ws-api-card-returns"
+        link_href="./ws-api-card-return"
         link_text="Test Returns"
         %}
     </div>
