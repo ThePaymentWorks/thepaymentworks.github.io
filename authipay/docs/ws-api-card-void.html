@@ -38,6 +38,28 @@ layout: docs
             </ol>
           </div>
 
+          {% include docs/components/text-block-divider.html %}
+
+          <div class="docs-text-block" id="section-build-xml">
+            <h2 class="section-heading">Step 1: View the Void simulator</h2>
+            <p class="text-gray">
+              For the purposes of making test <span class="fw-400"><i>Void</i></span> transaction, you'll be using the <span class="fw-400"><i>Void</i></span> simulator in the Authipay Developer Playground.
+            </p>
+            <p class="text-gray">
+              To open the simulator interface, <a class="text-info" target="_blank" href="https://authipay.testingpays.com/login">login to your Authipay Developer Playground account</a> and click "OPEN" on the "card-void" bookmark on your dashboard. You'll see the following sections in your simulator:
+            </p>
+            <ul class="doc-list fw-300">
+              <li><span class="fw-400">Integrate</span>: coding instructions in various languages to help you connect your code to the simulator.</li>
+              <li><span class="fw-400">Debug</span>: use the Live Log to watch transctions being processed in real-time. Or download the file-based logs.</li>
+              <li><span class="fw-400">Test</span>: a map of real Void response codes that you can trigger with values in your test requests.</li>
+              <li><span class="fw-400">Reports</span>: real-time test reports showing the frequency and coverage of your Void testing.</li>
+              <li><span class="fw-400">Settings</span>: real-world settings you can activate for your testing, including MCC 6012, DCC, latency delays, etc.</li>
+            </ul>
+          </div>
+          <div class="doc-image-container">
+            <img class="doc-image" src="/img/authipay/view-void-sim.png" alt="Opening the card-void simulator">
+          </div>
+
          {% include docs/components/text-block-divider.html %}
 
           <div class="docs-text-block" id="section-build-xml">
