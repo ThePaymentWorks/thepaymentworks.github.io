@@ -1,96 +1,81 @@
 ---
 layout: docs
+active: "what-is-ws-api"
+wnt: "We need to talk about certificates..."
+wnh: "./ws-api-certificates"
+wnlt: "Web Services API Certificates"
 ---
 
-<div class="container-fluid white-background fill-screen-minus-footer-and-nav">
-  <div class="row">
-    {% include authipay/docs/side-menu.html active="what-is-ws-api" %}
+<h1 class="page-heading">What is the WebServices API?</h1>
 
-    <div class="col-sm col-md-6 pt-4">
-      <div class="row pl-3">
-        <div class="col">
-          <h1 class="page-heading">What is the WebServices API?</h1>
+<div class="docs-text-block">
+  <p class="text-gray">
+    Authipay’s WebServices API (WS API) is a comprehensive gateway to a wide range of online payments functions. It is an XML-based SOAP API. All examples in the Developer Playground use some sort of XML tree builder.
+  </p>
 
-          <div class="docs-text-block">
-            <p class="text-gray">
-              Authipay’s WebServices API (WS API) is a comprehensive gateway to a wide range of online payments functions. It is an XML-based SOAP API. All examples in the Developer Playground use some sort of XML tree builder.
-            </p>
+  <p class="text-gray">
+    As a developer, by going the WebServices route, you'll have more coding to do for your integration than by going the <a href="./what-is-connect.html">Connect API</a> route. On the flip side, WS API allows you to build much more powerful and slick customer payment features. In addition, WS API is the only option if your customer checkout has to be fully branded in keeping with the rest of your site.
+  </p>
 
-            <p class="text-gray">
-              As a developer, by going the WebServices route, you'll have more coding to do for your integration than by going the <a href="./what-is-connect.html">Connect API</a> route. On the flip side, WS API allows you to build much more powerful and slick customer payment features. In addition, WS API is the only option if your customer checkout has to be fully branded in keeping with the rest of your site.
-            </p>
+  <p class="text-gray">
+    The Authipay Developer Playground can help you build these features better and faster. It provides powerful simulators for all core operations on the WS API. Whether you need to build a brilliant checkout flow for your customers, or give your operations team time-saving returns tools, the simulators can help you explore and trial these features.
+  </p>
 
-            <p class="text-gray">
-              The Authipay Developer Playground can help you build these features better and faster. It provides powerful simulators for all core operations on the WS API. Whether you need to build a brilliant checkout flow for your customers, or give your operations team time-saving returns tools, the simulators can help you explore and trial these features.
-            </p>
-            
-              {% include docs/components/text-block-divider.html %}
-          
-            </div>
+    {% include docs/components/text-block-divider.html %}
 
-          <div class="docs-text-block" id="section-connect-overview">
-            <h2 class="section-heading">Web Services API Features</h2>
-            <p class="text-gray">
-              The the Authipay Developer Playground provides simulators for you to test and explore the following WS operations:
-            </p>
- 
-            <ul class="doc-list">
-              <li>
-                <a class="doc-link" href="./what-is-ws-api.html">
-                  <b>Card Sale</b>: authorise and capture card payments in one shot.
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./what-is-ws-api.html">
-                  <b>Card Pre-Auth</b>: reserve an amount on card for later capture.
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./what-is-ws-api.html">
-                  <b>Card Post-Auth</b>: capture an amount that was previously reserved on a card.
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./what-is-ws-api.html">
-                  <b>Force Ticket</b>: force a capture on a card.
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./what-is-ws-api.html">
-                  <b>Return</b>: return an amount for a previous order.
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./what-is-ws-api.html">
-                  <b>Credit</b>: refund an amount to a customer card.
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./what-is-ws-api.html">
-                  <b>Void</b>: cancel a transaction that's in progress.
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./what-is-ws-api.html">
-                  <b>Datavault</b>: store a card for use in future transactions.
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./what-is-ws-api.html">
-                  <b>Dynamic Pricing</b>: DCC to give customers the option to pay in their home currency.
-                </a>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-      {% include docs/components/whats-next.html
-        text="We need to talk about certificates..."
-        link_href="./ws-api-certificates"
-        link_text="Web Services API Certificates"
-      %}
-    </div>
   </div>
+
+<div class="docs-text-block" id="section-connect-overview">
+  <h2 class="section-heading">Web Services API Features</h2>
+  <p class="text-gray">
+    The the Authipay Developer Playground provides simulators for you to test and explore the following WS operations:
+  </p>
+
+  <ul class="doc-list">
+    <li>
+      <a class="doc-link" href="./what-is-ws-api.html">
+        <b>Card Sale</b>: authorise and capture card payments in one shot.
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./what-is-ws-api.html">
+        <b>Card Pre-Auth</b>: reserve an amount on card for later capture.
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./what-is-ws-api.html">
+        <b>Card Post-Auth</b>: capture an amount that was previously reserved on a card.
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./what-is-ws-api.html">
+        <b>Force Ticket</b>: force a capture on a card.
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./what-is-ws-api.html">
+        <b>Return</b>: return an amount for a previous order.
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./what-is-ws-api.html">
+        <b>Credit</b>: refund an amount to a customer card.
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./what-is-ws-api.html">
+        <b>Void</b>: cancel a transaction that's in progress.
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./what-is-ws-api.html">
+        <b>Datavault</b>: store a card for use in future transactions.
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./what-is-ws-api.html">
+        <b>Dynamic Pricing</b>: DCC to give customers the option to pay in their home currency.
+      </a>
+    </li>
+  </ul>
 </div>

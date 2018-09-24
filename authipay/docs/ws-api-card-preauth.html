@@ -1,196 +1,181 @@
 ---
 layout: docs
+active: "ws-api-card-preauth"
+wnt: "Complete a PreAuth with a PostAuth request"
+wnh: "./ws-api-card-postAuth"
+wnlt: "Test postAuth"
 ---
 
-<div class="container-fluid white-background fill-screen-minus-footer-and-nav">
-  <div class="row">
-    {% include authipay/docs/side-menu.html active="ws-api-card-preauth" %}
+<h1 class="page-heading">Testing Card PreAuth</h1>
 
-    <div class="col-sm col-md-6 pt-4">
-      <div class="row pl-3">
-        <div class="col">
-          <h1 class="page-heading">Testing Card PreAuth</h1>
+<div class="docs-text-block">
+  <p class="text-gray">
+      The <span class="fw-400"><i>PreAuth</i></span> operation of the Web Services API is used to reserve - but not capture - an amount from a customer's credit/debit card. The reserved amount can be later captured with a separate <a class="doc-link" href="./ws-api-card-postauth.html"><span class="fw-400"><i>PostAuth</i></span></a>.
+  </p>
+  <p class="text-gray">
+    This is often used in online situations where money for a purchase is not taken from a customer card until a purchased item is shipped.
+  </p>
+  <p class="text-gray">
+    The steps below will show you how to use the <span class="fw-400"><i>PreAuth</i></span> simulator to build a transaction. Our examples here uses a simple cURL request, but the same steps apply to any coding language.
+  </p>
+  <ol class="doc-list">
+    <li>
+      <a class="doc-link" href="./ws-api-card-preauth.html#section-open-sim">
+        View the <span class="fw-400"><i>PreAuth</i></span> simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./ws-api-card-preauth.html#section-build-xml">
+        Build the XML body
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./ws-api-card-preauth.html#section-post-request">
+        Send the request to the <span class="fw-400"><i>preAuth</i></span> simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./ws-api-card-preauth.html#section-parse-response">
+        Parse the <span class="fw-400"><i>preAuth</i></span> response
+      </a>
+    </li>
+  </ol>
+</div>
 
-          <div class="docs-text-block">
-            <p class="text-gray">
-                The <span class="fw-400"><i>PreAuth</i></span> operation of the Web Services API is used to reserve - but not capture - an amount from a customer's credit/debit card. The reserved amount can be later captured with a separate <a class="doc-link" href="./ws-api-card-postauth.html"><span class="fw-400"><i>PostAuth</i></span></a>.
-            </p>
-            <p class="text-gray">
-              This is often used in online situations where money for a purchase is not taken from a customer card until a purchased item is shipped.
-            </p>
-            <p class="text-gray">
-              The steps below will show you how to use the <span class="fw-400"><i>PreAuth</i></span> simulator to build a transaction. Our examples here uses a simple cURL request, but the same steps apply to any coding language.
-            </p>
-            <ol class="doc-list">
-              <li>
-                <a class="doc-link" href="./ws-api-card-preauth.html#section-open-sim">
-                  View the <span class="fw-400"><i>PreAuth</i></span> simulator
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./ws-api-card-preauth.html#section-build-xml">
-                  Build the XML body
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./ws-api-card-preauth.html#section-post-request">
-                  Send the request to the <span class="fw-400"><i>preAuth</i></span> simulator
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./ws-api-card-preauth.html#section-parse-response">
-                  Parse the <span class="fw-400"><i>preAuth</i></span> response
-                </a>
-              </li>
-            </ol>
-          </div>
+{% include docs/components/text-block-divider.html %}
 
-          {% include docs/components/text-block-divider.html %}
+<div class="docs-text-block" id="section-open-sim">
+  <h2 class="section-heading">Step 1: Open the PreAuth simulator</h2>
+  <p class="text-gray">
+    For the purposes of making test <span class="fw-400"><i>PreAuth</i></span> transaction, you'll be using the <span class="fw-400"><i>PreAuth</i></span> simulator in the Authipay Developer Playground.
+  </p>
+  <p class="text-gray">
+    To open the simulator interface, <a class="text-info" target="_blank" href="https://authipay.testingpays.com/login">login to your Authipay Developer Playground account</a> and click "OPEN" on the "card-preAuth" bookmark on your dashboard. You'll see the following sections in your simulator:
+  </p>
+  <ul class="doc-list fw-300">
+    <li><span class="fw-400">Integrate</span>: coding instructions in various languages to help you connect your code to the simulator.</li>
+    <li><span class="fw-400">Debug</span>: use the Live Log to watch transctions being processed in real-time. Or download the file-based logs. </li>
+    <li><span class="fw-400">Test</span>: a map of real <span class="fw-400"><i>PreAuth</i></span> response codes that you can trigger with values in your test requests. Or custom your own. </li>
+    <li><span class="fw-400">Reports</span>: real-time test reports showing the frequency and coverage of your <span class="fw-400"><i>PreAuth</i></span> testing.</li>
+    <li><span class="fw-400">Settings</span>: real-world settings you can activate for your testing, including MCC 6012, DCC, latency delays, etc.</li>
+  </ul>
+</div>
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/authipay/view-preauth-sim.png" alt="Opening the card-preAuth simulator">
+</div>
 
-          <div class="docs-text-block" id="section-open-sim">
-            <h2 class="section-heading">Step 1: Open the PreAuth simulator</h2>
-            <p class="text-gray">
-              For the purposes of making test <span class="fw-400"><i>PreAuth</i></span> transaction, you'll be using the <span class="fw-400"><i>PreAuth</i></span> simulator in the Authipay Developer Playground.
-            </p>
-            <p class="text-gray">
-              To open the simulator interface, <a class="text-info" target="_blank" href="https://authipay.testingpays.com/login">login to your Authipay Developer Playground account</a> and click "OPEN" on the "card-preAuth" bookmark on your dashboard. You'll see the following sections in your simulator:
-            </p>
-            <ul class="doc-list fw-300">
-              <li><span class="fw-400">Integrate</span>: coding instructions in various languages to help you connect your code to the simulator.</li>
-              <li><span class="fw-400">Debug</span>: use the Live Log to watch transctions being processed in real-time. Or download the file-based logs. </li>
-              <li><span class="fw-400">Test</span>: a map of real <span class="fw-400"><i>PreAuth</i></span> response codes that you can trigger with values in your test requests. Or custom your own. </li>
-              <li><span class="fw-400">Reports</span>: real-time test reports showing the frequency and coverage of your <span class="fw-400"><i>PreAuth</i></span> testing.</li>
-              <li><span class="fw-400">Settings</span>: real-world settings you can activate for your testing, including MCC 6012, DCC, latency delays, etc.</li>
-            </ul>
-          </div>
-          <div class="doc-image-container">
-            <img class="doc-image" src="/img/authipay/view-preauth-sim.png" alt="Opening the card-preAuth simulator">
-          </div>
+{% include docs/components/text-block-divider.html %}
 
-          {% include docs/components/text-block-divider.html %}
+<div class="docs-text-block" id="section-build-xml">
+  <h2 class="section-heading">Step 2: Build the XML body</h2>
+  <p class="text-gray">
+    In a nutshell: your code must first assemble a XML document with the fields for a <span class="fw-400"><i>preAuth</i></span> transaction, then wrap the XML into the body of a SOAP request.
+  </p>
 
-          <div class="docs-text-block" id="section-build-xml">
-            <h2 class="section-heading">Step 2: Build the XML body</h2>
-            <p class="text-gray">
-              In a nutshell: your code must first assemble a XML document with the fields for a <span class="fw-400"><i>preAuth</i></span> transaction, then wrap the XML into the body of a SOAP request.
-            </p>
+  <p class="text-gray">
+      The XML body of the <span class="fw-400"><i>preAuth</i></span> transaction has 2 main parts: (1) the <span class="fw-200">CreditCardData</span> block and (2) <span class="fw-200">Payment</span> block.
+  </p>
 
-            <p class="text-gray">
-                The XML body of the <span class="fw-400"><i>preAuth</i></span> transaction has 2 main parts: (1) the <span class="fw-200">CreditCardData</span> block and (2) <span class="fw-200">Payment</span> block.
-            </p>
+  <ol class="doc-list fw-300">
+    <li>
+        The <span class="fw-200">CreditCardData</span> block holds all the credit/debit card values that your customer has filled in on your checkout form. Typically this includes: the card number (PAN), expiry month, expiry year and card code value (a.k.a. CVV)
+    </li>
+    <li>
+        The <span class="fw-200">Payment</span> block describes the amount to be reserved on the card ("<span class="fw-200">ChargeTotal</span>") and the currency (currency codes follow the <a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO-4217</a>).
+    </li>
+  </ol>
 
-            <ol class="doc-list fw-300">
-              <li>
-                  The <span class="fw-200">CreditCardData</span> block holds all the credit/debit card values that your customer has filled in on your checkout form. Typically this includes: the card number (PAN), expiry month, expiry year and card code value (a.k.a. CVV)
-              </li>
-              <li>
-                  The <span class="fw-200">Payment</span> block describes the amount to be reserved on the card ("<span class="fw-200">ChargeTotal</span>") and the currency (currency codes follow the <a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO-4217</a>).
-              </li>
-            </ol>
+  <blockquote class="doc-note mt-2">
+    <p class="text-gray">
+      Remember: your can trigger different responses from the simulator by the values you use in the requests. By default, the simulator will use <span class="fw-200">ChargeTotal</span> value as the trigger value. But you can also configure the simulator to use the card CVV value or cardholder name - go the Settings tab of the <span class="fw-400"><i>preAuth</i></span> simulator.
+    </p>
+  </blockquote>
 
-            <blockquote class="doc-note mt-2">
-              <p class="text-gray">
-                Remember: your can trigger different responses from the simulator by the values you use in the requests. By default, the simulator will use <span class="fw-200">ChargeTotal</span> value as the trigger value. But you can also configure the simulator to use the card CVV value or cardholder name - go the Settings tab of the <span class="fw-400"><i>preAuth</i></span> simulator.
-              </p>
-            </blockquote>
+  <p class="text-gray">
+    Below is an example SOAP request containing the minimum XML fields needed for a <span class="fw-400"><i>preAuth</i></span> transaction.
+  </p>
 
-            <p class="text-gray">
-              Below is an example SOAP request containing the minimum XML fields needed for a <span class="fw-400"><i>preAuth</i></span> transaction.
-            </p>
+  {% capture code_block %}{% include authipay/code/card-preauth-xml-body.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block %}
 
-            {% capture code_block %}{% include authipay/code/card-preauth-xml-body.html %}{% endcapture %}
-            {% include docs/components/code-block.html content=code_block %}
+  <p class="text-gray">
+   For the purposes of making a manual cURL transaction, paste the above example into a text editor and save it locally as an XML file, say, "example.xml".
+  </p>
 
-            <p class="text-gray">
-             For the purposes of making a manual cURL transaction, paste the above example into a text editor and save it locally as an XML file, say, "example.xml".
-            </p>
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2"></i> Our Tip: include all xmlns
+    </h5>
+    <p class="docs-card-text text-light">
+      Make sure you include all xmlns attributes (aka XML namespaces) mentioned in this guide. Without these the XML may not be parsed correctly on the server end.
+    </p>
+  </div>
+</div>
+</div>
 
-          <div class="docs-card info raise dark-background mb-45">
-            <div class="docs-card-body">
-              <h5 class="docs-card-title text-info mb-3">
-                <i class="fas fa-info-circle mr-2"></i> Our Tip: include all xmlns
-              </h5>
-              <p class="docs-card-text text-light">
-                Make sure you include all xmlns attributes (aka XML namespaces) mentioned in this guide. Without these the XML may not be parsed correctly on the server end.
-              </p>
-            </div>
-          </div>
-          </div>
+{% include docs/components/text-block-divider.html %}
 
-          {% include docs/components/text-block-divider.html %}
+<div class="docs-text-block" id="section-post-request">
+  <h2 class="section-heading">Step 3: Send the request to the <b class="fw-400"><i>preAuth</i></b> simulator</h2>
+  <p class="text-gray">
+    Next, your code needs to send the assembled SOAP request to the <span class="fw-400"><i>preAuth</i></span> simulator. The URL to POST to can be found under the "Integration" tab of the simulator - make sure to copy&amp;paste this URL from your simulator as it contains your unique API_KEY.
+  </p>
+  <p class="text-gray">
+    The example show below shows how to make a <b class="fw-400"><i>preAuth</i></b> transaction using cURL. The "example.xml" contains the constructed SOAP request.
+  </p>
 
-          <div class="docs-text-block" id="section-post-request">
-            <h2 class="section-heading">Step 3: Send the request to the <b class="fw-400"><i>preAuth</i></b> simulator</h2>
-            <p class="text-gray">
-              Next, your code needs to send the assembled SOAP request to the <span class="fw-400"><i>preAuth</i></span> simulator. The URL to POST to can be found under the "Integration" tab of the simulator - make sure to copy&amp;paste this URL from your simulator as it contains your unique API_KEY.
-            </p>
-            <p class="text-gray">
-              The example show below shows how to make a <b class="fw-400"><i>preAuth</i></b> transaction using cURL. The "example.xml" contains the constructed SOAP request.
-            </p>
+  {% capture code_block %}{% include authipay/code/card-preauth-curl.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block language="bash" %}
 
-            {% capture code_block %}{% include authipay/code/card-preauth-curl.html %}{% endcapture %}
-            {% include docs/components/code-block.html content=code_block language="bash" %}
+  <blockquote class="doc-note mt-2">
+    <p class="text-gray">
+      API_KEY is placeholder for your actual API key that you will find on your simulator pages in the Developer Playground.
+    </p>
+  </blockquote>
+</div>
 
-            <blockquote class="doc-note mt-2">
-              <p class="text-gray">
-                API_KEY is placeholder for your actual API key that you will find on your simulator pages in the Developer Playground.
-              </p>
-            </blockquote>
-          </div>
+{% include docs/components/text-block-divider.html %}
 
-          {% include docs/components/text-block-divider.html %}
+<div class="docs-text-block" id="section-parse-response">
+  <h2 class="section-heading">Step 4: Parse the <b class="fw-400"><i>preAuth</i></b> response</h2>
+  <p class="text-gray">
+    The simulator will first validate your request. If it detects any issues, you'll see a verbose response indicating what is wrong with the request.
+  </p>
+  <p class="text-gray">
+    If the simulator detects no issues, then it will simulate a <span class="fw-400"><i>preAuth</i></span> response. This is an XML document that contains information about the transaction: the result from the gateway, the bank authorisation result, DCC information, etc.
+  </p>
+  <p class="text-gray">
+    The example show below shows the response to a <span class="fw-400"><i>preAuth</i></span> transaction sent manually by cURL command to the simulator.
+  </p>
 
-          <div class="docs-text-block" id="section-parse-response">
-            <h2 class="section-heading">Step 4: Parse the <b class="fw-400"><i>preAuth</i></b> response</h2>
-            <p class="text-gray">
-              The simulator will first validate your request. If it detects any issues, you'll see a verbose response indicating what is wrong with the request.
-            </p>
-            <p class="text-gray">
-              If the simulator detects no issues, then it will simulate a <span class="fw-400"><i>preAuth</i></span> response. This is an XML document that contains information about the transaction: the result from the gateway, the bank authorisation result, DCC information, etc.
-            </p>
-            <p class="text-gray">
-              The example show below shows the response to a <span class="fw-400"><i>preAuth</i></span> transaction sent manually by cURL command to the simulator.
-            </p>
+  {% capture code_block %}{% include authipay/code/card-preauth-curl-response.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block language="xml" %}
+</div>
 
-            {% capture code_block %}{% include authipay/code/card-preauth-curl-response.html %}{% endcapture %}
-            {% include docs/components/code-block.html content=code_block language="xml" %}
-          </div>
+<div class="docs-text-block" id="section-parse-response">
+  <p class="text-gray">
+    The <span class="fw-200">ApprovalCode</span> parameter tells you the result of the transaction.
+  </p>
 
-          <div class="docs-text-block" id="section-parse-response">
-            <p class="text-gray">
-              The <span class="fw-200">ApprovalCode</span> parameter tells you the result of the transaction.
-            </p>
+  <ul class="doc-list fw-300">
+    <li>If it starts with ‘Y’, then the transaction was approved. </li>
+    <li>If it starts with ‘N’ followed by a colon ‘:’ and a negative number, that means the transaction failed and the negative number is the response code. </li>
+  </ul>
 
-            <ul class="doc-list fw-300">
-              <li>If it starts with ‘Y’, then the transaction was approved. </li>
-              <li>If it starts with ‘N’ followed by a colon ‘:’ and a negative number, that means the transaction failed and the negative number is the response code. </li>
-            </ul>
+  <blockquote class="doc-note mt-2">
+    <p class="text-gray">Remember: you can trigger any <span class="fw-200">ApprovalCode</span> you'd like  from the simulator by the values you use in your request. By default, the simulator will use the <span class="fw-200">ChargeTotal</span> value as the trigger value. But you can also configure the simulator to use the card CVV value or cardholder name - go the Settings tab of the <span class="fw-400"><i>preAuth</i></span> simulator.
+    </p>
+  </blockquote>
+</div>
 
-            <blockquote class="doc-note mt-2">
-              <p class="text-gray">Remember: you can trigger any <span class="fw-200">ApprovalCode</span> you'd like  from the simulator by the values you use in your request. By default, the simulator will use the <span class="fw-200">ChargeTotal</span> value as the trigger value. But you can also configure the simulator to use the card CVV value or cardholder name - go the Settings tab of the <span class="fw-400"><i>preAuth</i></span> simulator.
-              </p>
-            </blockquote>
-          </div>
-
-          <div class="docs-card info raise dark-background mb-45">
-            <div class="docs-card-body">
-              <h5 class="docs-card-title text-info mb-3">
-                <i class="fas fa-info-circle mr-2"></i>Our Tip: remember the <span class="fw-200">OrderId</span>
-              </h5>
-              <p class="docs-card-text text-light">
-                Each transaction will get its own <span class="fw-200">OrderId</span>. Your code should store this in persistent storeage. It's an important reference if any future dispute or  chargeback arises. You could also store the <span class="fw-200">IpgTransactionId</span> as well; this will help you in any support requests to Authipay.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {% include docs/components/whats-next.html
-        text="Complete a PreAuth with a PostAuth request"
-        link_href="./ws-api-card-postAuth"
-        link_text="Test postAuth"
-        %}
-    </div>
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2"></i>Our Tip: remember the <span class="fw-200">OrderId</span>
+    </h5>
+    <p class="docs-card-text text-light">
+      Each transaction will get its own <span class="fw-200">OrderId</span>. Your code should store this in persistent storeage. It's an important reference if any future dispute or  chargeback arises. You could also store the <span class="fw-200">IpgTransactionId</span> as well; this will help you in any support requests to Authipay.
+    </p>
   </div>
 </div>

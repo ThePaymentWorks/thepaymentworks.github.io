@@ -1,101 +1,87 @@
 ---
 layout: docs
+active: "connect-mcc-6012"
+wnt: "Learn how to test your systems with Dynamic Currency Conversion enabled."
+wnh: "./connect-dcc"
+wnlt: "Connect With DCC Enabled"
 ---
 
-<div class="container-fluid white-background fill-screen-minus-footer-and-nav">
-  <div class="row">
-    {% include authipay/docs/side-menu.html active="connect-mcc-6012" %}
+<h1 class="page-heading">Testing MCC 6012</h1>
 
-    <div class="col-sm col-md-6 pt-4">
-      <div class="row pl-3">
-        <div class="col">
-          <h1 class="page-heading">Testing MCC 6012</h1>
+<div class="docs-text-block">
+  <p class="text-gray">
+    Merchant Category Code 6012 is for online payments from Financial Institutions. It's got a history of fraud, especially in the UK. So payments from companies in this category must include additional fields for fraud purposes.
+  </p>
+  <p class="text-gray">
+     If your payments fall into this category, then you can use the Connect simulator to test these extra field and to get your requests to meet the minimum requirements for go-live.
+  </p>
+  <p class="text-gray">
+    Get going with MCC 6012 in the Playground:
+  </p>
 
-          <div class="docs-text-block">
-            <p class="text-gray">
-              Merchant Category Code 6012 is for online payments from Financial Institutions. It's got a history of fraud, especially in the UK. So payments from companies in this category must include additional fields for fraud purposes.
-            </p>
-            <p class="text-gray">
-               If your payments fall into this category, then you can use the Connect simulator to test these extra field and to get your requests to meet the minimum requirements for go-live.
-            </p>
-            <p class="text-gray">
-              Get going with MCC 6012 in the Playground:
-            </p>
+  <ol class="doc-list">
+    <li>
+      <a class="doc-link" href="./connect-mcc-6012#section-include-extra-params">
+        Include the extra 6012 parameters
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./connect-mcc-6012#section-switch-on-6012">
+        Switch on MCC 6012 in the simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./connect-mcc-6012#section-start-debugging">
+        Debug your MCC 6012 requests
+      </a>
+    </li>
+  </ol>
+</div>
 
-            <ol class="doc-list">
-              <li>
-                <a class="doc-link" href="./connect-mcc-6012#section-include-extra-params">
-                  Include the extra 6012 parameters
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./connect-mcc-6012#section-switch-on-6012">
-                  Switch on MCC 6012 in the simulator
-                </a>
-              </li>
-              <li>
-                <a class="doc-link" href="./connect-mcc-6012#section-start-debugging">
-                  Debug your MCC 6012 requests
-                </a>
-              </li>
-            </ol>
-          </div>
+{% include docs/components/text-block-divider.html %}
 
-          {% include docs/components/text-block-divider.html %}
+<div class="docs-text-block" id="section-include-extra-params">
+  <h2 class="section-heading">1. Include the extra 6012 parameters</h2>
+  <p class="text-gray">
+    First, code your initial Connect requests to include the following additional parameters:
+  </p>
+  <ul>
+    <li>mcc6012BirthDay</li>
+    <li>mcc6012AccountFirst6</li>
+    <li>mcc6012AccountLast4</li>
+    <li>mcc6012Zip</li>
+    <li>mcc6012Surname</li>
+  </ul>
+</div>
 
-          <div class="docs-text-block" id="section-include-extra-params">
-            <h2 class="section-heading">1. Include the extra 6012 parameters</h2>
-            <p class="text-gray">
-              First, code your initial Connect requests to include the following additional parameters:
-            </p>
-            <ul>
-              <li>mcc6012BirthDay</li>
-              <li>mcc6012AccountFirst6</li>
-              <li>mcc6012AccountLast4</li>
-              <li>mcc6012Zip</li>
-              <li>mcc6012Surname</li>
-            </ul>
-          </div>
+{% include docs/components/text-block-divider.html %}
 
-          {% include docs/components/text-block-divider.html %}
+<div class="docs-text-block" id="section-switch-on-6012">
+  <h2 class="section-heading">2. Switch on MCC 6012 in the simulator</h2>
+  <p class="text-gray">
+    Your requests need to include the following additional parameters in the initial Connect request:
+  </p>
+  <ol>
+    <li>Log into your Developer Playground account.</li>
+    <li>Open the Authipay Connect simulator.</li>
+    <li>Go to the "Settings" tab of the simulator.</li>
+    <li>Check the setting for MCC 6012.</li>
+    <li>Save the change.</li>
+  </ol>
+</div>
 
-          <div class="docs-text-block" id="section-switch-on-6012">
-            <h2 class="section-heading">2. Switch on MCC 6012 in the simulator</h2>
-            <p class="text-gray">
-              Your requests need to include the following additional parameters in the initial Connect request:
-            </p>
-            <ol>
-              <li>Log into your Developer Playground account.</li>
-              <li>Open the Authipay Connect simulator.</li>
-              <li>Go to the "Settings" tab of the simulator.</li>
-              <li>Check the setting for MCC 6012.</li>
-              <li>Save the change.</li>
-            </ol>
-          </div>
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/authipay/Connect_MCC6012_settings_anno.png" alt="Switching on MCC 6012 Settings">
+</div>
 
-          <div class="doc-image-container">
-            <img class="doc-image" src="/img/authipay/Connect_MCC6012_settings_anno.png" alt="Switching on MCC 6012 Settings">
-          </div>
+{% include docs/components/text-block-divider.html %}
 
-          {% include docs/components/text-block-divider.html %}
-
-          <div class="docs-text-block" id="section-start-debugging">
-            <h2 class="section-heading">3. Debug your MCC 6012 requests</h2>
-            <p class="text-gray">
-              Finally, start firing Connect requests from your local dev environment to the Connect simulator. All requests will be treated as a MCC 6012 transaction. If you fail to send in the required MCC fields, you will see a validation error from the Simulator with information about the missing details.
-            </p>
-            <div class="doc-image-container">
-              <img class="doc-image" src="/img/authipay/Connect_debug_6012-validations.png" alt="Validation for 6012 parameters">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {% include docs/components/whats-next.html
-        text="Learn how to test your systems with Dynamic Currency Conversion enabled."
-        link_href="./connect-dcc"
-        link_text="Connect With DCC Enabled"
-      %}
-    </div>
+<div class="docs-text-block" id="section-start-debugging">
+  <h2 class="section-heading">3. Debug your MCC 6012 requests</h2>
+  <p class="text-gray">
+    Finally, start firing Connect requests from your local dev environment to the Connect simulator. All requests will be treated as a MCC 6012 transaction. If you fail to send in the required MCC fields, you will see a validation error from the Simulator with information about the missing details.
+  </p>
+  <div class="doc-image-container">
+    <img class="doc-image" src="/img/authipay/Connect_debug_6012-validations.png" alt="Validation for 6012 parameters">
   </div>
 </div>
