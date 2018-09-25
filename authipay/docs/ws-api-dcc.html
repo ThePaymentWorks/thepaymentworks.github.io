@@ -1,0 +1,194 @@
+---
+layout: docs
+active: "ws-api-dcc"
+wnt: "Storing card details with our datavault"
+wnh: "./ws-api-datavault"
+wnlt: "Store Card Details With Datavault"
+---
+
+<h1 class="page-heading">Testing Dynamic Currency Conversion</h1>
+
+<div class="docs-text-block">
+  <p>
+    <span class="fw-400">Dynamic Currency Conversion</span> refers to a process whereby the amount of a transaction (Visa or MasterCard) is converted by a merchant to the currency of the payment card's country of issue at the point of dcc. For example a user purchasing a product valued in <code>USD</code> and paying with a card issued in Ireland (<code>EUR</code>) will have the value of <code>USD</code> converted into the equivalent value of <code>EUR</code> when the transaction is created. This will then represent the actual amount that will be billed to the payee's card.
+  </p>
+
+  <blockquote class="doc-note mt-2">
+    <p>
+      Note the conversion rate is <b><i>set</i></b> when the transaction is initally created. Any fluctuations in the value of a currency between creation and settlement (such as PreAuth &amp; PostAuth) <b><i>will not</i></b> be recouped at settlement.
+    </p>
+  </blockquote>
+</div>
+
+<div class="docs-text-block">
+  <p>
+    The steps below will show you how to use the DCC simulator to build a transaction. Our examples here uses a simple cURL request, but the same steps apply to any coding language.
+  </p>
+
+  <ol class="doc-list">
+    <li>
+      <a class="doc-link" href="./ws-api-card-dcc.html#section-build-xml">
+        Open the <span class="fw-400"><i>DCC</i></span> simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./ws-api-card-dcc.html#section-build-xml">
+        Build the XML body
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./ws-api-card-dcc.html#section-post-request">
+        Send the request to the <span class="fw-400"><i>DCC</i></span> simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./ws-api-card-dcc.html#section-parse-response">
+        Parse the <span class="fw-400"><i>DCC</i></span> response
+      </a>
+    </li>
+  </ol>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-open-sim">
+  <h2 class="section-heading">Step 1: Open the DCC simulator</h2>
+  <p class="text-gray">
+    For the purposes of making test <span class="fw-400"><i>DCC</i></span> transaction, you'll be using the <span class="fw-400"><i>DCC</i></span> simulator in the Authipay Developer Playground.
+  </p>
+  <p class="text-gray">
+    To open the simulator interface, <a class="text-info" target="_blank" href="https://authipay.testingpays.com/login">login to your Authipay Developer Playground account</a> and click "OPEN" on the "card-dcc" bookmark on your dashboard. You'll see the following sections in your simulator:
+  </p>
+  <ul class="doc-list fw-300">
+    <li><span class="fw-400">Integrate</span>: coding instructions in various languages to help you connect your code to the simulator.</li>
+    <li><span class="fw-400">Debug</span>: use the Live Log to watch transctions being processed in real-time. Or download the file-based logs. </li>
+    <li><span class="fw-400">Test</span>: a map of real DCC response codes that you can trigger with values in your test requests. Or custom your own. </li>
+    <li><span class="fw-400">Reports</span>: real-time test reports showing the frequency and coverage of your DCC testing.</li>
+    <li><span class="fw-400">Settings</span>: real-world settings you can activate for your testing, including latency delays, etc.</li>
+  </ul>
+</div>
+
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/authipay/view-dcc-sim.png" alt="Opening the card-dcc simulator">
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-build-xml">
+  <h2 class="section-heading">Step 2: Build the XML body</h2>
+
+  <p>
+    In a nutshell: your code must first assemble a XML document with the fields for a <span class="fw-400"><i>DCC</i></span> transaction, then wrap the XML into the body of a SOAP request.
+  </p>
+
+  <p>
+    The XML body of the <span class="fw-400"><i>DCC</i></span> transaction requires you pass along three parameters within the <span class="fw-200">RequestCardRateForDCC</span> block.
+  </p>
+
+  <ul class="doc-list fw-300">
+    <li>
+      <span class="fw-200">StoreId</span>, your Store ID from Authipay. Authipay uses this to derive the base currency for your account. We will accept any string within 1 - 20 characters long.
+    </li>
+    <li>
+      <span class="fw-200">BIN</span>, the credit cards’ Bank Identifier Number (first 6 digits of credit card number).
+    </li>
+    <li>
+      <span class="fw-200">BaseAmount</span>, the amount to be converted (optional). When no amount is given in the request, no amount will be returned, only the conversion rate.
+    </li>
+  </ul>
+<div>
+
+<blockquote class="doc-note mt-2">
+  <p class="text-gray">
+    You can trigger different response from the simulator by changing the values you use in the requests. By default, the simulator will use <span class="fw-200">BaseAmount</span> value as the trigger value.
+  </p>
+</blockquote>
+
+<div class="docs-text-block">
+  <p>
+    Below is an example SOAP request containing the minimum XML fields needed for a <span class="fw-400"><i>DCC</i></span> transaction.
+  </p>
+</div>
+
+{% capture code_block %}{% include authipay/code/card-dcc-xml-body.html %}{% endcapture %}
+{% include docs/components/code-block.html content=code_block %}
+
+<div class="docs-text-block">
+  <p>
+    For the purposes of making a manual cURL transaction, paste the above example into a text editor and save it locally as an XML file, say, "example.xml".
+  </p>
+</div>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2"></i> Our Tip: include all xmlns
+    </h5>
+    <p class="docs-card-text text-light">
+      Make sure you include all xmlns attributes (aka XML namespaces) mentioned in this guide. Without these the XML may not be parsed correctly on the server end.
+    </p>
+  </div>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-post-request">
+  <h2 class="section-heading">Step 3: Send the request to the <b class="fw-400"><i>DCC</i></b> simulator</h2>
+  <p class="text-gray">
+    Next, your code needs to send the assembled SOAP request to the <span class="fw-400"><i>DCC</i></span> simulator. The URL to POST to can be found under the "Integration" tab of the simulator - make sure to copy&amp;paste this URL from your simulator as it contains your unique API_KEY.
+  </p>
+  <p class="text-gray">
+    The example show below shows how to make a <b class="fw-400"><i>DCC</i></b> transaction using cURL. The "example.xml" contains the constructed SOAP request.
+  </p>
+
+  {% capture code_block %}{% include authipay/code/card-dcc-curl.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block language="bash" %}
+
+  <blockquote class="doc-note mt-2">
+    <p class="text-gray">
+      api_key is placeholder for your actual api key that you will find on your simulator pages in the developer playground.
+    </p>
+  </blockquote>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+
+<div class="docs-text-block" id="section-parse-response">
+  <h2 class="section-heading">Step 4: Parse the <b class="fw-400"><i>DCC</i></b> response</h2>
+  <p class="text-gray">
+    The simulator will first validate your request. If it detects any issues, you'll see a verbose response indicating what is wrong with the request.
+  </p>
+  <p class="text-gray">
+    If the simulator detects no issues, then it will simulate a <span class="fw-400"><i>DCC</i></span> response. This is an XML document that contains information about the transaction: the result from the gateway, the bank authorisation result, DCC information, etc.
+  </p>
+  <p class="text-gray">
+    The example show below shows the response to a <span class="fw-400"><i>DCC</i></span> transaction sent manually by cURL command to the simulator.
+  </p>
+
+  {% capture code_block %}{% include authipay/code/card-dcc-curl-response.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block language="xml" %}
+</div>
+
+<div class="docs-text-block" id="section-parse-response">
+  <p class="text-gray">
+    The important parameter to look for in the response is <span class="fw-200">DccOffered</span>. This parameter will be either <code>true</code> or <code>false</code>. If offered you can then submit the returned <span class="fw-200">InquiryRateId</span> with <span class="fw-200">Sale</span>, <span class="fw-200">PreAuth</span> and <span class="fw-200">ForeceTicket</span> transactions. Doing so will apply the Conversion Rate recieved to the transaction.
+  </p>
+</div>
+
+<blockquote class="doc-note mt-2 mb-5">
+  <p class="text-gray">
+    You can trigger different response from the simulator by changing the values you use in the requests. By default, the simulator will use <span class="fw-200">BaseAmount</span> value as the trigger value.
+  </p>
+</blockquote>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2"></i>Our Tip: remember the <span class="fw-200">OrderId</span>
+    </h5>
+    <p class="docs-card-text text-light">
+      Each transaction will get its own <span class="fw-200">OrderId</span>. Your code should store this in persistent storage. It's an important reference when a dispute or chargeback arises. We also recommend storing the <span class="fw-200">IpgTransactionId</span>; you'll use it in support requests to AIBMS.
+    </p>
+  </div>
+</div>
