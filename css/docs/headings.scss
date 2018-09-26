@@ -19,3 +19,6 @@
   font-family: 'Roboto Condensed', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+.sub-section-heading {
+  @extend .section-heading-dark;
+}
