@@ -1,0 +1,285 @@
+---
+layout: docs
+active: "ws-api-dcc"
+
+wnt: "You've gone through the guides, it's time to start working against the Simulators for real!"
+wnh: "https://admin.testingpays.com/login"
+wnlt: "Start Testing!"
+---
+
+<h1 class="page-heading">Integrating with the DataVault</h1>
+
+<div class="docs-text-block">
+  <p>
+    The <span class="fw-400">DataVault</span> is different from our other simulators. Instead of allowing you to test different responses the DataVault acts <span class="fw-400"><i>as in production</i></span>. This means that the requests/responses will mimic the production environment.
+  </p>
+
+  <blockquote class="doc-note mt-2">
+    <p>
+      Note that validations will still work the same as for all other simulators.
+    </p>
+  </blockquote>
+
+  <p>
+    Below we will cover the important points of the DataVault, what it's for, how it works and how to use it both in production and against our simulators.
+  </p>
+
+  <ul class="doc-list">
+    <li><a class="doc-link" href="./ws-api-datavault.html#what-is-the-datavault">What is the DataVault?</a></li>
+    <li><a class="doc-link" href="./ws-api-datavault.html#section-open-sim">Open the DataVault simulator</a></li>
+    <li><a class="doc-link" href="./ws-api-datavault.html#section-build-xml">Build the XML body</a></li>
+    <li><a class="doc-link" href="./ws-api-datavault.html#section-post-request">Send the request to the DataVault simulator</a></li>
+    <li><a class="doc-link" href="./ws-api-datavault.html#section-parse-response">Parse the DataVault response</a></li>
+    <li><a class="doc-link" href="./ws-api-datavault.html#handling-errors">Handling Errors</a></li>
+  </ul>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<h2 class="section-heading" id="what-is-the-datavault">What is the DataVault?</h2>
+
+<div class="docs-text-block">
+  <p>
+    In some cases you may want to save your users card details but you don't want to store sensitive data about the card itself (such as CVV). Using the <span class="fw-400">DataVault</span> allows you to save the details within Authipays system under a token name (<code>HostedDataId</code>) that you submit. This token can then be submitted instead of card details when making a transaction.
+  </p>
+
+  <p>
+    Our DataVault mimics this behaviour by storing card details you send in through the <span class="fw-400">Sale</span>, <span class="fw-400">PreAuth</span> and <span class="fw-400">ForceTicket</span> simulators as long as a <code>HostedDataId</code> is provided. You can then use that <code>HostedDataId</code> to display, update or delete the users card details through the DataVault simulator.
+  </p>
+
+  <blockquote class="doc-note mt-2">
+    <p>
+      Note if you provide a <code>HostedDataId</code> that already exists then the details of that card will be updated.
+    </p>
+  </blockquote>
+
+  <p>
+    Now that you understand the basics of how the datavault works and why it exists we can dive into integrating with the simulator.
+  </p>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<h2 class="section-heading" id="section-open-sim">Step 1: Open the DataVault simulator</h2>
+
+<div class="docs-text-block">
+  <p>
+    For the purposes of making test <span class="fw-400"><i>DataVault</i></span> transaction, you'll be using the <span class="fw-400"><i>DataVault</i></span> simulator in the Authipay Developer Playground.
+  </p>
+
+  <p>
+    To open the simulator interface, <a class="text-info" target="_blank" href="https://authipay.testingpays.com/login">login to your Authipay Developer Playground account</a> and click "OPEN" on the "card-sale" bookmark on your dashboard. You'll see the following sections in your simulator:
+  </p>
+
+  <ul class="doc-list fw-300">
+    <li><span class="fw-400">Integrate</span>: coding instructions in various languages to help you connect your code to the simulator.</li>
+    <li><span class="fw-400">Debug</span>: use the Live Log to watch transctions being processed in real-time. Or download the file-based logs.</li>
+    <li><span class="fw-400">Test</span>: This is where you would normally see a list of responses, in the DataVaults case you must trigger the responses as you would in production.</li>
+    <li><span class="fw-400">Reports</span>: real-time test reports showing the frequency and coverage of your DataVault testing.</li>
+    <li><span class="fw-400">Settings</span>: real-world settings you can activate for your testing.</li>
+  </ul>
+</div>
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/authipay/view-datavault-sim.png" alt="Opening the datavault simulator">
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<h2 class="section-heading" id="section-build-xml">Step 2: Build the XML body</h2>
+
+<div class="docs-text-block">
+  <p>
+    Before we assemble the XML document for our request we should first go over what actions we can use with the DataVaule. Unlike other sims the DataVault has 3 different types of requests you can make against the sim.
+  </p>
+
+  <ol class="doc-list">
+    <li><a class="doc-link" href="./ws-api-datavault.html#store-card-details">Store Card Details</a></li>
+    <li><a class="doc-link" href="./ws-api-datavault.html#display-card-details">Display Card Details</a></li>
+    <li><a class="doc-link" href="./ws-api-datavault.html#delete-card-details">Delete Card Details</a></li>
+  </ol>
+</div>
+
+<h3 class="sub-section-heading" id="store-card-details">Store Card Details</h3>
+
+<div class="docs-text-block">
+  <p>
+    In cases where the user is saving card details but may not be making a purchase (i.e. no <span class="fw-400">Sale</span>, <span class="fw-400">PreAuth</span> or <span class="fw-400">ForceTicket</span> transactions) we can store card details directly into the DataVault. This allows us to store the card details for now and use the token at some point to make a transaction.
+  </p>
+
+  <blockquote class="doc-note mt-2">
+    <p>
+      This would also be useful when the user is adding extra cards to their account.
+    </p>
+  </blockquote>
+
+  <p>
+    In order to store details we need to provide the following params:
+  </p>
+
+  <ul class="doc-list fw-300">
+    <li><span class="fw-400">CardNumber</span> (card number)</li>
+    <li><span class="fw-400">ExpMonth</span> (expiry month)</li>
+    <li><span class="fw-400">ExpYear</span> (expiry year)</li>
+    <li><span class="fw-400">HostedDataID</span>, the token name you want to give this card</li>
+  </ul>
+
+  <blockquote class="doc-note mb-4">
+    <p>
+      Note if you provide a <code>HostedDataId</code> that already exists then the details of that card will be updated.
+    </p>
+  </blockquote>
+</div>
+
+{% capture code_block %}{% include authipay/code/datavault-store-card-xml.html %}{% endcapture %}
+{% include docs/components/code-block.html content=code_block %}
+
+<h3 class="sub-section-heading mt-5" id="display-card-details">Display Card Details</h3>
+
+<div class="docs-text-block">
+  <p>
+    Now that we know how to store and update a cards details we can make a request to retrieve them. In order to store details we need to provide the following params:
+  </p>
+
+  <ul class="doc-list fw-300">
+    <li><span class="fw-400">HostedDataID</span>, the token name you gave to this cards details</li>
+  </ul>
+
+  <blockquote class="doc-note mb-4">
+    <p>
+      Note the card number will be the first six digits and the last four in the format <tt>"XXXXXX...XXXX"</tt>
+    </p>
+  </blockquote>
+</div>
+
+{% capture code_block %}{% include authipay/code/datavault-display-card-xml.html %}{% endcapture %}
+{% include docs/components/code-block.html content=code_block %}
+
+<h3 class="sub-section-heading mt-5" id="display-card-details">Delete Card Details</h3>
+
+<div class="docs-text-block">
+  <p>
+    Deleting a cards details is much the same as asking for the details. In order to store details we need to provide the following params:
+  </p>
+
+  <ul class="doc-list fw-300">
+    <li><span class="fw-400">HostedDataID</span>, the token name you gave to this cards details</li>
+  </ul>
+
+  <blockquote class="doc-note mb-4">
+    <p>
+      Note the card number will be the first six digits and the last four in the format <tt>"XXXXXX...XXXX"</tt>
+    </p>
+  </blockquote>
+</div>
+
+{% capture code_block %}{% include authipay/code/datavault-delete-card-xml.html %}{% endcapture %}
+{% include docs/components/code-block.html content=code_block %}
+
+<h3 class="sub-section-heading mt-5" id="display-card-details">Combining Requests</h3>
+
+<div class="docs-text-block">
+  <p>
+    Unlike our other Simulators the DataVault allows you to make multiple requests at the same time. To do this we simply add more <code>DataStorageItem</code> elements to the xml document we built. Below is an example request that will do the following:
+  </p>
+
+  <ul class="doc-list fw-300">
+    <li><span class="fw-400">Store</span> card details</li>
+    <li><span class="fw-400">Display</span> the card details we just submitted</li>
+    <li><span class="fw-400">Delete</span> the card details we stored</li>
+  </ul>
+
+  <blockquote class="doc-note">
+    <p>
+      Note you will probably not use Delete in combination with the other actions often but you can use multiples of any action this way as well
+    </p>
+  </blockquote>
+
+  <blockquote class="doc-note mt-2 mb-4">
+    <p>
+      Order does matter when making multiple requests in this manner. We will start from the top of the document and process them in descending order
+    </p>
+  </blockquote>
+</div>
+
+{% capture code_block %}{% include authipay/code/datavault-multiple-actions-xml.html %}{% endcapture %}
+{% include docs/components/code-block.html content=code_block %}
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2"></i> Our Tip: include all xmlns
+    </h5>
+    <p class="docs-card-text text-light">
+      Make sure you include all xmlns attributes (aka XML namespaces) mentioned in this guide. Without these the XML may not be parsed correctly on the server end.
+    </p>
+  </div>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<h2 class="section-heading" id="section-post-request">Step 3: Send the request to the Datavault simulator</h2>
+
+<div class="docs-text-block">
+  <p>
+    Next, your code needs to send the assembled SOAP request to the <span class="fw-400"><i>Sale</i></span> simulator. The URL to POST to can be found under the "Integration" tab of the simulator - make sure to copy&amp;paste this URL from your simulator as it contains your unique API_KEY.
+  </p>
+
+  <p>
+    The example show below shows how to make a <b class="fw-400"><i>Sale</i></b> transaction using cURL. The "example.xml" contains the constructed SOAP request.
+  </p>
+
+  <blockquote class="doc-note mt-2">
+    <p>
+      API_KEY is placeholder for your actual API key that you will find on your simulator pages in the Developer Playground.
+    </p>
+  </blockquote>
+</div>
+
+{% capture code_block %}{% include authipay/code/datavault-curl.html %}{% endcapture %}
+{% include docs/components/code-block.html content=code_block language="bash" %}
+
+{% include docs/components/text-block-divider.html %}
+
+<h2 class="section-heading" id="section-parse-response">Step 4: Parse the DataVault response</h2>
+
+<div class="docs-text-block">
+  <p>
+    The simulator will first validate your request. If it detects any issues, you'll see a verbose response indicating what is wrong with the request.
+  </p>
+
+  <p>
+    If the simulator detects no issues, then it will simulate a <span class="fw-400"><i>DataVault</i></span> response. This xml document is quite different from the other responses you have seen so far in it's structure and the elements used.
+  </p>
+
+  <p>
+    For completeness we will use the multiple action xml document above for this example as it will show all the responses you will recieve. The important parameter to look for is the <code>&lt;ipgapi:successfully&gt;</code> tag which will contain the result of the transactions as either <code>true</code> or <code>false</code>.
+  </p>
+
+  <blockquote class="doc-note mt-2 mb-4">
+    <p>
+      Note that <span class="fw-400"><i>without</i></span> making the <span class="fw-400"><i>display</i></span> call only the <code>&lt;ipgapi:successfully&gt;</code> element would be returned with the total transactions result
+    </p>
+  </blockquote>
+</div>
+
+{% capture code_block %}{% include authipay/code/datavault-multiple-actions-response.html %}{% endcapture %}
+{% include docs/components/code-block.html content=code_block language="xml" %}
+
+{% include docs/components/text-block-divider.html %}
+
+<h2 class="section-heading" id="handling-errors">Step 5: Handling DataVault Errors</h2>
+
+<div class="docs-text-block">
+  <p>
+    Since this simulator does not provide a set of responses like the other simulators you can still trigger errors by sending in invalid information (as long as the parameters pass validation). For example you can request to display a card that does not exist. In these cases you will see the errors returned to you in the response. The following is an example of such a request.
+  </p>
+
+  <blockquote class="doc-note mt-2 mb-4">
+    <p>
+      This is true even if the request has multiple actions within it as each error will be appended to the <code>&lt;Error&gt;</code> element
+    </p>
+  </blockquote>
+</div>
+
+{% capture code_block %}{% include authipay/code/datavault-display-failed.html %}{% endcapture %}
+{% include docs/components/code-block.html content=code_block language="xml" %}
