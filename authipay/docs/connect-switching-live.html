@@ -8,10 +8,10 @@ wnlt:   "Web Services API"
 <h1 class="page-heading">Switching to or from Live</h1>
 
 <div class="docs-text-block">
-  <p class="text-gray">
+  <p>
    The Connect simulator in your Developer Playground is for test transactions. The Connect live gateway is for real-money transactions.
   </p>
-  <p class="text-gray">
+  <p>
     Switching from test transactions to live transactions is as simple as changing a single URL in your code. And vice versa.
   </p>
 </div>
@@ -24,14 +24,14 @@ wnlt:   "Web Services API"
 
 <div class="docs-text-block" id="section-connect-test-url">
   <h2 class="section-heading">Test URL</h2>
-  <p class="text-gray">
+  <p>
     The URL for sending <span style="text-decoration: underline">test</span> transactions to the Connect simulator looks like this:
   </p>
 
   {% include docs/components/code-block.html content="https://api.testingpays.com/API_KEY/authipay/v1/connect" language="http"%}
 
   <blockquote class="doc-note mt-2">
-    <p class="text-gray">
+    <p>
       API_KEY is replaced by your unique key for your Developer Playground account. You’ll find your API key by: <a href="https://authipay.testingpays.com/login" class="text-info">logging into your Playground account</a>, opening the Connect simulator and looking at the API key field on the Integration tab.
     </p>
   </blockquote>
@@ -41,14 +41,14 @@ wnlt:   "Web Services API"
 
 <div class="docs-text-block" id="section-connect-live-url">
   <h2 class="section-heading">Live URL</h2>
-  <p class="text-gray">
+  <p>
     The URL for your code to start <span style="text-decoration: underline">real</span> transactions with the Connect live gateway is the following:<br>
   </p>
 
   {% include docs/components/code-block.html content="https://test.ipg-online.com/connect/gateway/processing" language="http" %}
 
   <blockquote class="doc-note mt-2">
-    <p class="text-gray">
+    <p>
       You will have received the link to the Connect live gateway in your Starter Pack from the AIBMS team. Please contact your AIBMS account manager if you have any issues.
     </p>
   </blockquote>

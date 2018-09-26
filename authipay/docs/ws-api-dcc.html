@@ -53,10 +53,10 @@ wnlt: "Store Card Details With Datavault"
 
 <div class="docs-text-block" id="section-open-sim">
   <h2 class="section-heading">Step 1: Open the DCC simulator</h2>
-  <p class="text-gray">
+  <p>
     For the purposes of making test <span class="fw-400"><i>DCC</i></span> transaction, you'll be using the <span class="fw-400"><i>DCC</i></span> simulator in the Authipay Developer Playground.
   </p>
-  <p class="text-gray">
+  <p>
     To open the simulator interface, <a class="text-info" target="_blank" href="https://authipay.testingpays.com/login">login to your Authipay Developer Playground account</a> and click "OPEN" on the "card-dcc" bookmark on your dashboard. You'll see the following sections in your simulator:
   </p>
   <ul class="doc-list fw-300">
@@ -99,7 +99,7 @@ wnlt: "Store Card Details With Datavault"
 <div>
 
 <blockquote class="doc-note mt-2">
-  <p class="text-gray">
+  <p>
     You can trigger different response from the simulator by changing the values you use in the requests. By default, the simulator will use <span class="fw-200">BaseAmount</span> value as the trigger value.
   </p>
 </blockquote>
@@ -134,10 +134,10 @@ wnlt: "Store Card Details With Datavault"
 
 <div class="docs-text-block" id="section-post-request">
   <h2 class="section-heading">Step 3: Send the request to the <b class="fw-400"><i>DCC</i></b> simulator</h2>
-  <p class="text-gray">
+  <p>
     Next, your code needs to send the assembled SOAP request to the <span class="fw-400"><i>DCC</i></span> simulator. The URL to POST to can be found under the "Integration" tab of the simulator - make sure to copy&amp;paste this URL from your simulator as it contains your unique API_KEY.
   </p>
-  <p class="text-gray">
+  <p>
     The example show below shows how to make a <b class="fw-400"><i>DCC</i></b> transaction using cURL. The "example.xml" contains the constructed SOAP request.
   </p>
 
@@ -145,7 +145,7 @@ wnlt: "Store Card Details With Datavault"
   {% include docs/components/code-block.html content=code_block language="bash" %}
 
   <blockquote class="doc-note mt-2">
-    <p class="text-gray">
+    <p>
       api_key is placeholder for your actual api key that you will find on your simulator pages in the developer playground.
     </p>
   </blockquote>
@@ -156,13 +156,13 @@ wnlt: "Store Card Details With Datavault"
 
 <div class="docs-text-block" id="section-parse-response">
   <h2 class="section-heading">Step 4: Parse the <b class="fw-400"><i>DCC</i></b> response</h2>
-  <p class="text-gray">
+  <p>
     The simulator will first validate your request. If it detects any issues, you'll see a verbose response indicating what is wrong with the request.
   </p>
-  <p class="text-gray">
+  <p>
     If the simulator detects no issues, then it will simulate a <span class="fw-400"><i>DCC</i></span> response. This is an XML document that contains information about the transaction: the result from the gateway, the bank authorisation result, DCC information, etc.
   </p>
-  <p class="text-gray">
+  <p>
     The example show below shows the response to a <span class="fw-400"><i>DCC</i></span> transaction sent manually by cURL command to the simulator.
   </p>
 
@@ -171,13 +171,13 @@ wnlt: "Store Card Details With Datavault"
 </div>
 
 <div class="docs-text-block" id="section-parse-response">
-  <p class="text-gray">
+  <p>
     The important parameter to look for in the response is <span class="fw-200">DccOffered</span>. This parameter will be either <code>true</code> or <code>false</code>. If offered you can then submit the returned <span class="fw-200">InquiryRateId</span> with <span class="fw-200">Sale</span>, <span class="fw-200">PreAuth</span> and <span class="fw-200">ForeceTicket</span> transactions. Doing so will apply the Conversion Rate recieved to the transaction.
   </p>
 </div>
 
 <blockquote class="doc-note mt-2 mb-5">
-  <p class="text-gray">
+  <p>
     You can trigger different response from the simulator by changing the values you use in the requests. By default, the simulator will use <span class="fw-200">BaseAmount</span> value as the trigger value.
   </p>
 </blockquote>

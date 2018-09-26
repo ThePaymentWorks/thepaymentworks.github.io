@@ -9,15 +9,22 @@ wnlt: "My 1st Request"
 <h1 class="page-heading">Certificate Setup</h1>
 
 <div class="docs-text-block">
-  <p class="text-gray">
+  <p>
     In a live payments environment the communication between your application and the Authipay Web Service must be encrypted. The certificates for this encryption will be included in a Starter Pack that is provided by the Authipay team as part of client onboarding.
   </p>
 
-  <p class="text-gray">
+  <p>
     Luckily the simulators in your Developer Playground work seamlessly with <span style="text-decoration: underline">or</span> without these certificates. This allows your to start your technical integration while you're waiting for your Starter Park. Then, once you've received and installed the certificates, you can continue seamlessly to develop against the simulators.
   </p>
 
-  <p class="text-gray">
+  <blockquote class="doc-note mt-2">
+    <p>
+      Note that certificate setup <span class="fw-400"><i>is not required</i></span> for working against out simulators. This is only required in production.
+    </p>
+  </blockquote>
+
+
+  <p>
      To help you with the certficate install, here are some guides:
   </p>
 
@@ -54,7 +61,7 @@ wnlt: "My 1st Request"
 
 <div class="docs-text-block" id="section-cert-overview">
   <h2 class="section-heading">Certificate Overview</h2>
-  <p class="text-gray">
+  <p>
     The Authipay encrypted connection work like this:<br>
     Your application holds a client certificate which uniquely identifies it to the Web Services API. And the Authipay Internet Payment Gateway has a server certificate which uniquely identifies it to your application.
   </p>
@@ -65,7 +72,7 @@ wnlt: "My 1st Request"
 </div>
 
 <div class="docs-text-block">
-  <p class="text-gray">
+  <p>
     And as a final step, your application has to do a basic authorisation (with a username & password) before being allowed to communicate with the Web Service.
   </p>
 </div>
@@ -75,7 +82,7 @@ wnlt: "My 1st Request"
 <div class="docs-text-block" id="section-cert-prerequisites">
   <h2 class="section-heading">Setup Prerequisites</h2>
 
-  <p class="text-gray">
+  <p>
     You'll need the following to send transactions to the real API:
   </p>
 
@@ -109,14 +116,14 @@ wnlt: "My 1st Request"
 <div class="docs-text-block" id="section-mac-install">
   <h2 class="section-heading">Install on MAC OS X</h2>
 
-  <p class="text-gray">The P12 file:</p>
+  <p>The P12 file:</p>
   <ol class="doc-list fw-300">
     <li>Double-click the client certificate p12 file</li>
     <li>Check the file name (which should be already set to the path of your client certificate p12 file). You will be asked to access the toolchain</li>
     <li>Provide the client certificate installation password.</li>
   </ol>
 
-  <p class="text-gray">The PEM file:</p>
+  <p>The PEM file:</p>
   <ol class="doc-list fw-300">
     <li>Double-click the PEM file and add it to your toolchain. You may be prompted to input your own password.</li>
     <li>Now open a browser window and go to the URL: https://test.ipg-online.com/ipgapi/services/order.wsdl</li>
@@ -136,7 +143,7 @@ wnlt: "My 1st Request"
 <div class="docs-text-block" id="section-ubuntu-install">
   <h2 class="section-heading">Install on Ubuntu</h2>
 
-  <p class="text-gray">The P12 file:</p>
+  <p>The P12 file:</p>
 
   <ol class="doc-list fw-300">
     <li>Double-click the client certificate p12 file</li>
@@ -144,7 +151,7 @@ wnlt: "My 1st Request"
     <li>Provide the client certificate installation password and click on ‘Import’</li>
   </ol>
 
-  <p class="text-gray">The PEM file:</p>
+  <p>The PEM file:</p>
 
   <ol class="doc-list fw-300">
     <li>
@@ -158,7 +165,7 @@ wnlt: "My 1st Request"
 <div class="docs-text-block" id="section-win-install">
   <h2 class="section-heading">Install on Windows</h2>
 
-  <p class="text-gray">The P12 file:</p>
+  <p>The P12 file:</p>
 
   <ol class="doc-list fw-300">
     <li>Double-click the client certificate p12 file</li>
@@ -168,7 +175,7 @@ wnlt: "My 1st Request"
     <li>Check the displayed settings and click Finish. Your client certificate is now installed.</li>
   </ol>
 
-  <p class="text-gray">The PEM file:</p>
+  <p>The PEM file:</p>
   <ol class="doc-list fw-300">
     <li>
       Now, you have to install the server certificate. The most straightforward way to do this is to open the folder in which you have saved your server certificate PEM file and rename the file to geotrust.crt.

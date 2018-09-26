@@ -9,13 +9,13 @@ wnlt: "Connect With DCC Enabled"
 <h1 class="page-heading">Testing MCC 6012</h1>
 
 <div class="docs-text-block">
-  <p class="text-gray">
+  <p>
     Merchant Category Code 6012 is for online payments from Financial Institutions. It's got a history of fraud, especially in the UK. So payments from companies in this category must include additional fields for fraud purposes.
   </p>
-  <p class="text-gray">
+  <p>
      If your payments fall into this category, then you can use the Connect simulator to test these extra field and to get your requests to meet the minimum requirements for go-live.
   </p>
-  <p class="text-gray">
+  <p>
     Get going with MCC 6012 in the Playground:
   </p>
 
@@ -42,7 +42,7 @@ wnlt: "Connect With DCC Enabled"
 
 <div class="docs-text-block" id="section-include-extra-params">
   <h2 class="section-heading">1. Include the extra 6012 parameters</h2>
-  <p class="text-gray">
+  <p>
     First, code your initial Connect requests to include the following additional parameters:
   </p>
   <ul>
@@ -58,7 +58,7 @@ wnlt: "Connect With DCC Enabled"
 
 <div class="docs-text-block" id="section-switch-on-6012">
   <h2 class="section-heading">2. Switch on MCC 6012 in the simulator</h2>
-  <p class="text-gray">
+  <p>
     Your requests need to include the following additional parameters in the initial Connect request:
   </p>
   <ol>
@@ -78,7 +78,7 @@ wnlt: "Connect With DCC Enabled"
 
 <div class="docs-text-block" id="section-start-debugging">
   <h2 class="section-heading">3. Debug your MCC 6012 requests</h2>
-  <p class="text-gray">
+  <p>
     Finally, start firing Connect requests from your local dev environment to the Connect simulator. All requests will be treated as a MCC 6012 transaction. If you fail to send in the required MCC fields, you will see a validation error from the Simulator with information about the missing details.
   </p>
   <div class="doc-image-container">

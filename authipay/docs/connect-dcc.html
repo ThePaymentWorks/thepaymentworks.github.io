@@ -9,13 +9,13 @@ wnlt: "Web Services Endpoints"
 <h1 class="page-heading">Testing Dynamic Currency Conversion (DCC)</h1>
 
 <div class="docs-text-block">
-  <p class="text-gray">
+  <p>
     Authipay offers Dynamic Currency Conversion (DCC) on most of the Connect API. When activated for your merchant account, your customers will get a choice about the currency they'd like to use for the transaction: (a) the currency of the card, or (b) currency of your webstore.
   </p>
-  <p class="text-gray">
+  <p>
      This is a common scenario in real life: someone wants to pay for online goods with their own card on a site in another country. Example: an Irish person with a EUR Visa card is buying someting on Amazon.co.uk in GBP.
   </p>
-  <p class="text-gray">
+  <p>
      Recreating DCC is difficult but we've made it as easy as possible to test flows and options using the Connect simulator.
   </p>
 </div>
@@ -25,7 +25,7 @@ wnlt: "Web Services Endpoints"
 <div class="docs-text-block" id="section-switch-on-dcc">
   <h2 class="section-heading">1. Switch on DCC in the simulator settings</h2>
 
-  <p class="text-gray">
+  <p>
     Your requests need to include the following additional parameters in the initial Connect request:
   </p>
 
@@ -46,7 +46,7 @@ wnlt: "Web Services Endpoints"
 
 <div class="docs-text-block" id="section-start-debugging">
   <h2 class="section-heading">2. Try a Connect transaction</h2>
-  <p class="text-gray">
+  <p>
     Send in a Connect request and follow the use journey through the hosted payments page. You'll see that the customer now has an option to select which currency to complete the transaction in. This selection is recorded when the transaction is made, and then returned in the final callback back to your store.
   </p>
 </div>

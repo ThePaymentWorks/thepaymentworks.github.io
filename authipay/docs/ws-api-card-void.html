@@ -9,11 +9,11 @@ wnlt: "Test Returns"
 <h1 class="page-heading">Testing Card Void</h1>
 
 <div class="docs-text-block">
-  <p class="text-gray">
+  <p>
    The <span class="fw-400"><i>Void</i></span> operation of the Web Services API is used to cancel a Sale, PreAuth, ForceTicket or Credit transaction. This differs from a <span class="fw-400"><i>Refund</i></span> operation as the funds are never taken out of the users account.
   </p>
 
-  <p class="text-gray">
+  <p>
    The steps below will show you how to use the <span class="fw-400"><i>Void</i></span> simulator to build a transaction. Our examples here uses a simple cURL request, but the same steps apply to any coding language.
   </p>
   <ol class="doc-list">
@@ -39,10 +39,10 @@ wnlt: "Test Returns"
 
 <div class="docs-text-block" id="section-build-xml">
   <h2 class="section-heading">Step 1: View the Void simulator</h2>
-  <p class="text-gray">
+  <p>
     For the purposes of making test <span class="fw-400"><i>Void</i></span> transaction, you'll be using the <span class="fw-400"><i>Void</i></span> simulator in the Authipay Developer Playground.
   </p>
-  <p class="text-gray">
+  <p>
     To open the simulator interface, <a class="text-info" target="_blank" href="https://authipay.testingpays.com/login">login to your Authipay Developer Playground account</a> and click "OPEN" on the "card-void" bookmark on your dashboard. You'll see the following sections in your simulator:
   </p>
   <ul class="doc-list fw-300">
@@ -61,15 +61,15 @@ wnlt: "Test Returns"
 
 <div class="docs-text-block" id="section-build-xml">
   <h2 class="section-heading">Step 1: Build the XML body</h2>
-  <p class="text-gray">
+  <p>
     In a nutshell: your code must first assemble a XML document with the fields for a <span class="fw-400"><i>Void</i></span> transaction, then wrap the XML into the body of a SOAP request.
   </p>
 
-  <p class="text-gray">
+  <p>
     The XML body of a <span class="fw-400"><i>Void</i></span> transaction requires an <span class="fw-200">OrderId</span> and a <span class="fw-200">TDate</span>. These are used to identify the transaction which you want to void and where returned in the original transactions response.
   </p>
 
-  <p class="text-gray">
+  <p>
     Below is an example SOAP request containing the minimum XML fields needed for a <span class="fw-400"><i>Void</i></span> transaction.
   </p>
 </div>
@@ -78,7 +78,7 @@ wnlt: "Test Returns"
 {% include docs/components/code-block.html content=code_block language="xml" %}
 
 <div class="docs-text-block">
-  <p class="text-gray">
+  <p>
     For the purposes of making a manual cURL transaction, paste the above example into a text editor and save it locally as an XML file, say, <code>example.xml</code>.
   </p>
 </div>
@@ -98,11 +98,11 @@ wnlt: "Test Returns"
 
 <div class="docs-text-block" id="section-post-request">
   <h2 class="section-heading">Step 2: Send the request to the <span class="fw-400"><i>Void</i></span> simulator</h2>
-  <p class="text-gray">
+  <p>
     Next, your code needs to send the assembled SOAP request to the <span class="fw-400"><i>Void</i></span> simulator. The URL to POST to can be found under the "Integration" tab of the simulator - make sure to copy&amp;paste this URL from your simulator as it contains your unique API_KEY.
   </p>
 
-  <p class="text-gray">
+  <p>
     The example show below shows how to make a <b class="fw-400"><i>Void</i></b> transaction using cURL. The <code>example.xml</code> contains the constructed SOAP request.
   </p>
 
@@ -111,7 +111,7 @@ wnlt: "Test Returns"
 
   <div class="docs-text-block">
     <blockquote class="doc-note mt-2">
-      <p class="text-gray">
+      <p>
         API_KEY is placeholder for your actual API key that you will find on your simulator pages in the Developer Playground.
       </p>
     </blockquote>
@@ -123,21 +123,21 @@ wnlt: "Test Returns"
 <div class="docs-text-block" id="section-parse-response">
   <h2 class="section-heading">Step 3: Parse the <span class="fw-400"><i>Void</i></span> response</h2>
 
-  <p class="text-gray">
+  <p>
     The simulator will first validate your request. If it detects any issues, you'll see a verbose response indicating what is wrong with the request.
   </p>
 
-  <p class="text-gray">
+  <p>
     If the simulator detects no issues, then it will simulate a <span class="fw-400"><i>Void</i></span> response that contains information about the transaction such as: the result from the gateway, the bank authorisation result, DCC information, etc.
   </p>
 
   <blockquote class="doc-note mt-2">
-    <p class="text-gray">
+    <p>
       Note that unlike the other sims <span class="fw-400"><i>Void</i></span> will always return a positive result if the validations are passed.
     </p>
   </blockquote>
 
-  <p class="text-gray">
+  <p>
     The example show below shows the response to a <span class="fw-400"><i>Void</i></span> transaction sent manually by cURL command to the simulator.
   </p>
 
@@ -146,7 +146,7 @@ wnlt: "Test Returns"
 </div>
 
 <div class="docs-text-block" id="section-parse-response">
-  <p class="text-gray">
+  <p>
     The important parameter to look for in the response is the <span class="fw-200">ApprovalCode</span>.
   </p>
 

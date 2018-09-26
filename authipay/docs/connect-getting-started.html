@@ -9,7 +9,7 @@ wnlt: "Payment Modes"
 <h1 class="page-heading">Getting Started with Connect</h1>
 
 <div class="docs-text-block">
-  <p class="text-gray">
+  <p>
     Here's how to make your first Authipay Connect transaction in the Developer Playground.
   </p>
   <ol class="doc-list">
@@ -40,7 +40,7 @@ wnlt: "Payment Modes"
 
 <div class="docs-text-block" id="section-create-account">
   <h2 class="section-heading">1. Create Your Playground Account</h2>
-  <p class="text-gray">
+  <p>
     First, you’ll need an account on the Authipay testing environment. It takes seconds.
   </p>
 
@@ -56,7 +56,7 @@ wnlt: "Payment Modes"
 
 <div class="docs-text-block" id="section-open-sim">
   <h2 class="section-heading">2. Open the Connect Simulator</h2>
-  <p class="text-gray">
+  <p>
     Once you’ve signed in to the testing environment, you’ll see your team Dashboard with bookmarks for all Authipay API simulators. Find the bookmark named “<span class="fw-500">connect  (v1)</span>”, as highlighted below. Click the OPEN SIM button.
   </p>
 </div>
@@ -69,10 +69,10 @@ wnlt: "Payment Modes"
 
 <div class="docs-text-block" id="section-first-request">
   <h2 class="section-heading">3. Making your first Connect request</h2>
-  <p class="text-gray">
+  <p>
     Go to the “Integrate” tab on the Connect simulator. This contains instructions and tips to get going in various coding languages. Select the coding language of your choice and follow the instructions.
   </p>
-  <p class="text-gray">
+  <p>
     The first option you'll see on the "Integrate" tab is a <i>cURL</i> request - this is the quickest way to see a Connect transaction in action. Copy the cURL command and paste into your local command/terminal window, and hit return. The response from the simulator will contain a "Location" parameter containing a URL. This would be the URL that your customer would be automatically redirected to - copy & paste this URL into a browser to see the hosted payment form.
   </p>
 </div>
@@ -83,10 +83,10 @@ wnlt: "Payment Modes"
 
 <div class="docs-text-block" id="section-get-the-hash-right">
   <h2 class="section-heading">4. Calculate the hash correctly </h2>
-  <p class="text-gray">
+  <p>
     All Connect requests must include a unique signature - a hash. Miscalculation of the hash signature is the biggest cause of integration delays. Here's how to get it right.
   </p>
-  <p class="text-gray">
+  <p>
     Your code will need to concatenate the values of the following parameters in this order:
   </p>
 
@@ -99,13 +99,13 @@ wnlt: "Payment Modes"
     <li>sharedsecret<sup>*</sup></li>
   </ol>
 
-  <p class="text-gray">
+  <p>
     <sub>
       * For test transactions to the simulator set the sharedsecret parameter to the value "<i>dummy_secret</i>". We recommend you store this as an environment variable or configuration value for your test environments.
     </sub>
   </p>
 
-  <p class="text-gray">
+  <p>
     Take the concatenated string and convert each character to it’s hexadecimal equivalent. Finally, apply SHA-256 to that hex string to generate the hash value.  Assign this value to the <i>hash</i> parameter in the Connect request.
   </p>
 
