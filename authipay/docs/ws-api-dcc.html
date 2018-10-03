@@ -15,7 +15,7 @@ wnlt: "Store Card Details With Datavault"
 
   <blockquote class="doc-note mt-2">
     <p>
-      Note the conversion rate is <b><i>set</i></b> when the transaction is initally created. Any fluctuations in the value of a currency between creation and settlement (such as PreAuth &amp; PostAuth) <b><i>will not</i></b> be recouped at settlement.
+      Note the conversion rate is <b><i>set</i></b> when the transaction is initally created. This means DCC can only be used for transactions which are setteled immediately such as Sale &amp; ForceTicket.
     </p>
   </blockquote>
 </div>
@@ -172,7 +172,7 @@ wnlt: "Store Card Details With Datavault"
 
 <div class="docs-text-block" id="section-parse-response">
   <p>
-    The important parameter to look for in the response is <span class="fw-200">DccOffered</span>. This parameter will be either <code>true</code> or <code>false</code>. If offered you can then submit the returned <span class="fw-200">InquiryRateId</span> with <span class="fw-200">Sale</span>, <span class="fw-200">PreAuth</span> and <span class="fw-200">ForeceTicket</span> transactions. Doing so will apply the Conversion Rate recieved to the transaction.
+    The important parameter to look for in the response is <span class="fw-200">DccOffered</span>. This parameter will be either <code>true</code> or <code>false</code>. If offered you can then submit the returned <span class="fw-200">InquiryRateId</span> with <span class="fw-200">Sale</span> and <span class="fw-200">ForeceTicket</span> transactions. Doing so will apply the Conversion Rate recieved to the transaction.
   </p>
 </div>
 
