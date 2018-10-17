@@ -19,6 +19,9 @@
 .text-gray {
   @extend .text-secondary;
 }
+.text-mono {
+  font-family: monospace;
+}
 
 .fw-200 { font-weight: 200 !important; }
 .fw-300 { font-weight: 300 !important; }
