@@ -1,0 +1,190 @@
+---
+layout: getting-started
+active: "testing-pays-features"
+wnt: "Find out some of the things you can do with Testing Pays."
+wnh: "./what-can-i-do"
+wnlt: "What can I do in Testing Pays?"
+---
+
+<h1 class="page-heading">Testing Pays Features</h1>
+
+<div class="docs-text-block">
+  <p>
+    Your Testing Pays account provides features for you to test all aspects of your payments integration. You can concentrate on building the best payment features for your customers.
+  </p>
+
+  <p>
+    Check out some of the features:
+  </p>
+
+  <ul class="doc-list">
+    <li>
+      <a class="doc-link" href="./testing-pays-features#section-api-simulators">
+        API Simulators
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./testing-pays-features#section-response-maps-and-triggers">
+        API Response Maps & Triggers
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./testing-pays-features#section-integration-guides">
+        Integration Guides & Samples
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./testing-pays-features#section-test-reports">
+        Test Reports
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./testing-pays-features#section-live-logs">
+        Live Logs
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./testing-pays-features#section-load-test-simulators">
+        Load Test Simulators
+      </a>
+    </li>
+  </ul>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-api-simulators">
+  <h2 class="section-heading">API Simulators</h2>
+
+  <p>
+    Testing Pays has powerful simulators for <i>many</i> API endpoints and operations. For example, there's a simulator for Stripe charges, a simulator for Realex 3D secure flows, a simulator for PayPal Express, etc.
+  </p>
+
+  <p>
+    With a simple copy&amp;paste, you can point your development and test environments at your team's account, then you're ready to send test transactions to the simulators - they'll respond as if your code is talking to the real thing.
+  </p>
+</div>
+
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/getting-started/DevEnv-Sims.png" alt="Testing with Simulators">
+</div>
+
+<div class="docs-text-block">
+  <p>
+    And the icing on the cake? Your simulators are just for you (and your team). Unlike traditional sandboxes, your simulators aren't shared with other merchants. Even better, you have control over the simulator settings, such as latency settings.
+  </p>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-response-maps-and-triggers">
+  <h2 class="section-heading">Response Maps & Triggers</h2>
+
+  <p>
+    Each API simulator has a table of <b>all</b> possible API response codes. The table maps the response codes to request values. If you send in a value in your test request, then it will trigger the simulator to send back the response code it maps to in the table.
+  </p>
+
+  <p>The default trigger parameter is usually related to the transaction amount (i.e. "charge_total" for Authipay's APIs) - you can trigger specific response codes with the decimal value in the transaction amount. You also have the option to use the CVV or the Cardholder name fields as trigger parameters - just select the trigger value you want in the Settings of the simulator you're testing.</p>
+
+  <p>
+   Say goodbye to crappy test cards. Enjoy testing <b>any</b> response you need when you need. Your imagination is your limit.
+  </p>
+</div>
+
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/getting-started/FlightSimulator.png" alt="Test any payment scenario">
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-integration-guides">
+  <h2 class="section-heading">Integration Guides & Samples</h2>
+
+  <p>
+    Every simulator comes with integration guides, tips and links to sample apps. The instructions come in multiple coding languagues.
+  </p>
+
+  <p>
+    <a href="https://admin.testingpays.com/sign-up">Create your Testing Pays account</a>, open up the API simulator you want, and select the "Integrate" tab to see integration instructions."
+  </p>
+</div>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2" ></i> Our Tip: accelerate your integration with our example apps
+    </h5>
+    <p class="docs-card-text text-light">
+        <i class="fab fa-github-square fa-lg fa-3x fa-pull-right" ></i>We regularly build and update our own example applications. And we believe in sharing what we've learnt. You can check out the code for our examples on our <a class="text-info" href="https://github.com/TestingPays">Testing Pays GitHub account</a>.
+    </p>
+  </div>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-test-reports">
+  <h2 class="section-heading">Test Reports</h2>
+  <p>
+    Each simulator also comes with its own test report. As you and your team hit the simulator with test transactions, the reports will tell you what you've tested, what you haven't tested, the amount of response codes you've covered
+  </p>
+
+  <p>
+    Use the test reports to: firstly capture how much coverage you're achieving with your current test plans, then to drive higher levels of coverage in your testing.
+  </p>
+</div>
+
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/getting-started/Sim_ReportsTab_anno.png" alt="Simulator test report">
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-live-logs">
+  <h2 class="section-heading">Live Logs</h2>
+
+  <p>
+    Live Log gives you a window into each simulator as it processes your test requests. In real-time, you can see each transaction as it hits. The Live Log gives you visibility into how your request is treated, and the response being assembled and sent back. If the simulator finds a problem with your request, you'll also see verbose explanations in the Live Log.
+  </p>
+
+  <p>
+    Everything is clearly timestamped so that you can be confident in the simulator roundtrip time for your testing. Simulator response time is consistently under 100ms - unless of course you've activated its 'latency' setting to introduce artificial overhead!
+  </p>
+</div>
+
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/getting-started/Sim_LiveLog_animated.gif" alt="Debugging with Live Log">
+</div>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2" ></i> Our Tip: Test Pong
+    </h5>
+
+    <p class="docs-card-text text-light">
+      Ever played <a class="text-info" target="_blank" href="https://www.youtube.com/watch?v=e4VRgY3tkh0">Pong</a>? Tail your local logs on your dev machine, and in a browser window start the Live Logs on the simulator, then fire off some test requests. Sit back and watch your requests hitting the simulator, and responses bouncing back to your local logs.
+    </p>
+  </div>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-load-test-simulators">
+  <h2 class="section-heading">Load Test Simulators</h2>
+
+  <p>
+    Your checkout should <span style="text-decoration: underline">never</span> go down during Cyber Monday, Christmas sales or any peak sale event. So testing your store under load is vital. Our load test simulators can support your efforts.
+  </p>
+
+  <p>
+      Use our load test simulators in conjunction with <a class="text-info" target="_blank" href="https://www.softwaretestinghelp.com/performance-testing-tools-load-testing-tools/">a load test tool</a> to test your checkout. The simulators can handle millions of requests for overnight or weekend test runs, providing a constant response time of less than 100ms and concurrency up to 80 transaction per seconds.
+  </p>
+
+  <p>
+    Our load test simulators must be booked in advance. To book, <a class="text-info" href="https://admin.testingpays.com/login">log into your Testing Pays account</a>, go to your "CURRENT TEAM" menu and complete the simple booking form. The team will respond within an hour with connection details.
+  </p>
+</div>
+
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/getting-started/BookLoadTest.png" alt="Load Test Booking menu">
+</div>
