@@ -1,0 +1,57 @@
+---
+layout: sims
+active: "index"
+---
+
+<h1 class="page-heading">Intro to Sims</h1>
+
+ <div class="docs-text-block">
+   <p class="text-gray">Sims are the bread and butter of Testing Pays. It's a simulated version of a payment related API, and each sim can be configured to your team's needs. You can set your network settings, to change how the sims behave. Or you can set your own responses, monitor your integration progress, your CI runs and QA test.</p>
+
+   <p class="text-gray">
+   Each API simulator has a table of <b>all</b> possible API response codes. The table maps the response codes to request values. If you send in a value in your test request, then it will trigger the simulator to send back the response code it maps to in the table. Read more about <a class="doc-link" href="/getting-started/docs/testing-pays-features#section-response-maps-and-triggers"> API Response Maps & Triggers here</a>.
+   </p>
+
+   <p class="text-gray">
+   So far we have <b>over 50 sims</b> in Testing Pays, covering payment providers big and small, and APIs from creating charges through payouts to ID verification. If you can't find an API you're looking for send us a message in Testing Pays, or via the chat / email options at the bottom of the page.
+   </p>
+ </div>
+
+ {% include docs/components/button-link.html
+   href="https://admin.testingpays.com/sign-up"
+   text="Create your Testing Pays account"
+   classes="mb-45"
+   %}
+
+ <div class="docs-text-block">
+   <p class="text-gray">
+     If you'd like to know more about using your Testing Pays account, here's some further reading:
+   </p>
+
+   <ul class="doc-list">
+     <li>
+       <a class="doc-link" href="./what-can-i-do.html">
+         Find out what you can do in Testing Pays
+       </a>
+     </li>
+     <li>
+       <a class="doc-link" href="./testing-pays-features.html">
+         See the list of Testing Pays features
+       </a>
+     </li>
+   </ul>
+ </div>
+
+ <div class="docs-card primary raise dark-background mb-45">
+   <div class="docs-card-body">
+     <h5 class="docs-card-title text-primary mb-3">
+       <i class="fas fa-question-circle mr-2"></i> New to Payments?
+     </h5>
+     <p class="docs-card-text text-light">
+       We have been there, feel free to reach out to us via the chat bubble at the bottom of the page, or send us an email to  makepaymentsbetter@thepayment.works
+     </p>
+     <a class="docs-card-text" href="mailto:makepaymentsbetter@thepayment.works">
+       Email the Testig Pays team.
+     </a>
+   </div>
+ </div>
