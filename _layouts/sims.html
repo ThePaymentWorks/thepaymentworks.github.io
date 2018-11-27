@@ -19,6 +19,35 @@
     <!-- Include Googles Roboto font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,300,400,500" rel="stylesheet">
+
+
+    <!-- Global site tag (gtag.js) - Google Ads: 778707240 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-778707240"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+          gtag('config', 'AW-778707240');
+    </script>
+    <!-- Event snippet for Sign up to Testing Pays conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+      function gtag_report_conversion(url) {
+          var callback = function () {
+                if (typeof(url) != 'undefined') {
+                        window.location = url;
+                            }
+                  };
+            gtag('event', 'conversion', {
+                      'send_to': 'AW-778707240/AKY3COz2p5ABEKjCqPMC',
+                            'value': 20.0,
+                                  'currency': 'EUR',
+                                        'event_callback': callback
+                                          });
+              return false;
+      }
+    </script>
   </head>
 
   <script>window.intercomSettings = {app_id: "j6rqtk6h"};</script>
@@ -112,4 +141,10 @@
     <script src="/js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </body>
+
+  <script>
+    $(".tracking-button").on('click', function(e) {
+        gtag_report_conversion($(e.target).attr('href'));
+      });
+  </script>
 </html>
