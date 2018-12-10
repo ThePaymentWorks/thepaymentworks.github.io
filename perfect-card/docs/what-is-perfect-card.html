@@ -1,0 +1,43 @@
+---
+layout: perfect-card
+active: "what-is-perfect-card"
+wnt: "Get going with the Token sim."
+wnh: "./token-getting-started"
+wnlt: "Getting Started"
+---
+
+<h1 class="page-heading">What are the Perfect Card sims?</h1>
+
+<div class="docs-text-block">
+  <p>
+  Perfect Card APIs are a simple way to create a virtual card with a certain amount. For example, each time you call <b>card-token</b>  API sim on Testing Pays, we create an individual MasterCard number, and assign it to a <b>CardId</b>. This CardId is returned to you - unless you have chosen to simulate an error, i.e. a System Error, or Invalid Currency code.
+  </p>
+
+  <p>
+  Here you can choose a preconfigured scenarion in the Test tab - by which we can guarantee the outcome of the next call(s) you make to other Perfect Card sims. Like an IP Restriction error that fails on <b>card-details</b>. If you would like to do individual sim requests, regardless of the scenarios, just use the dedicated mapping tables of the sims.
+  </p>
+
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-sims-overview">
+  <h2 class="section-heading">Sims Overview</h2>
+  <p>
+    Perfect Card sims are dependent on each other, although they can be used individually. Here’s how a typical flow would work with them:
+  </p>
+  <ol class="doc-list fw-300">
+    <li>
+    Create a new virtual card, using the <b>card-token</b> call, which returns a <i>CardId</i> to be used in later calls.
+    </li>
+    <li>
+    You supply this CardID along with the <i>CardToken</i> returned from the previous call to get the card's full details using the <b>card-details</b> API call.
+    </li>
+    <li>
+    You can modify the balance of the card with <b>adjust-card-balance</b>, where the <i>Amount</i> will be either added or deducted from your balance - depends on whether you have sent a positive or negative value in this field.
+    </li>
+    <li>
+    If the CardToken expired (after 60 seconds), you can request a new one, using your CardId. Just call the <b>card-get-token</b> API.
+    </li>
+  </ol>
+</div>
