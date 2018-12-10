@@ -76,11 +76,13 @@
               </div>
             </div>
 
+            {% if page.wnh %}
             {% include docs/components/whats-next.html
               text=page.wnt
               link_href=page.wnh
               link_text=page.wnlt
               %}
+              {% endif %}
           </div>
         </div>
       </div>
