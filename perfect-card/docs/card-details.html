@@ -1,0 +1,50 @@
+---
+layout: perfect-card
+active: "card-details"
+wnt: "Learn how to adjust the card balance."
+wnh: "./adjust-card-balance"
+wnlt: "Adjusting the card balance"
+---
+
+<h1 class="page-heading">Use the card-details sim</h1>
+
+<div class="docs-text-block">
+  <p>
+  Once you created your virtual card <a href="./token-getting-started.html">using the card-token sim</a>, you can get the card details of this virtual card. We created the card details for you beforehand, and this API sim simply returns them based on the <b>CardId</b>'s last 2 digits.
+  </p>
+  <p>
+   You can however use the sim independently as well, regardless of previous calls and setup.
+  </p>
+
+  <ol class="doc-list">
+    <li>
+      <a class="doc-link" href="./card-details#section-scenarios">
+        Use the preconfigured scenarios
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./card-details#section-test-independently">
+        Test card-details independently
+      </a>
+    </li>
+  </ol>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-scenarios">
+  <h2 class="section-heading">1. Use the preconfigured scenarios</h2>
+  <p>
+  These scenarios are described in detail in the Test tab of <b>card-token</b> sim. These scenarios stretch over multiple sims, all starting with creating a virtual card using the card-token sim. The initial call creates the card details, which are remembered for you. In this case however you need to remember to use the CardId returned to you on the very first call.
+  </p>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-test-independently">
+  <h2 class="section-heading">2. Test card-details independently</h2>
+  <p>
+  If you are simply writing unit tests, and would like to test the sims independent from each other - you are free to do so! All you need is to change / add 2 digits at the very end of the CardID, or in some sims' case change the trigger parameter. Changing the triggerpart of your request will mean you can invoke the responses you need without any prior setup using the get-token sim.
+  </p>
+</div>
+
