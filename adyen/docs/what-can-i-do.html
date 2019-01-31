@@ -1,0 +1,163 @@
+---
+layout: adyen
+active: "what-can-i-do"
+wnt: "Getting started with the Adyen Sims."
+wnh: "./what-is-adyen"
+wnlt: "Adyen Sims"
+---
+
+<h1 class="page-heading">What can I do in Testing Pays?</h1>
+
+<div class="docs-text-block">
+  <p>
+    When you create Testing Pays account, you're getting your very own <i>stable</i>, <i>reliable</i> test environment. Say goodbye to crappy sandboxes and pesky test card numbers!
+  </p>
+
+  <p>
+    Here are some of the things you can do:
+  </p>
+
+  <ul class="doc-list">
+    <li>
+      <a class="doc-link" href="./what-can-i-do#section-start-an-api-integration">
+        Start an API integration
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./what-can-i-do#section-simulate-api-responses">
+        Simulate API responses
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./what-can-i-do#section-collaborate-with-your-team">
+        Collaborate with your team
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./what-can-i-do#section-debug-your-requests">
+        Debug your requests
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./what-can-i-do#section-measure-your-test-coverage">
+        Measure your test coverage
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./what-can-i-do#section-measure-your-test-coverage">
+        Automate your payments testing
+      </a>
+    </li>
+  </ul>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-start-an-api-integration">
+  <h2 class="section-heading">Start an API integration</h2>
+
+  <p>
+    At the heart of Testing Pays is its API simulators. There is a simulator for each Adyen operation, and under each simulator you'll find an "Integrate" tab containing instructions in various coding languages. There you'll also find coding tips from our own development team, as well as links to sample code on GitHub.
+  </p>
+
+  <p>
+    To get started, <a href="https://admin.testingpays.com/sign-up">create your Testing Pays account</a>, find the simulator for the API operation you're interested in, check out the simulator's "Integrate" tab (as shown below).
+  </p>
+</div>
+
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/authipay/Sim_IntegrateTab_APIcard-Sale_anno.png" alt="Integration Instructions">
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-simulate-api-responses">
+  <h2 class="section-heading">Simulate API Responses</h2>
+
+  <p>
+    Still using 4111 1111 1111 1111 (aka the "<i>Fifteen Ones</i>") for all your cards testing?? Traditional sandboxes give you maybe a couple of test card numbers with different response code. With Testing Pays, you can test <i><b>any</b></i> API response!
+  </p>
+
+  <p>How? It's as easy as setting a different amount value or bankAccountNumber in your requests.</p>
+
+  <p>
+    Log into your Testing Pays account &gt;&gt; open the simulator you're testing &gt;&gt; go to the tab called "Test" for the simulator &gt;&gt; find the API response you need in the response table &gt;&gt; copy the corresponding trigger value &gt;&gt; use that in your test request.
+  </p>
+
+  <p>
+    Note: you can also use "bankAccount bic", "billingAddress houseNumberOrName", "deliveryAddress houseNumberOrName" or "shopperName infix" to generate specific responses - just update the Trigger Parameter in your simulators settings.
+  </p>
+</div>
+
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/authipay/Sim_Testtab_APIcard-Sale_anno.png" alt="API Response Map Table">
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-collaborate-with-your-team">
+  <h2 class="section-heading">Collaborate with your team</h2>
+
+  <p>
+    While you can create your own team account in seconds, you can also invite your teammates to join playground and share in testing activity.
+  </p>
+
+  <p>
+    Your Dashboard is the centre of your teak collaboration. You can pin Simulator bookmarks to the Dashboard for all to see. Each bookmark shows live test activity for the Simulator.
+  </p>
+</div>
+
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/authipay/Sim_TeamDashboard_RequestsDials_anno.png" alt="Team Dashboard - test activity">
+</div>
+
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/authipay/Sim_TeamDashboard_CoverageDials_anno.png" alt="Team Dashboard - test coverage">
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-debug-your-requests">
+  <h2 class="section-heading">Debug your requests</h2>
+
+  <p>
+    The playground let's you see inside each simulator so that you can debug your test requests. each simulator simulator has a <i>live tail</i> - a window into the simulator through which you can watch requests in real-time. you'll be able to see how the simulator validates request parameters and learn what it likes and doesn't like!
+  </p>
+
+  <p>
+    Or play test pong: open a command window on your local desktop, open the Live Tail in your browser, start firing test requests from your desktop and watch that transaction go back and forth. The nerdiest game of pong ever!
+  </p>
+</div>
+
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/authipay/Sim_DebugTab_LiveTail_anno.png" alt="Team Dashboard - test activity">
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-measure-your-test-coverage">
+  <h2 class="section-heading">Measure your test coverage</h2>
+
+  <p>
+    Each simulator provides you with a Report section on which you can view stats on your current testing.
+  </p>
+
+  <p>
+    Use this report to achieve higher levels of test coverage for your payments. Remember, the more response codes your software can handle gracefully, the less customer transactions will be lost.
+  </p>
+</div>
+
+<div class="doc-image-container">
+  <img class="doc-image" src="/img/authipay/Sim_ReportsTab_Dashboard_anno.png" alt="Team Dashboard - test activity">
+</div>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2" ></i> Our Tip: Measure your current payments coverage
+    </h5>
+    <p class="docs-card-text text-light">
+      Start by connecting your environment to the simulator, then run through the payments test that you and your team would typically execute. Once complete, the Reports will tell you how much your current tests are covering. Betcha it's below 8%!
+    </p>
+  </div>
+</div>

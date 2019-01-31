@@ -1,9 +1,9 @@
 {% if include.color %}
-<a href="{{include.href}}" class="btn btn-{{include.color}} {{include.gtag}} btn-shadow {{include.classes}}">
+<a href="{{include.href}}" {%if include.target %}target="{{include.target}}"{% endif %} class="btn btn-{{include.color}} {{include.gtag}} btn-shadow {{include.classes}}">
     {{include.text}}
   </a>
 {% else %}
-  <a href="{{include.href}}" class="btn btn-primary btn-shadow {{include.classes}} {{include.gtag}}">
+  <a href="{{include.href}}" {%if include.target %}target="{{include.target}}"{% endif %} class="btn btn-primary btn-shadow {{include.classes}} {{include.gtag}}">
     {{include.text}}
   </a>
 {% endif %}
