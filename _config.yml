@@ -1,4 +1,4 @@
-source: src/
+source: src/site/
 
 sass:
   sass_dir: css/
@@ -6,4 +6,4 @@ sass:
 plugins:
   - jekyll-redirect-from
 
-excludes: [ 'src/' ]
+excludes: src/components/
