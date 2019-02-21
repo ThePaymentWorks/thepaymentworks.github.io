@@ -96,9 +96,18 @@ class SupportedGateways extends React.Component {
       const filterRegex = new RegExp(searchTerm.toLowerCase());
 
       const filteredGateways = gatewayList.filter(gateway => (
+
+        // For all keys in a gateway check if its value matches the
+        // search term. If it does return the name of the key.
+        // Then if the number of key names retruned is greater than
+        // 0, we know there is a match for that gateway object.
+        // Therefore we keep it in the list
         Object.keys(gateway).filter(a => {
+
+          // We need this first if statement to deal with the tags array
           if (Array.isArray(gateway[a]) === true) {
             return gateway[a].filter(i => i.toLowerCase().match(filterRegex)).length > 0;
+
           } else {
             return (typeof gateway[a] === 'string') && gateway[a].toLowerCase().match(filterRegex)
           }
@@ -110,9 +119,6 @@ class SupportedGateways extends React.Component {
       // Reset the list of gateways when there is no input
       this.setState({gateways: gatewayList});
     }
-  }
-
-  filterByTerm(collection, searchTerm) {
   }
 
   render() {

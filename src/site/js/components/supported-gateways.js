@@ -163,15 +163,25 @@ var SupportedGateways = function (_React$Component) {
         var filterRegex = new RegExp(searchTerm.toLowerCase());
 
         var filteredGateways = gatewayList.filter(function (gateway) {
-          return Object.keys(gateway).filter(function (a) {
-            if (Array.isArray(gateway[a]) === true) {
-              return gateway[a].filter(function (i) {
-                return i.toLowerCase().match(filterRegex);
-              }).length > 0;
-            } else {
-              return typeof gateway[a] === 'string' && gateway[a].toLowerCase().match(filterRegex);
-            }
-          }).length > 0;
+          return (
+
+            // For all keys in a gateway check if its value matches the
+            // search term. If it does return the name of the key.
+            // Then if the number of key names retruned is greater than
+            // 0, we know there is a match for that gateway object.
+            // Therefore we keep it in the list
+            Object.keys(gateway).filter(function (a) {
+
+              // We need this first if statement to deal with the tags array
+              if (Array.isArray(gateway[a]) === true) {
+                return gateway[a].filter(function (i) {
+                  return i.toLowerCase().match(filterRegex);
+                }).length > 0;
+              } else {
+                return typeof gateway[a] === 'string' && gateway[a].toLowerCase().match(filterRegex);
+              }
+            }).length > 0
+          );
         });
 
         this.setState({ gateways: filteredGateways });
@@ -180,9 +190,6 @@ var SupportedGateways = function (_React$Component) {
         this.setState({ gateways: gatewayList });
       }
     }
-  }, {
-    key: 'filterByTerm',
-    value: function filterByTerm(collection, searchTerm) {}
   }, {
     key: 'render',
     value: function render() {
