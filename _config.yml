@@ -1,5 +1,9 @@
+source: src/site/
+
 sass:
   sass_dir: css/
 
 plugins:
   - jekyll-redirect-from
+
+excludes: src/components/

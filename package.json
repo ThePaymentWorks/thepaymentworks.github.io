@@ -1,0 +1,28 @@
+{
+  "name": "thepaymentworks.github.io",
+  "version": "1.0.0",
+  "description": "Our public facing website.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently --kill-others \"npx babel --watch ./src/components --out-dir ./src/site/js/components --presets react-app/prod\" \"bundle exec jekyll serve --host=0.0.0.0 --port=3333\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThePaymentWorks/thepaymentworks.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThePaymentWorks/thepaymentworks.github.io/issues"
+  },
+  "homepage": "https://github.com/ThePaymentWorks/thepaymentworks.github.io#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
