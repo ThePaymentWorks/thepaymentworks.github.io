@@ -1,0 +1,44 @@
+---
+layout: adyen
+active: "what-is-adyen"
+wnt: "Get going with the Authorise sim."
+wnh: "./authorise-getting-started"
+wnlt: "Getting Started"
+---
+
+<h1 class="page-heading">What are the Adyen sims?</h1>
+
+<div class="docs-text-block">
+  <p>
+  Adyen Payment APIs are a simple way to carry out ecommerce transactions: authorise, capture, refund, etc. For example you can simulate payment flows that start with a transaction being created, captured and refunded later. Or a flow where the authorised (but not yet captured) transaction is cancelled.
+  </p>
+
+  <p>
+  Here you can choose a preconfigured scenarion in the Test tab - by which we can guarantee the outcome of the next call(s) you make to other Adyen sims. Like a Blocked Card response that's returned on <b>authorise</b>. If you would like to do individual sim requests, regardless of the scenarios, just use the dedicated mapping tables of the sims.
+  </p>
+
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-sims-overview">
+  <h2 class="section-heading">Sims Overview</h2>
+  <p>
+    Adyen sims are dependent on each other, although they can be used individually. Here’s how a typical flow would work with them:
+  </p>
+  <ol class="doc-list fw-300">
+    <li>
+    Start a new transaction, using the <b>authorise</b> call, which returns you the status for this transaction. You can initiate a <a href="./3d-secure-flow">3D Secure flow</a> as well, in this case you will get a bank sim URL (hosted on Testing Pays) and the necessary params (md and paRequest) to be sent there.
+    </li>
+    <li>
+    Coming back from the 3D secure flow, you need to call the <b>authorise3d</b> sim first before any other call. This ensures your customer has completed their "Verified by Visa"-type tests on the bank's page.
+    </li>
+    <li>
+    You can now <b>capture</b>* the transaction. This is when in the real world the money gets taken from the account.
+    </li>
+    <li>
+    Before capture, you can still <b>cancel</b>* the transaction. After capture is completed you can only initiate a <b>refund</b>*
+    </li>
+  </ol>
+  <p style="font-size: small">* capture, cancel and refund sims are coming soon!</p>
+</div>

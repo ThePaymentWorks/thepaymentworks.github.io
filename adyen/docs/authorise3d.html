@@ -1,0 +1,49 @@
+---
+layout: adyen
+active: "authorise3d"
+---
+
+<h1 class="page-heading">Use the authorise3d sim</h1>
+
+<div class="docs-text-block">
+  <p>
+  This is the call to be made at the end of <a href="./3d-secure-flow.html">the 3D secure flow</a>. The parameters are largely that same as on the <a href="./authorise-getting-started">authorise sim</a>, but in this endpoing you don't need to send in card or bankAccount information.
+  </p>
+  <p>
+  Although you are required to send in the <i>paResponse</i> param you received from the bank's verification callback.
+  </p>
+
+  <ol class="doc-list">
+    <li>
+      <a class="doc-link" href="./authorise3d#section-request">
+        Use the preconfigured scenarios
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./authorise3d#section-custom-response">
+        Use your own custom response
+      </a>
+    </li>
+  </ol>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-request">
+  <h2 class="section-heading">1. Use the preconfigured scenarios</h2>
+  <p>
+  These scenarios are described in detail in the Test tab of <b>authorise</b> sim. These scenarios are there to help you cover all important cases and responses from Adyen's API.
+  </p>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-custom-response">
+  <h2 class="section-heading">2. Use your own custom response</h2>
+  <p>
+  Came across something on test or production that you'd like to reproduce? That weird error that noone could reproduce but they are popping up in the logs? Just copy the full response body to a new 'custom mapping' under the 'Test' tab, assign a response map value and you can use right away!
+  <br/>
+  You can set the HTTP return code, or even add a custom delay to the response too!
+  </p>
+</div>
+

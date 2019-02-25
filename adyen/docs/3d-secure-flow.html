@@ -1,0 +1,73 @@
+---
+layout: adyen
+active: "3d-secure-flow"
+wnt: "Calling authorise3d after you have returned from the bank's interface."
+wnh: "./authorise3d"
+wnlt: "Finish the flow with authorise3d"
+---
+
+<h1 class="page-heading">Adyen 3D secure flow</h1>
+
+<div class="docs-text-block">
+  <p>
+  When you make the initial call to the <b>authorise</b> sim, you can send in a parameter in the <i>additionalData</i> called <i>executeThreeD</i>. If this is set to "true", the 3D secure flow will kick in, and your response will contain the necessary parameters and information to complete the call to the bank's verification page.
+  </p>
+  <p>
+  Once you got the issuerUrl, md and paRequest back from <a href="./authorise-getting-started.html">the authorise sim</a>, you need to send a POST request with them. The target will be the issuerUrl, with paRequest and md as the parameters. You also need a <i>TermUrl</i> in that POST parameters. This is the URL where you will receive the callback after the customer finished with the bank's verifications.
+  </p>
+  <p>
+  Then you need to follow the steps there to complete the payment request.
+  </p>
+
+  <ol class="doc-list">
+    <li>
+      <a class="doc-link" href="./3d-secure-flow#section-bank-page">
+        3D secure page
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./3d-secure-flow#section-termUrl-callback">
+        Handling the callback to TermUrl
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./3d-secure-flow#section-verify-response">
+        Verify the response
+      </a>
+    </li>
+  </ol>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-bank-page">
+  <h2 class="section-heading">1. 3D secure page</h2>
+  <p>
+  This is usually called 'Verified by Visa' or 'MasterCard Secure Code'. In essence they are the same things - they are there to conduct 1 or 2 challenges on behalf of the issuer bank to verify the customer's identity. It is used for a so called 'liability shift' from the issuer side to the merchant, thus reducing the number of chargebacks coming from customers through the merchant.
+  <br/>
+  Our version is a dumbed down version of these bank pages, only showing you the sent parameters and letting you check once more before sending the customer back to the TermUrl of your choice.
+  </p>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-termUrl-callback">
+  <h2 class="section-heading">2. Handling the callback to TermUrl</h2>
+  <p>
+  Once you click 'Continue' on our bank sim page, you will be sent back to your own domain. This is when Testing Pays (in real life the bank) will make a POST request to the TermUrl sent in the initial request with the following parameters:
+  <ul>
+    <li>md - Echoing back what you sent initially. This is a great tool to check transaction ids, sessions, etc.</li>
+    <li>paRes - This parameter will be sent to the next stage of the transaction. This is an encrypted fingerprint value to verify the authencity of the bank verification.</li>
+  </ul>
+  Once you have these, it's time to call the <b>authorise3d</b> endpoint!
+  </p>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-verify-response">
+  <h2 class="section-heading">3. Verify the response</h2>
+  <p>
+  At this stage you call the <b>authorise3d</b> endpoint with some of the original parameters like reference or amount. Make sure you include the <i>paResponse</i> that you got back from the bank page - or in this case Testing Pays' bank sim.
+  </p>
+</div>
