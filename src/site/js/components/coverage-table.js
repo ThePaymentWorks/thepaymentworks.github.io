@@ -88,7 +88,12 @@ function getCell(updateDescription, _ref) {
       return React.createElement(
         'td',
         { onMouseEnter: updateDescription(description).bind(this) },
-        React.createElement('i', { className: 'w-100 text-gold fas fa-check' })
+        React.createElement(
+          'span',
+          { className: 'fa-stack fa-1x w-100 h-100' },
+          React.createElement('i', { className: 'w-100 text-primary fas fa-certificate fa-stack-2x' }),
+          React.createElement('i', { className: 'w-100 text-white fas fa-check fa-stack-1x' })
+        )
       );
     default:
       return React.createElement(

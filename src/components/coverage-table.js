@@ -113,7 +113,10 @@ function getCell(updateDescription, { type, content, endpointDescription, onHove
     case 'goldEndpoint':
       return (
         <td onMouseEnter={updateDescription(description).bind(this)}>
-          <i className="w-100 text-gold fas fa-check"></i>
+          <span className="fa-stack fa-1x w-100 h-100">
+            <i className="w-100 text-primary fas fa-certificate fa-stack-2x"></i>
+            <i className="w-100 text-white fas fa-check fa-stack-1x"></i>
+          </span>
         </td>
       );
     default:
