@@ -19,13 +19,16 @@
   background-color: $white;
 }
 
+.overflow-hidden { overflow: hidden; }
+
 // text utils
-.text-gray {
-  @extend .text-secondary;
-}
-.text-mono {
-  font-family: monospace;
-}
+.text-gray { @extend .text-secondary; }
+
+.text-gray-light { color: #CCCCCC; }
+
+.text-gold { color: $gold; }
+
+.text-mono { font-family: monospace; }
 
 .fw-200 { font-weight: 200 !important; }
 .fw-300 { font-weight: 300 !important; }

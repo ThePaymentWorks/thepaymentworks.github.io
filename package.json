@@ -4,7 +4,7 @@
   "description": "Our public facing website.",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently --kill-others \"npx babel --watch ./src/components --out-dir ./src/site/js/components --presets react-app/prod\" \"bundle exec jekyll serve --host=0.0.0.0 --port=3333\"",
+    "dev": "concurrently --kill-others \"npx babel --watch ./components --out-dir ./js/components --presets react-app/prod\" \"bundle exec jekyll serve --host=0.0.0.0 --port=3333\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
