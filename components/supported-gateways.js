@@ -2,24 +2,29 @@
 
 const gatewayList = [{
   'name': 'stripe',
-  'logo': 'img/logos/authipay.png',
-  'description': 'Icing icing pie tootsie roll sesame snaps tiramisu sweet roll. Caramels dragée topping. Tart apple pie sweet. Caramels dragée topping. Tart apple pie sweet.',
-  'tags': [ 'Stripe', 'DCC', 'MCC' ]
+  'logo': 'img/logos/gateways/stripe.png',
+  'description': 'Stripe is one of the go-to payment API families out there today. It has everything from one-off payments to peer-to-peer transactions.',
+  'tags': [ 'Card payments', 'Subscriptions', 'Webhooks' ]
 }, {
   'name': 'realex',
-  'logo': 'img/logos/authipay.png',
-  'description': 'Icing icing pie tootsie roll sesame snaps tiramisu sweet roll. Caramels dragée topping. Tart apple pie sweet. Caramels dragée topping. Tart apple pie sweet.',
-  'tags': [ 'Realex', 'DCC', 'MCC' ]
+  'logo': 'img/logos/gateways/realex-logo.png',
+  'description': 'Realex offers a steady API for e-commerce transactions. You can either do a direct integration or use their hosted pages (HPP) solution.',
+  'tags': [ 'Realex', '3D secure', 'Hosted Pages' ]
 }, {
   'name': 'authipay',
-  'logo': 'img/logos/authipay.png',
-  'description': 'Icing icing pie tootsie roll sesame snaps tiramisu sweet roll. Caramels dragée topping. Tart apple pie sweet. Caramels dragée topping. Tart apple pie sweet.',
-  'tags': [ 'Billing', 'DCC', 'MCC' ]
+  'logo': 'img/logos/gateways/authipay.png',
+  'description': 'Authipay is AIB Merchant Services\' full offering, allowing you to do everything from simple, recurring card and bank transactions.',
+  'tags': [ 'Hosted Pages', 'Card payments', 'DCC', 'MCC' ]
 }, {
-  'name': 'authipay',
-  'logo': 'img/logos/authipay.png',
-  'description': 'Icing icing pie tootsie roll sesame snaps tiramisu sweet roll. Caramels dragée topping. Tart apple pie sweet. Caramels dragée topping. Tart apple pie sweet.',
-  'tags': [ 'Billing', 'DCC', 'MCC' ]
+  'name': 'adyen',
+  'logo': 'img/logos/gateways/adyen-logo.png',
+  'description': 'JSON API for card payments, including the 3D secure flow for enrolled cards. On top of the e-commerce APIS Adyen offers physical terminals as well as virtual ones for their merchants.',
+  'tags': [ 'Authorise', '3D secure' ]
+}, {
+  'name': 'apco-pay',
+  'logo': 'img/logos/gateways/apco_pay-logo.png',
+  'description': 'Hosted payment pages where you have control over the form\'s look and feel as well as the information you ask for on top of the regular payment fields.',
+  'tags': [ 'Authorise', '3D secure' ]
 }];
 
 const SearchBar = function ({searchTerm = '', onUpdate}) {
