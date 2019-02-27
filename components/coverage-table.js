@@ -90,7 +90,7 @@ function getCell(updateDescription, { type, content, endpointDescription, onHove
   switch(type) {
     case 'na':
       return (
-        <td onMouseEnter={updateDescription(description).bind(this)}>
+        <td onClick={updateDescription(description).bind(this)}>
           <div className="w-100 text-center">
             <small className="text-gray-light font-weight-light">{content}</small>
           </div>
@@ -98,21 +98,21 @@ function getCell(updateDescription, { type, content, endpointDescription, onHove
       );
     case 'vote':
       return (
-        <td onMouseEnter={updateDescription(description).bind(this)}>
+        <td onClick={updateDescription(description).bind(this)}>
           <div className="w-100 text-center">
-            <small className="text-gray-light font-weight-light">{content}</small>
+            <small className="text-gray font-weight-light">{content}</small>
           </div>
         </td>
       );
     case 'covered':
       return (
-        <td onMouseEnter={updateDescription(description).bind(this)}>
+        <td onClick={updateDescription(description).bind(this)}>
           <i className="w-100 text-primary fas fa-check"></i>
         </td>
       );
     case 'goldEndpoint':
       return (
-        <td onMouseEnter={updateDescription(description).bind(this)}>
+        <td onClick={updateDescription(description).bind(this)}>
           <span className="fa-stack fa-1x w-100 h-100">
             <i className="w-100 text-primary fas fa-certificate fa-stack-2x"></i>
             <i className="w-100 text-white fas fa-check fa-stack-1x"></i>
@@ -121,7 +121,7 @@ function getCell(updateDescription, { type, content, endpointDescription, onHove
       );
     default:
       return (
-        <td onMouseEnter={updateDescription(description).bind(this)}>
+        <td onClick={updateDescription(description).bind(this)}>
           <div className="w-100 text-center">
             <small className="text-gray-light font-weight-light">{content}</small>
           </div>
@@ -175,6 +175,17 @@ class CoverageTable extends React.Component {
 
   updateDescription(endpointDescription) {
     return e => {
+      const currentActiveElement = document.querySelector('.activeCell');
+
+      console.log(currentActiveElement);
+      if (currentActiveElement) {
+        currentActiveElement.classList.remove('activeCell');
+      }
+
+      console.log(e);
+      console.log(e.target);
+      console.log(e.target.classList);
+      console.log(e.target.closest('td').classList.add('activeCell'));
       this.setState({
         showEndpointDescription: true,
         endpointDescription,

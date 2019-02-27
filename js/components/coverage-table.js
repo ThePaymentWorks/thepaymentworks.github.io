@@ -53,7 +53,7 @@ function getCell(updateDescription, _ref) {
     case 'na':
       return React.createElement(
         'td',
-        { onMouseEnter: updateDescription(description).bind(this) },
+        { onClick: updateDescription(description).bind(this) },
         React.createElement(
           'div',
           { className: 'w-100 text-center' },
@@ -67,13 +67,13 @@ function getCell(updateDescription, _ref) {
     case 'vote':
       return React.createElement(
         'td',
-        { onMouseEnter: updateDescription(description).bind(this) },
+        { onClick: updateDescription(description).bind(this) },
         React.createElement(
           'div',
           { className: 'w-100 text-center' },
           React.createElement(
             'small',
-            { className: 'text-gray-light font-weight-light' },
+            { className: 'text-gray font-weight-light' },
             content
           )
         )
@@ -81,13 +81,13 @@ function getCell(updateDescription, _ref) {
     case 'covered':
       return React.createElement(
         'td',
-        { onMouseEnter: updateDescription(description).bind(this) },
+        { onClick: updateDescription(description).bind(this) },
         React.createElement('i', { className: 'w-100 text-primary fas fa-check' })
       );
     case 'goldEndpoint':
       return React.createElement(
         'td',
-        { onMouseEnter: updateDescription(description).bind(this) },
+        { onClick: updateDescription(description).bind(this) },
         React.createElement(
           'span',
           { className: 'fa-stack fa-1x w-100 h-100' },
@@ -98,7 +98,7 @@ function getCell(updateDescription, _ref) {
     default:
       return React.createElement(
         'td',
-        { onMouseEnter: updateDescription(description).bind(this) },
+        { onClick: updateDescription(description).bind(this) },
         React.createElement(
           'div',
           { className: 'w-100 text-center' },
@@ -190,6 +190,17 @@ var CoverageTable = function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
+        var currentActiveElement = document.querySelector('.activeCell');
+
+        console.log(currentActiveElement);
+        if (currentActiveElement) {
+          currentActiveElement.classList.remove('activeCell');
+        }
+
+        console.log(e);
+        console.log(e.target);
+        console.log(e.target.classList);
+        console.log(e.target.closest('td').classList.add('activeCell'));
         _this2.setState({
           showEndpointDescription: true,
           endpointDescription: endpointDescription

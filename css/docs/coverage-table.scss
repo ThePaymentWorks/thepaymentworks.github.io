@@ -2,11 +2,19 @@
   max-width: 460px;
   margin-bottom: 2rem;
 
+  .fa-stack { display: block; }
+
   tr {
     th:first-child { border-right: 1px solid gray; }
     th {
       min-width: calc(50vw / 5);
       border-bottom: 1px solid gray;
+    }
+
+    td.activeCell {
+      background-color: $primary;
+      .text-primary { color: $white !important; }
+      .text-white { color: $primary !important; }
     }
 
     td { padding: 0.75rem; }
