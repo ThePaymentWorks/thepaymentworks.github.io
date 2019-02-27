@@ -175,12 +175,19 @@ class CoverageTable extends React.Component {
 
   updateDescription(endpointDescription) {
     return e => {
+
+      // Check if an active cell already exists and if so
+      // remove the activeCell class from it
       const currentActiveElement = document.querySelector('.activeCell');
 
       if (currentActiveElement) {
         currentActiveElement.classList.remove('activeCell');
       }
 
+      // Set the new cell as active
+      e.target.closest('td').classList.add('activeCell');
+
+      // Update the state with the current cells description
       this.setState({
         showEndpointDescription: true,
         endpointDescription,
