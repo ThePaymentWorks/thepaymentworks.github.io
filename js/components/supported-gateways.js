@@ -66,7 +66,7 @@ var gatewayList = [{
   'logo': 'img/logos/gateways/paypal-logo.png',
   'description': 'PayPal is one of the payment veterans, with customer and merchant accounts, hosted and API card payments',
   'tags': ['Peer-to-peer', 'Card payments', 'Bank transfer'],
-  'link': '/sims/paypal'
+  'link': '/sims/paypal-express'
 }, {
   'name': 'perfect-card',
   'logo': 'img/logos/gateways/perfect_card-logo.png',
@@ -102,6 +102,27 @@ var SearchBar = function SearchBar(_ref) {
       )
     )
   );
+};
+
+var GatewayLink = function GatewayLink(link) {
+  if (link != '#') {
+    return React.createElement(
+      'a',
+      { href: link, className: 'border-top light-background d-flex flex-row justify-content-between p-2' },
+      React.createElement(
+        'span',
+        null,
+        'View Guides'
+      ),
+      React.createElement(
+        'span',
+        { className: 'text-primary' },
+        React.createElement('i', { className: 'fas fa-arrow-right' })
+      )
+    );
+  } else {
+    return '';
+  }
 };
 
 var GatewayListItem = function GatewayListItem(_ref2) {
@@ -144,20 +165,7 @@ var GatewayListItem = function GatewayListItem(_ref2) {
           description
         )
       ),
-      React.createElement(
-        'a',
-        { href: link, className: 'border-top light-background d-flex flex-row justify-content-between p-2' },
-        React.createElement(
-          'span',
-          null,
-          'View Guides'
-        ),
-        React.createElement(
-          'span',
-          { className: 'text-primary' },
-          React.createElement('i', { className: 'fas fa-arrow-right' })
-        )
-      )
+      GatewayLink(link)
     )
   );
 };

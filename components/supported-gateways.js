@@ -58,7 +58,7 @@ const gatewayList = [{
   'logo': 'img/logos/gateways/paypal-logo.png',
   'description': 'PayPal is one of the payment veterans, with customer and merchant accounts, hosted and API card payments',
   'tags': [ 'Peer-to-peer', 'Card payments', 'Bank transfer' ],
-  'link': '/sims/paypal'
+  'link': '/sims/paypal-express'
 }, {
   'name': 'perfect-card',
   'logo': 'img/logos/gateways/perfect_card-logo.png',
@@ -84,6 +84,19 @@ const SearchBar = function ({searchTerm = '', onUpdate}) {
   );
 };
 
+const GatewayLink = function(link) {
+  if (link != '#') {
+    return(
+        <a href={link} className="border-top light-background d-flex flex-row justify-content-between p-2">
+          <span>View Guides</span>
+          <span className="text-primary"><i className="fas fa-arrow-right"></i></span>
+        </a>
+        );
+  } else {
+    return '';
+  }
+};
+
 const GatewayListItem = function ({ logo, description, link = '#', tags = [] }) {
   return (
     <div className="col col-sm-4 py-3 mx-auto mt-4" style={{maxWidth: '300px'}}>
@@ -101,10 +114,7 @@ const GatewayListItem = function ({ logo, description, link = '#', tags = [] }) 
           <span>{description}</span>
         </div>
 
-        <a href={link} className="border-top light-background d-flex flex-row justify-content-between p-2">
-          <span>View Guides</span>
-          <span className="text-primary"><i className="fas fa-arrow-right"></i></span>
-        </a>
+        {GatewayLink(link)}
 
       </div>
     </div>
