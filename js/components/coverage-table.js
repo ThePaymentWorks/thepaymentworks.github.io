@@ -192,15 +192,10 @@ var CoverageTable = function (_React$Component) {
       return function (e) {
         var currentActiveElement = document.querySelector('.activeCell');
 
-        console.log(currentActiveElement);
         if (currentActiveElement) {
           currentActiveElement.classList.remove('activeCell');
         }
 
-        console.log(e);
-        console.log(e.target);
-        console.log(e.target.classList);
-        console.log(e.target.closest('td').classList.add('activeCell'));
         _this2.setState({
           showEndpointDescription: true,
           endpointDescription: endpointDescription
