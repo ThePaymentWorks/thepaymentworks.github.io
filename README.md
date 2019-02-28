@@ -39,6 +39,19 @@ bundle exec jekyll serve
 
 You should now have the site running at localhost:4000/
 
+##### 3.A run with npm
+
+With additional functionality around the gateway search and the comparison matrix we need React components as well to work.
+
+In order to get going, first you need ot install the dependencies with `npm install` and then you can use the
+
+```bash
+npm run dev
+```
+
+command to have the site running at localhost:3333/ This way your React components are monitored as well, so every time you make a change on the Jekyll templates or in the components, your site gets rebuilt.
+
+
 ### Folder Structure
 
 #### Code Snippets
