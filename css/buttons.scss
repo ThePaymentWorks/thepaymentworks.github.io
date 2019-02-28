@@ -6,6 +6,10 @@
 .btn-light {
   color: $teal;
 }
+.btn-dark {
+  color: $white;
+  background-color: $dark;
+}
 .btn-light:hover {
   color: $teal;
 }

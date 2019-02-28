@@ -19,6 +19,27 @@
   background-color: $white;
 }
 
+.clip-background-t {
+  -webkit-clip-path: polygon(0 15%, 100% 0%, 100% 100%, 0 100%);
+  clip-path: polygon(0 15%, 100% 0%, 100% 100%, 0 100%);
+}
+
+.clip-background-t.border-top { position: relative; }
+
+.clip-background-t.border-top:after {
+  -webkit-clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0 100%);
+  clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0 100%);
+  background: $primary;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -84%;
+  right: 0;
+  height: 100%;
+  display: block;
+  z-index: 9;
+}
+
 .overflow-hidden { overflow: hidden; }
 
 // text utils
@@ -35,7 +56,7 @@
 .fw-400 { font-weight: 400 !important; }
 .fw-500 { font-weight: 500 !important; }
 
-// Sizing
+// Sizingclip-background-t
 .fill-screen-minus-footer-and-nav {
   min-height: calc(100vh - 139px);
 }
