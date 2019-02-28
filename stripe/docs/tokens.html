@@ -1,0 +1,81 @@
+---
+layout: stripe
+active: "tokens"
+wnt: "Take a look at how you can create customer data on Stripe, then amend & update cards, billing details, account balance, etc."
+wnh: "./customers"
+wnlt: "Dealing with Customers"
+---
+
+<h1 class="page-heading">Getting Started with the charges sim</h1>
+
+<div class="docs-text-block">
+  <p>
+    Here's how to make your first request - authorising a payment - with Testing Pays sims.
+  </p>
+  <ol class="doc-list">
+    <li>
+      <a class="doc-link" href="./charges-getting-started.html#section-create-account">
+        Create your Testing Pays account
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./charges-getting-started.html#section-open-sim">
+        Open the charges simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./charges-getting-started.html#section-first-request">
+        Making your first charges request
+      </a>
+    </li>
+  </ol>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-create-account">
+  <h2 class="section-heading">1. Create Your Testing Pays Account</h2>
+  <p>
+    First, you’ll need an account on Testing Pays. It takes seconds.
+  </p>
+
+  {% include docs/components/button-link.html
+    href="https://admin.testingpays.com/sign-up"
+    text="Create your Testing Pays account"
+    classes="mb-45"
+    target="_BLANK"
+    %}
+
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-open-sim">
+  <h2 class="section-heading">2. Open the charges Simulator</h2>
+  <p>
+    Once you’ve signed in to the testing environment, and selected your favourite APIs you'd like to use, you’ll see your team Dashboard with bookmarks. Find the bookmark named “<span class="fw-500">charges  (v1)</span>”, and click the OPEN SIM button.
+  </p>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-first-request">
+  <h2 class="section-heading">3. Making your first charges request</h2>
+  <p>
+    Go to the “Integrate” tab on the charges simulator. This contains instructions and tips to get going in various coding languages. Select the coding language of your choice and follow the instructions.
+  </p>
+  <p>
+  The first option you'll see on the "Integrate" tab is a <i>cURL</i> request - this is the quickest way to see a charges request in action. Copy the cURL command and paste into your local command/terminal window, and hit return. The response from the simulator will be based on the trigger parameter (by default this is the amount > value parameter of the request).
+  </p>
+</div>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2" ></i> Our Tip: use the Simulator to try out these real life payment scenarios
+    </h5>
+    <p class="docs-card-text text-light">
+    Not all payments and API requests follow the "happy path". In many cases you will find unusual behaviors. We recommend to check the pre-configured scenarios first, and add your own ones.
+    </p>
+  </div>
+</div>
