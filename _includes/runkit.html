@@ -11,21 +11,25 @@
         <div class="d-none d-lg-block">
           <button onclick="setActive('paypal');" class="btn btn-block tab active" id="paypal"><i class="fab fa-paypal fa-sm"></i> PayPal</button>
           <button onclick="setActive('stripe');" class="btn btn-block tab" id="stripe"><i class="fab fa-stripe-s fa-sm"></i> Stripe</button>
-          <button onclick="setActive('optimal');" class="btn btn-block tab" id="optimal"><img src="img/logos/optimal-symbol.png"/> Optimal</button>
+          <button onclick="setActive('optimal');" class="btn btn-block tab" id="optimal"><img src="/img/logos/optimal-symbol.png"/> Optimal</button>
         </div>
       </div>
 
       <div class="col-lg-8">
-        <script src="js/runkit.js"></script>
+        <script src="/js/runkit.js"></script>
         <script src="https://embed.runkit.com"></script>
 
-        <div id="runkit-element"></div>
+        <div id="runkit-element" data-source={{include.defaultSource}}></div>
 
         <script>
+          var rootElement = document.getElementById("runkit-element");
+          var source = rootElement.getAttribute('data-source');
           var notebook = RunKit.createNotebook({
             element: document.getElementById("runkit-element"),
-            source: getSource()
-          })
+            source: getSource(source)
+          });
+
+          setActive(source);
         </script>
       </div>
     </div>
