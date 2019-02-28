@@ -1,44 +1,111 @@
 ---
 layout: stripe
 active: "what-is-stripe"
-wnt: "Get going with the Charges sim."
-wnh: "./charges-getting-started"
-wnlt: "Getting Started"
+wnt: "Get going with the Tokens sim."
+wnh: "./tokens-getting-started"
+wnlt: "Getting Started with Tokens"
 ---
 
 <h1 class="page-heading">What are the Stripe sims?</h1>
 
 <div class="docs-text-block">
   <p>
-  Stripe Payment APIs are a simple way to carry out ecommerce transactions: authorise, capture, refund, etc. For example you can simulate payment flows that start with a transaction being created, captured and refunded later. Or a flow where the authorised (but not yet captured) transaction is cancelled.
+  Stripe has a cornucopia of APIs that deal with payments. You can do everything from simple charges to order management. You can even use it as a marketplace, where you connect payments from one source to another, making you the middleman for such transactions.
   </p>
 
   <p>
-  Here you can choose a preconfigured scenarion in the Test tab - by which we can guarantee the outcome of the next call(s) you make to other Stripe sims. Like a Blocked Card response that's returned on <b>authorise</b>. If you would like to do individual sim requests, regardless of the scenarios, just use the dedicated mapping tables of the sims.
+  On top of this, Stripe’s APIs are fairly spread out, each endpoint following the REST principles where applicable. Reading through all that can be daunting at times, so we have attempted to boil it down to some simple steps
   </p>
 
 </div>
 
 {% include docs/components/text-block-divider.html %}
 
-<div class="docs-text-block" id="section-sims-overview">
-  <h2 class="section-heading">Sims Overview</h2>
-  <p>
-    Stripe sims are dependent on each other, although they can be used individually. Here’s how a typical flow would work with them:
-  </p>
+<div class="docs-text-block" id="section-sims-charge">
+  <h2 class="section-heading">Doing a one-off charge</h2>
+  <p>This way you can make simple transaction without remembering any details of your customer.</p>
   <ol class="doc-list fw-300">
     <li>
-    Start a new transaction, using the <b>authorise</b> call, which returns you the status for this transaction. You can initiate a <a href="./3d-secure-flow">3D Secure flow</a> as well, in this case you will get a bank sim URL (hosted on Testing Pays) and the necessary params (md and paRequest) to be sent there.
+    Get the customer’s card details TOKENised first. Tokenisation means you get an ID which can be used to reference the card in use. Using the token means you won’t be subject to rigorous PCI complience reviews (you aren’t fully off the hook though!). At this point the only thing that happened is that the card details have been registered with Stripe.
     </li>
     <li>
-    Coming back from the 3D secure flow, you need to call the <b>authorise3d</b> sim first before any other call. This ensures your customer has completed their "Verified by Visa"-type tests on the bank's page.
-    </li>
-    <li>
-    You can now <b>capture</b>* the transaction. This is when in the real world the money gets taken from the account.
-    </li>
-    <li>
-    Before capture, you can still <b>cancel</b>* the transaction. After capture is completed you can only initiate a <b>refund</b>*
+    With the token, you can create a CHARGE. Charging the card will actually take money off the account - whether it’s through a one-step auth+capture or 2 separate calls that’s up to you. You will receive back a CHARGE object on this call, which includes important information about the transaction: The result from Stripe, the issuer (the institution that gave the card to the customer, i.e. the issuing bank, or the card schemes themselves) and acquirer (the institution that takes the money off the card). Each of these parties have a say in the outcome of a transaction, and all three’s `OK` is needed to get a successful charge completed.
+
     </li>
   </ol>
-  <p style="font-size: small">* capture, cancel and refund sims are coming soon!</p>
 </div>
+
+<div class="docs-text-block" id="section-sims-customer-details">
+  <h2 class="section-heading">Saving and reusing the customer details</h2>
+  <p>Use this flow to remember customer details (including card / bank account details).</p>
+  <ol class="doc-list fw-300">
+    <li>
+  Now, before the CHARGE you can create a CUSTOMER object in stripe. This customer object can be used in any later action on the Stripe APIs, making it easier to reference the person’s details (billing, delivery, email, etc.) and payment options. You can add and store multiple cards & bank accounts on a customer object!
+    </li>
+    <li>
+  In your CHARGE request now you will use the TOKEN as the source and the CUSTOMER ID as well. This way you can later review all transactions in your dashboard (or by listing all CHARGES using the REST API)
+
+    </li>
+  </ol>
+</div>
+
+<div class="docs-text-block" id="section-sims-refund">
+  <h2 class="section-heading">Refunding a charge</h2>
+  <ol class="doc-list fw-300">
+    <li>
+    In some cases you need to issue a REFUND to a customer (i.e. returning goods, exchange, not satisfied with the service, duplicate transaction, etc.). You can do so by using the REFUNDS API.
+    </li>
+    <li>
+    Here you need to reference the original CHARGE you’re refunding, using the charge ID. By default it will issue a refund on the full amount, however you can do partial refunds with the `amount` parameter. And if it’s between connected account (the marketplace scenario) then you can attach an application fee as well.
+    </li>
+  </ol>
+</div>
+
+<div class="docs-text-block" id="section-sims-coupons">
+  <h2 class="section-heading">Using Coupons</h2>
+  <ol class="doc-list fw-300">
+    <li>
+    You can use Stripe’s APIs to issue COUPONs and discounts - you don’t need to calculate these on each charge!
+    </li>
+    <li>
+    Coupons can be a fix amount off the price or a fix percentage off the price. When you use subscriptions you can even configure them to be time based: 3 month off, half price for 12 months, etc.
+    </li>
+    <li>
+    Create these coupons either on the dashboard or using the COUPONs API.
+    </li>
+    <li>
+    Coupons can be applied to new or existing SUBSCRIPTIONS
+    </li>
+  </ol>
+</div>
+
+<div class="docs-text-block" id="section-sims-subscriptions">
+  <h2 class="section-heading">Managing Subscriptions</h2>
+  <ol class="doc-list fw-300">
+    <li>
+    Running a subscription based business is manageable through Stripe’s APIs
+    </li>
+    <li>
+    First you need to setup your PLANs on Stripe. These plans will be the base of your subscriptions.
+    </li>
+    <li>
+    Each plan has to have a name (id), a duration (i.e. monthly, annual) and a price.
+    </li>
+    <li>
+    These plans then can be added as SUBSCRIPTION ITEMS to a customer’s subscription.
+    </li>
+    <li>
+    One subscription can contain many items. Think of it as a magazine subscription, where you can subscribe for a specific paper, or a family of papers. Then you can manage these individually later.
+    </li>
+    <li>
+    TIP: you can subscribe to a single plan many times using the `quantity` request parameter.
+    </li>
+    <li>
+    You can also set trial periods, cancellations and coupons on a customer’s subscriptions
+    </li>
+    <li>
+    When it comes to usage-based billing, that’s doable through
+    </li>
+  </ol>
+</div>
+

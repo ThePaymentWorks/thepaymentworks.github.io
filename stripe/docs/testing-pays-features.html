@@ -59,17 +59,13 @@ wnlt: "What can I do in Testing Pays?"
   <p>
     Testing Pays has powerful simulators for a subset of Stripe API endpoints. We currently offer the following API sims:
     <ul>
-      <li><b>authorise</b> - Payment API for taking payments from a card or bank account. Also allows the integrator to do a full 3D secure flow.</li>
-      <li><b>authorise3d</b> - Payment API for validating payments coming back from the 'Verified by Visa' flow.</li>
-    </ul>
-    These APIs are under development and will be available soon:
-    <ul>
-      <li><i>capture</i> - Capture a payment that is still on hold (i.e. the money has been reserved but not transferred yet, this call finalises that transfer.).</li>
-      <li><i>cancel</i> - Cancel a payment that is still on hold (i.e. the money has been reserved but not transferred yet. Great for flows like car rental, reserving services, etc.).</li>
-      <li><i>refund</i> - Refund an already captured payment.</li>
-      <li><i>cancelOrRefund</i> - A wrapper API around the 2 endpoints above - in case you're in doubt over the transaction's state this API can be used safely.</li>
-      <li><i>technicalCancel</i> - Cancel a payment using the reference value submitted on <i>authorise</i>.</li>
-      <li><i>adjustAuthorisation</i> - Allows you to increase or decrease the authorised amount after the initial authorisation has taken place.</li>
+     <li>Charges<small> - for one-off transactions</small></li>
+     <li>Tokens<small> - tokenising card data, reducing your PCI compliance level and increased security</small></li>
+     <li>Subscriptions<small> - managing monthly / annual fee type transactions</small></li>
+     <li>Customers<small> - managing your customer data for charges and subscriptions</small></li>
+     <li>Coupons<small> - offer discounts and vouchers for your customers</small></li>
+     <li>Refunds<small> - issue a refund to your customers based on a charge / subscription</small></li>
+     <li>Webhooks<small> - trigger, parse and try out any webhook event!</small></li>
     </ul>
   </p>
 
@@ -97,7 +93,7 @@ wnlt: "What can I do in Testing Pays?"
     Each API simulator has a table of <b>all</b> possible API response codes. The table maps the response codes to request values. If you send in a value in your test request, then it will trigger the simulator to send back the response code it maps to in the table.
   </p>
 
-  <p>The default trigger parameter is the <i>Amount</i> object's <i>value</i> - you can trigger specific response codes with the last 2 digits in the value. You also have the option to use <i>card > cvc</i>, <i>bankAccount > bankAccountNumber</i>, <i>bankAccount > bic</i>, <i>deliveryAddress > houseNumberOrName</i>, <i>billingAddress > houseNumberOrName</i> or the <i>shopperName > infix</i> fields as trigger parameters in some sims - just select the trigger value you want in the Settings of the simulator you're testing.</p>
+  <p>The default trigger parameter is the <i>amount</i> value- you can trigger specific response codes with the last 2 digits in the value. You also have the option to use <i>card > cvc</i>, or others depending on the sim itself. Just select the trigger value you want in the Settings of the simulator you're testing.</p>
 
   <p>
    Say goodbye to crappy test cards. Enjoy testing <b>any</b> response you need when you need. Your imagination is your limit.
