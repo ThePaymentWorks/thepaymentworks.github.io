@@ -21,53 +21,37 @@ function getEndpointDescription(type, description) {
   }
 }
 
-function getCell(updateDescription, { type, content, endpointDescription, onHoverText }) {
-  const description = getEndpointDescription(type, endpointDescription);
-
+const CellContent = function ({type, content}) {
   switch(type) {
     case 'na':
-      return (
-        <td onClick={updateDescription(description).bind(this)}>
-          <div className="w-100 text-center">
-            <small className="text-gray-light font-weight-light">{content}</small>
-          </div>
-        </td>
-      );
+      return <div className="w-100 text-center"><small className="text-gray-light font-weight-light">{content}</small></div>;
     case 'vote':
-      return (
-        <td onClick={updateDescription(description).bind(this)}>
-          <div className="w-100 text-center">
-            <small className="text-gray font-weight-light">{content}</small>
-          </div>
-        </td>
-      );
+      return <div className="w-100 text-center"><small className="text-gray font-weight-light">{content}</small></div>;
     case 'covered':
-      return (
-        <td onClick={updateDescription(description).bind(this)}>
-          <i className="w-100 text-primary fas fa-check"></i>
-        </td>
-      );
+      return <i className="w-100 text-primary fas fa-check"></i>;
     case 'goldEndpoint':
       return (
-        <td onClick={updateDescription(description).bind(this)}>
-          <span className="fa-stack fa-1x w-100 h-100">
-            <i className="w-100 text-primary fas fa-certificate fa-stack-2x"></i>
-            <i className="w-100 text-white fas fa-check fa-stack-1x"></i>
-          </span>
-        </td>
+        <span className="fa-stack fa-1x w-100 h-100">
+          <i className="w-100 text-primary fas fa-certificate fa-stack-2x"></i>
+          <i className="w-100 text-white fas fa-check fa-stack-1x"></i>
+        </span>
       );
     default:
-      return (
-        <td onClick={updateDescription(description).bind(this)}>
-          <div className="w-100 text-center">
-            <small className="text-gray-light font-weight-light">{content}</small>
-          </div>
-        </td>
-      );
+      return <div className="w-100 text-center"><small className="text-gray-light font-weight-light">{content}</small></div>;
   }
 };
 
-function getXAxisHeadings(xAxis, yAxis) {
+const Cell = function ({ isActive, setActiveCell, cell }) {
+  const { endpoint, type, content } = cell;
+
+  return (
+    <td className={isActive ? 'activeCell' : ''} onClick={setActiveCell(cell).bind(this)}>
+      <CellContent type={type} content={content} />
+    </td>
+  );
+};
+
+const XAxisHeadings = function ({ xAxis, yAxis }) {
   if (!xAxis.hasHeadings) return;
 
   return (
@@ -78,58 +62,121 @@ function getXAxisHeadings(xAxis, yAxis) {
   );
 }
 
-function getModalDescription(showModal, modalDescription) {
-  if (showModal && modalDescription) {
-    return (
-      <div className="col" style={{minHeight: '12rem'}}>
-        <div className="container-fluid card shadow mt-3 border-none overflow-none">
-          <div className="row">
-            <div className="col light-background py-2">
-              <b>{modalDescription.title}</b>
-            </div>
+const EnquiryForm = function ({ onSubmit, email, body, handleChange }) {
+  return (
+    <form onSubmit={onSubmit}>
+      <div className="form-group">
+        <label className="control-label">From: </label>
+        <input id="new-enquiry-email" className="form-control" type="text" value={email} onChange={handleChange('email')}/>
+      </div>
+      <div className="form-group ">
+        <label for="custom_response" className="control-label">Suggestion:</label>
+        <textarea id="new-enquiry-text" rows="10" placeholder="Hey, I noticed you don't have a sim for..." maxlength="500" className="form-control" value={body} onChange={handleChange('body')}></textarea>
+      </div>
+
+      <div className="d-flex justify-content-end">
+        <button type="button" className="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="submit" className="btn btn-primary">Submit</button>
+      </div>
+  </form>
+  );
+}
+
+const Modal = function ({ title, children }) {
+  return (
+    <div className="modal fade" id="voteModal" tabindex="-1" role="dialog" aria-labelledby="voteModalLabel" aria-hidden="true">
+      <div className="modal-dialog" role="document">
+        <div className="modal-content">
+          <div className="modal-header text-white dark-background">
+            <h5 className="modal-title">{title}</h5>
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" className="text-white">&times;</span>
+            </button>
           </div>
 
-          <div className="row">
-            <div className="col py-2">
-              <p>{modalDescription.text}</p>
-            </div>
+          <div className="modal-body">
+            {children}
           </div>
         </div>
       </div>
-    )
-  }
+    </div>
+  );
+}
+
+const EndpointDescription = function ({show, endpoint}) {
+  if (!(show && endpoint)) return '';
+
+  const { description, type } = endpoint;
+  const { title = '', text = '' } = getEndpointDescription(type, description);
+
+  return (
+    <div className="col" style={{minHeight: '12rem'}}>
+      <div className="container-fluid card shadow mt-3 border-none overflow-none">
+        <div className="row">
+          <div className="col light-background py-2">
+            <b>{title}</b>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col py-2">
+            <p>{text}</p>
+            { type === 'vote' ? <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#voteModal">Vote</button> : ''}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 class CoverageTable extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      table: CoverageTables.stripe,
-      endpointDescription: '',
+      table: CoverageTables[props.gateway],
+
       showEndpointDescription: false,
+      showVoteModal: false,
+
+      activeCell: null,
+
+      email: '',
+      body: '',
     };
   }
 
-  updateDescription(endpointDescription) {
+  setActiveCell(activeCell) {
     return e => {
-
-      // Check if an active cell already exists and if so
-      // remove the activeCell class from it
-      const currentActiveElement = document.querySelector('.activeCell');
-
-      if (currentActiveElement) {
-        currentActiveElement.classList.remove('activeCell');
-      }
-
-      // Set the new cell as active
-      e.target.closest('td').classList.add('activeCell');
-
       // Update the state with the current cells description
       this.setState({
         showEndpointDescription: true,
-        endpointDescription,
+        activeCell,
       });
     }
+  }
+
+  submitVote(e) {
+    e.preventDefault();
+
+    const data = {
+      email: this.state.email,
+      text: this.state.body,
+      category: 'sim-coverage',
+      metadata: { endpoint: this.state.activeCell.endpoint }
+    };
+
+    fetch('https://admin-api.testingpays.com/public_enquiry', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json", },
+      body: JSON.stringify(data),
+    });
+
+    $('#voteModal').modal('toggle');
+  }
+
+  handleChange(name) {
+    return e => this.setState({ [name]: e.target.value });
   }
 
   render() {
@@ -141,28 +188,36 @@ class CoverageTable extends React.Component {
         <div className="row">
           <div className="col">
             <table className="coverage-table">
-                <tbody>
-                { getXAxisHeadings(xAxis, yAxis) }
+              <tbody>
+                <XAxisHeadings xAxis={xAxis} yAxis={yAxis} />
                 { rows.map((row, index) => (
                   <tr>
                     {yAxis.hasHeadings
                       ? <td class="text-right text-gray">{yAxis.headings[index]}</td>
                       : ''
                     }
-                    {row.map(cell => getCell(this.updateDescription.bind(this), cell))}
+                    { row.map(cell => {
+                        const activeCell = this.state.activeCell;
+                        const isActive = (activeCell && activeCell.endpoint && activeCell.endpoint === cell.endpoint);
+                        return <Cell isActive={isActive} setActiveCell={this.setActiveCell.bind(this)} cell={cell}/>
+                      })
+                    }
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          {getModalDescription(this.state.showEndpointDescription, this.state.endpointDescription)}
+          <EndpointDescription endpoint={this.state.activeCell} show={this.state.showEndpointDescription}/>
         </div>
+
+        <Modal title="Vote for simulator">
+          <EnquiryForm onSubmit={this.submitVote.bind(this)} email={this.state.email} body={this.state.body} handleChange={this.handleChange.bind(this)} />
+        </Modal>
       </div>
     );
   }
 }
 
-const e = React.createElement;
-const domContainer = document.querySelector('#coverage-table');
-ReactDOM.render(e(CoverageTable), domContainer);
+const el = document.querySelector('#coverage-table');
+ReactDOM.render(<CoverageTable gateway={el.getAttribute('data-gateway')}/>, el);
