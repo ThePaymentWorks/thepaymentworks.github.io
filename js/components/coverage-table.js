@@ -207,7 +207,7 @@ var EndpointDescription = function EndpointDescription(_ref6) {
 
   if (!(show && endpoint)) return '';
 
-  var description = endpoint.description,
+  var description = endpoint.endpointDescription,
       type = endpoint.type;
 
   var _getEndpointDescripti = getEndpointDescription(type, description),
