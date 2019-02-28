@@ -27,10 +27,23 @@ var gatewayList = [{
   'tags': ['Hosted Pages', 'Card payments', 'DCC', 'MCC'],
   'link': '/authipay/docs/welcome'
 }, {
+  'name': 'paypal',
+  'logo': 'img/logos/gateways/paypal-logo.png',
+  'description': 'PayPal is one of the payment veterans, with customer and merchant accounts, hosted and API card payments',
+  'tags': ['Peer-to-peer', 'Card payments', 'Bank transfer'],
+  'link': '/sims/paypal-express'
+}, {
+  'name': 'perfect-card',
+  'logo': 'img/logos/gateways/perfect_card-logo.png',
+  'description': 'Virtual cards for all types of e-commerce transactions. Perfect Card can give you a virtual Visa or Mastercard to use on any other site.',
+  'tags': ['Virtual Card', 'Card payments'],
+  'link': '/perfect-card/docs/welcome'
+}, {
   'name': 'adyen',
   'logo': 'img/logos/gateways/adyen-logo.png',
   'description': 'JSON API for card payments, including the 3D secure flow for enrolled cards. On top of the e-commerce APIS Adyen offers physical terminals as well as virtual ones for their merchants.',
-  'tags': ['Authorise', '3D secure']
+  'tags': ['Authorise', '3D secure'],
+  'link': '/adyen/docs/welcome'
 }, {
   'name': 'apco-pay',
   'logo': 'img/logos/gateways/apco_pay-logo.png',
@@ -61,18 +74,6 @@ var gatewayList = [{
   'logo': 'img/logos/gateways/optimal-logo.png',
   'description': 'Part of the PaysafeCard API offerings. online payments on a global scale.',
   'tags': ['E-Commerce', 'Card payments']
-}, {
-  'name': 'paypal',
-  'logo': 'img/logos/gateways/paypal-logo.png',
-  'description': 'PayPal is one of the payment veterans, with customer and merchant accounts, hosted and API card payments',
-  'tags': ['Peer-to-peer', 'Card payments', 'Bank transfer'],
-  'link': '/sims/paypal-express'
-}, {
-  'name': 'perfect-card',
-  'logo': 'img/logos/gateways/perfect_card-logo.png',
-  'description': 'Virtual cards for all types of e-commerce transactions. Perfect Card can give you a virtual Visa or Mastercard to use on any other site.',
-  'tags': ['Virtual Card', 'Card payments'],
-  'link': '/perfect-card/docs/welcome'
 }];
 
 var SearchBar = function SearchBar(_ref) {
@@ -105,24 +106,23 @@ var SearchBar = function SearchBar(_ref) {
 };
 
 var GatewayLink = function GatewayLink(link) {
-  if (link != '#') {
-    return React.createElement(
-      'a',
-      { href: link, className: 'border-top light-background d-flex flex-row justify-content-between p-2' },
-      React.createElement(
-        'span',
-        null,
-        'View Guides'
-      ),
-      React.createElement(
-        'span',
-        { className: 'text-primary' },
-        React.createElement('i', { className: 'fas fa-arrow-right' })
-      )
-    );
-  } else {
-    return '';
-  }
+  var hasLink = link != '#';
+  var textColor = hasLink ? 'text-primary' : 'text-gray';
+
+  return React.createElement(
+    'a',
+    { href: link, className: 'border-top light-background d-flex flex-row justify-content-between p-2' },
+    React.createElement(
+      'span',
+      { className: textColor },
+      hasLink ? 'View Guides' : 'Guides Coming Soon'
+    ),
+    React.createElement(
+      'span',
+      { className: textColor },
+      React.createElement('i', { className: 'fas fa-arrow-right' })
+    )
+  );
 };
 
 var GatewayListItem = function GatewayListItem(_ref2) {
@@ -146,11 +146,11 @@ var GatewayListItem = function GatewayListItem(_ref2) {
       ),
       React.createElement(
         'div',
-        { className: 'px-2' },
+        { className: 'mx-2 overflow-hidden', style: { whiteSpace: 'nowrap', textOverflow: 'elipsis' } },
         tags.map(function (t, i) {
           return React.createElement(
             'small',
-            { key: i, className: 'px-1' },
+            { key: i, className: 'pr-2' },
             '#',
             t
           );
@@ -158,12 +158,8 @@ var GatewayListItem = function GatewayListItem(_ref2) {
       ),
       React.createElement(
         'div',
-        { className: 'p-2' },
-        React.createElement(
-          'span',
-          null,
-          description
-        )
+        { className: 'm-2 overflow-hidden', style: { height: '6rem' } },
+        description
       ),
       GatewayLink(link)
     )

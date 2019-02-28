@@ -19,10 +19,23 @@ const gatewayList = [{
   'tags': [ 'Hosted Pages', 'Card payments', 'DCC', 'MCC' ],
   'link': '/authipay/docs/welcome'
 }, {
+  'name': 'paypal',
+  'logo': 'img/logos/gateways/paypal-logo.png',
+  'description': 'PayPal is one of the payment veterans, with customer and merchant accounts, hosted and API card payments',
+  'tags': [ 'Peer-to-peer', 'Card payments', 'Bank transfer' ],
+  'link': '/sims/paypal-express'
+}, {
+  'name': 'perfect-card',
+  'logo': 'img/logos/gateways/perfect_card-logo.png',
+  'description': 'Virtual cards for all types of e-commerce transactions. Perfect Card can give you a virtual Visa or Mastercard to use on any other site.',
+  'tags': [ 'Virtual Card', 'Card payments' ],
+  'link': '/perfect-card/docs/welcome'
+}, {
   'name': 'adyen',
   'logo': 'img/logos/gateways/adyen-logo.png',
   'description': 'JSON API for card payments, including the 3D secure flow for enrolled cards. On top of the e-commerce APIS Adyen offers physical terminals as well as virtual ones for their merchants.',
-  'tags': [ 'Authorise', '3D secure' ]
+  'tags': [ 'Authorise', '3D secure' ],
+  'link': '/adyen/docs/welcome'
 }, {
   'name': 'apco-pay',
   'logo': 'img/logos/gateways/apco_pay-logo.png',
@@ -53,18 +66,6 @@ const gatewayList = [{
   'logo': 'img/logos/gateways/optimal-logo.png',
   'description': 'Part of the PaysafeCard API offerings. online payments on a global scale.',
   'tags': [ 'E-Commerce', 'Card payments' ]
-}, {
-  'name': 'paypal',
-  'logo': 'img/logos/gateways/paypal-logo.png',
-  'description': 'PayPal is one of the payment veterans, with customer and merchant accounts, hosted and API card payments',
-  'tags': [ 'Peer-to-peer', 'Card payments', 'Bank transfer' ],
-  'link': '/sims/paypal-express'
-}, {
-  'name': 'perfect-card',
-  'logo': 'img/logos/gateways/perfect_card-logo.png',
-  'description': 'Virtual cards for all types of e-commerce transactions. Perfect Card can give you a virtual Visa or Mastercard to use on any other site.',
-  'tags': [ 'Virtual Card', 'Card payments' ],
-  'link': '/perfect-card/docs/welcome'
 }];
 
 const SearchBar = function ({searchTerm = '', onUpdate}) {
@@ -85,16 +86,15 @@ const SearchBar = function ({searchTerm = '', onUpdate}) {
 };
 
 const GatewayLink = function(link) {
-  if (link != '#') {
-    return(
-        <a href={link} className="border-top light-background d-flex flex-row justify-content-between p-2">
-          <span>View Guides</span>
-          <span className="text-primary"><i className="fas fa-arrow-right"></i></span>
-        </a>
-        );
-  } else {
-    return '';
-  }
+  const hasLink = link != '#';
+  const textColor = hasLink ? 'text-primary' : 'text-gray';
+
+  return(
+    <a href={link} className="border-top light-background d-flex flex-row justify-content-between p-2">
+      <span className={textColor}>{hasLink ? 'View Guides' : 'Guides Coming Soon'}</span>
+      <span className={textColor}><i className="fas fa-arrow-right"></i></span>
+    </a>
+  );
 };
 
 const GatewayListItem = function ({ logo, description, link = '#', tags = [] }) {
@@ -106,12 +106,12 @@ const GatewayListItem = function ({ logo, description, link = '#', tags = [] }) 
           <img src={logo} className="contain-img p-1" height="45px" />
         </div>
 
-        <div className="px-2">
-          {tags.map((t, i) => <small key={i} className="px-1">#{t}</small>)}
+        <div className="mx-2 overflow-hidden" style={{whiteSpace: 'nowrap', textOverflow: 'elipsis'}}>
+          {tags.map((t, i) => <small key={i} className="pr-2">#{t}</small>)}
         </div>
 
-        <div className="p-2">
-          <span>{description}</span>
+        <div className="m-2 overflow-hidden" style={{height: '6rem'}}>
+          {description}
         </div>
 
         {GatewayLink(link)}
