@@ -5,7 +5,7 @@ wnt: "An overview of what you can do with Stripe sims."
 wnh: "./testing-pays-features.html"
 wnlt: "Stripe Sim Features"
 uses_react: true
-scripts: '<script src="/js/components/coverage-table.js"></script>'
+scripts: '<script type="module" src="/js/components/coverage-table.js"></script>'
 ---
 
 <h1 class="page-heading">Welcome</h1>
@@ -48,7 +48,7 @@ scripts: '<script src="/js/components/coverage-table.js"></script>'
  </div>
 
 <h1 class="page-heading">Coverage</h1>
-<section id="coverage-table"></section>
+<section id="coverage-table" data-gateway="stripe"></section>
 
  <div class="docs-card primary raise dark-background mb-45">
    <div class="docs-card-body">
