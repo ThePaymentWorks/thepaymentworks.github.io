@@ -285,7 +285,6 @@ var CoverageTable = function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
-        console.log('setting active cell', activeCell);
         // Update the state with the current cells description
         _this2.setState({
           showEndpointDescription: true,
