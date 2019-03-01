@@ -1,21 +1,5 @@
 import { gatewayList } from './config/supported-gateways.js';
-
-const SearchBar = function ({searchTerm = '', onUpdate}) {
-  return (
-    <section id="supported-gateways" className="dark-background">
-      <div className="container">
-        <div className="row">
-          <div className="col col-sm-6 mx-auto py-3">
-            <h4 className="text-white text-center font-weight-light">
-              Search supported simulators
-            </h4>
-            <input className="form-control" value={searchTerm} onChange={onUpdate} />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+import { SearchBar } from './SearchBar.js';
 
 const GatewayLink = function(link) {
   const hasLink = link != '#';
@@ -111,7 +95,7 @@ class SupportedGateways extends React.Component {
   render() {
     return (
       <div>
-        <SearchBar searchTerm={this.state.searchTerm} onUpdate={this.onUpdateSearchTerm.bind(this)}/>
+        <SearchBar title="Search Supported Gateways" searchTerm={this.state.searchTerm} onChange={this.onUpdateSearchTerm.bind(this)}/>
         <GatewaysList gateways={this.state.gateways}/>
       </div>
     );
