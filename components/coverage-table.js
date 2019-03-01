@@ -148,7 +148,6 @@ class CoverageTable extends React.Component {
 
   setActiveCell(activeCell) {
     return e => {
-      console.log('setting active cell', activeCell);
       // Update the state with the current cells description
       this.setState({
         showEndpointDescription: true,
