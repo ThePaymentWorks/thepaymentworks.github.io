@@ -7,35 +7,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 import { gatewayList } from './config/supported-gateways.js';
-
-var SearchBar = function SearchBar(_ref) {
-  var _ref$searchTerm = _ref.searchTerm,
-      searchTerm = _ref$searchTerm === undefined ? '' : _ref$searchTerm,
-      onUpdate = _ref.onUpdate;
-
-  return React.createElement(
-    'section',
-    { id: 'supported-gateways', className: 'dark-background' },
-    React.createElement(
-      'div',
-      { className: 'container' },
-      React.createElement(
-        'div',
-        { className: 'row' },
-        React.createElement(
-          'div',
-          { className: 'col col-sm-6 mx-auto py-3' },
-          React.createElement(
-            'h4',
-            { className: 'text-white text-center font-weight-light' },
-            'Search supported simulators'
-          ),
-          React.createElement('input', { className: 'form-control', value: searchTerm, onChange: onUpdate })
-        )
-      )
-    )
-  );
-};
+import { SearchBar } from './SearchBar.js';
 
 var GatewayLink = function GatewayLink(link) {
   var hasLink = link != '#';
@@ -57,13 +29,13 @@ var GatewayLink = function GatewayLink(link) {
   );
 };
 
-var GatewayListItem = function GatewayListItem(_ref2) {
-  var logo = _ref2.logo,
-      description = _ref2.description,
-      _ref2$link = _ref2.link,
-      link = _ref2$link === undefined ? '#' : _ref2$link,
-      _ref2$tags = _ref2.tags,
-      tags = _ref2$tags === undefined ? [] : _ref2$tags;
+var GatewayListItem = function GatewayListItem(_ref) {
+  var logo = _ref.logo,
+      description = _ref.description,
+      _ref$link = _ref.link,
+      link = _ref$link === undefined ? '#' : _ref$link,
+      _ref$tags = _ref.tags,
+      tags = _ref$tags === undefined ? [] : _ref$tags;
 
   return React.createElement(
     'div',
@@ -98,9 +70,9 @@ var GatewayListItem = function GatewayListItem(_ref2) {
   );
 };
 
-var GatewaysList = function GatewaysList(_ref3) {
-  var _ref3$gateways = _ref3.gateways,
-      gateways = _ref3$gateways === undefined ? [] : _ref3$gateways;
+var GatewaysList = function GatewaysList(_ref2) {
+  var _ref2$gateways = _ref2.gateways,
+      gateways = _ref2$gateways === undefined ? [] : _ref2$gateways;
 
   return React.createElement(
     'section',
@@ -177,7 +149,7 @@ var SupportedGateways = function (_React$Component) {
       return React.createElement(
         'div',
         null,
-        React.createElement(SearchBar, { searchTerm: this.state.searchTerm, onUpdate: this.onUpdateSearchTerm.bind(this) }),
+        React.createElement(SearchBar, { title: 'Search Supported Gateways', searchTerm: this.state.searchTerm, onChange: this.onUpdateSearchTerm.bind(this) }),
         React.createElement(GatewaysList, { gateways: this.state.gateways })
       );
     }
