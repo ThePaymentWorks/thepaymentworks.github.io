@@ -207,7 +207,7 @@ var EndpointDescription = function EndpointDescription(_ref6) {
 
   if (!(show && endpoint)) return '';
 
-  var description = endpoint.endpointDescription,
+  var description = endpoint.description,
       type = endpoint.type;
 
   var _getEndpointDescripti = getEndpointDescription(type, description),
@@ -285,6 +285,7 @@ var CoverageTable = function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
+        console.log('setting active cell', activeCell);
         // Update the state with the current cells description
         _this2.setState({
           showEndpointDescription: true,
