@@ -1,0 +1,109 @@
+---
+layout: stripe
+active: "subscriptions"
+wnt: "How to give your customers discounts on their subscriptions."
+wnh: "./coupons"
+wnlt: "Coupons API"
+---
+
+<h1 class="page-heading">Getting Started with the Subscriptions sim</h1>
+
+<div class="docs-text-block">
+  <ol class="doc-list">
+    <li>
+      <a class="doc-link" href="./subscriptions.html#section-open-sim">
+        Step 1: Open the subscriptions simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./subscriptions.html#section-payload">
+        Step 2: Build the payload
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./subscriptions.html#section-first-request">
+        Step 3: Send the request to the subscriptions simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./subscriptions.html#section-response">
+        Step 4: Parse the subscriptions response
+      </a>
+    </li>
+  </ol>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-open-sim">
+  <h2 class="section-heading">1. Open the subscriptions Simulator</h2>
+  <p>
+  For the purposes of making test subscriptions call, you'll be using the subscriptions simulator in your Testing Pays account.
+  </p>
+  <p>
+  To open the simulator interface, login to your Testing Pays account and click "OPEN" on the "subscriptions" bookmark on your dashboard. You'll see the following sections in your simulator:
+  </p>
+
+  <ul>
+    <li>Integrate: coding instructions in various languages to help you connect your code to the simulator.</li>
+    <li>Debug: use the Live Log to watch transactions being processed in real-time. Or download the file-based logs.</li>
+    <li>Test: a map of real subscription response codes that you can trigger with values in your test requests. Or custom your own.</li>
+    <li>Reports: real-time test reports showing the frequency and coverage of your subscriptions testing.</li>
+    <li>Settings: real-world settings you can activate for your testing like latency delays, trigger parameters, etc.</li>
+  </ul>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+<div class="docs-text-block" id="section-first-request">
+  <h2 class="section-heading">2. Build the payload</h2>
+  <p>
+  The simplest option is using cURL. To create a Stripe subscription, at minimum you need a customer id, plan (encapsulated in an items list) and tax_percent. Using cURL, you need to submit these parameters as you would with a form POST.
+  </p>
+</div>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2" ></i> Our Tip: Read up on all the possible subscription scenarios
+    </h5>
+    <p class="docs-card-text text-light">
+    You can add more parameters to your subscriptions: metadata, billing or trial period settings. The latter can be used to handle ‘first 14 days off’ kinda scenarios.
+    </p>
+  </div>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-first-request">
+  <h2 class="section-heading">3. Making your first subscriptions request</h2>
+  <p>
+  Next, your code needs to send the assembled request to the subscriptions simulator. The URL to POST to can be found under the "Integration" tab of the simulator - make sure to copy&paste this URL from your simulator as it contains your unique API_KEY.
+  </p>
+  <p>
+  The example shown below shows how to make a subscriptions request using cURL.
+  </p>
+  {% capture code_block %}{% include stripe/code/subscriptions-curl.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block %}
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-response">
+  <h2 class="section-heading">4. Parse the subscriptions response</h2>
+  <p>
+  The simulator will send back a JSON object that contains information about the subscription - echoing back your call details along with the defaults
+  </p>
+  {% capture code_block %}{% include stripe/code/subscriptions-json.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block %}
+</div>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2" ></i> Our Tip: Look for the important bits in the response
+    </h5>
+    <p class="docs-card-text text-light">
+  Save the subscription ID and connect it to your customer ID! This way you can always trace back a transaction, subscription data, etc. Subscription ID can be used to update a subscription: cancel, add more, modify current subscription items, etc.
+    </p>
+  </div>
+</div>
