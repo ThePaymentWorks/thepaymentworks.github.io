@@ -1,0 +1,5 @@
+curl -X POST -u API_KEY: \
+  -d callback_url=http://localhost:3000/webhooks/stripe \
+  -d trigger=00 \
+  https://api.testingpays.com/API_KEY/stripe/v1/webhooks
+

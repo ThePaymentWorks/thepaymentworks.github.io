@@ -1,0 +1,99 @@
+---
+layout: stripe
+active: "webhooks"
+---
+
+<h1 class="page-heading">Getting Started with the webhooks sim</h1>
+
+<div class="docs-text-block">
+  <ol class="doc-list">
+    <li>
+      <a class="doc-link" href="./webhooks.html#section-open-sim">
+        Step 1: Open the webhooks simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./webhooks.html#section-payload">
+        Step 2: Build the payload
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./webhooks.html#section-first-request">
+        Step 3: Send the request to the webhooks simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./webhooks.html#section-response">
+        Step 4: Parse the webhooks response
+      </a>
+    </li>
+  </ol>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-open-sim">
+  <h2 class="section-heading">1. Open the webhooks Simulator</h2>
+  <p>
+  For the purposes of making test webhooks call, you'll be using the webhooks simulator in your Testing Pays account.
+  </p>
+  <p>
+  To open the simulator interface, login to your Testing Pays account and click "OPEN" on the "webhooks" bookmark on your dashboard. You'll see the following sections in your simulator:
+  </p>
+
+  <ul>
+    <li>Integrate: coding instructions in various languages to help you connect your code to the simulator.</li>
+    <li>Debug: use the Live Log to watch transactions being processed in real-time. Or download the file-based logs.</li>
+    <li>Test: a map of real webhook response codes that you can trigger with values in your test requests. Or custom your own.</li>
+    <li>Reports: real-time test reports showing the frequency and coverage of your webhooks testing.</li>
+    <li>Settings: real-world settings you can activate for your testing like latency delays, trigger parameters, etc.</li>
+  </ul>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+<div class="docs-text-block" id="section-first-request">
+  <h2 class="section-heading">2. Build the payload</h2>
+  <p>
+  The simplest option is using cURL. To create a Stripe refund, at minimum you need a charge id and amount. Using cURL, you need to submit these parameters as you would with a form POST.
+  </p>
+</div>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2" ></i> Our Tip: test your webhooks on your local dev machine
+    </h5>
+    <p class="docs-card-text text-light">
+     If you’d like to get a callback to your local environment (i.e. http://localhost:3000) use a tunnel service like ngrok.com (where you can get a public domain mirroring your local app) or mocky.io where you can have mock endpoints setup easily.
+    </p>
+  </div>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-first-request">
+  <h2 class="section-heading">3. Making your first webhooks request</h2>
+  <p>
+  Next, your code needs to send the assembled request to the webhooks simulator. The URL to POST to can be found under the "Integration" tab of the simulator - make sure to copy&paste this URL from your simulator as it contains your unique API_KEY.
+  </p>
+  <p>
+  The example shown below shows how to make a webhooks request using cURL.
+  </p>
+  {% capture code_block %}{% include stripe/code/webhooks-curl.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block %}
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-response">
+  <h2 class="section-heading">4. Parse the webhooks response</h2>
+  <p>
+  The simulator will send back a JSON object that is equivalent of the event data you get back from Stripe on these events. What’s extra in Testing Pays is that you get back the event data in JSON as a response AND the callback to the webhook_url you sent in initially.
+  </p>
+  <p>
+  You can playback any event now, and set your own up with the custom responses! This was you don’t need to search around the stripe dashboard to find a suitable transaction, invoice, etc. Or wait for the next event to occur in production. Just use the trigger param to get the event data you need for your development or testing!
+  </p>
+  {% capture code_block %}{% include stripe/code/webhooks-json.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block %}
+</div>
+

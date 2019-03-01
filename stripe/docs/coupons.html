@@ -1,0 +1,99 @@
+---
+layout: stripe
+active: "coupons"
+wnt: "Dealing with customer complaints and refunds"
+wnh: "./refunds"
+wnlt: "Refunds API"
+---
+
+<h1 class="page-heading">Getting Started with the coupons sim</h1>
+
+<div class="docs-text-block">
+  <ol class="doc-list">
+    <li>
+      <a class="doc-link" href="./coupons.html#section-open-sim">
+        Step 1: Open the coupons simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./coupons.html#section-payload">
+        Step 2: Build the payload
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./coupons.html#section-first-request">
+        Step 3: Send the request to the coupons simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./coupons.html#section-response">
+        Step 4: Parse the coupons response
+      </a>
+    </li>
+  </ol>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-open-sim">
+  <h2 class="section-heading">1. Open the coupons Simulator</h2>
+  <p>
+  For the purposes of making test coupons call, you'll be using the coupons simulator in your Testing Pays account.
+  </p>
+  <p>
+  To open the simulator interface, login to your Testing Pays account and click "OPEN" on the "coupons" bookmark on your dashboard. You'll see the following sections in your simulator:
+  </p>
+
+  <ul>
+    <li>Integrate: coding instructions in various languages to help you connect your code to the simulator.</li>
+    <li>Debug: use the Live Log to watch transactions being processed in real-time. Or download the file-based logs.</li>
+    <li>Test: a map of real coupon response codes that you can trigger with values in your test requests. Or custom your own.</li>
+    <li>Reports: real-time test reports showing the frequency and coverage of your coupons testing.</li>
+    <li>Settings: real-world settings you can activate for your testing like latency delays, trigger parameters, etc.</li>
+  </ul>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+<div class="docs-text-block" id="section-first-request">
+  <h2 class="section-heading">2. Build the payload</h2>
+  <p>
+  The simplest option is using cURL. To create a Stripe coupon, at minimum you need an id, duration and currency. Using cURL, you need to submit these parameters as you would with a form POST.
+  </p>
+</div>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2" ></i> Our Tip: create coupon that expire
+    </h5>
+    <p class="docs-card-text text-light">
+    You can add more parameters to your coupons: max_redemptions, redeem_by, etc. this way you can limit how many times one can be redeemed and when your discount expired.
+    </p>
+  </div>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-first-request">
+  <h2 class="section-heading">3. Making your first coupons request</h2>
+  <p>
+  Next, your code needs to send the assembled request to the coupons simulator. The URL to POST to can be found under the "Integration" tab of the simulator - make sure to copy&paste this URL from your simulator as it contains your unique API_KEY.
+  </p>
+  <p>
+  The example shown below shows how to make a coupons request using cURL.
+  </p>
+  {% capture code_block %}{% include stripe/code/coupons-curl.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block %}
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-response">
+  <h2 class="section-heading">4. Parse the coupons response</h2>
+  <p>
+  The simulator will send back a JSON object that contains information about the coupon - echoing back your call details along with the defaults
+  </p>
+  {% capture code_block %}{% include stripe/code/coupons-json.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block %}
+</div>
+

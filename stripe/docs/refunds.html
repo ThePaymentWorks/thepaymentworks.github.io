@@ -1,0 +1,99 @@
+---
+layout: stripe
+active: "refunds"
+wnt: "Get a webhook callback within seconds and integrate the full payment, subscription and invoice flow in your "
+wnh: "./webhooks"
+wnlt: "Webhooks NEW"
+---
+
+<h1 class="page-heading">Getting Started with the refunds sim</h1>
+
+<div class="docs-text-block">
+  <ol class="doc-list">
+    <li>
+      <a class="doc-link" href="./refunds.html#section-open-sim">
+        Step 1: Open the refunds simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./refunds.html#section-payload">
+        Step 2: Build the payload
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./refunds.html#section-first-request">
+        Step 3: Send the request to the refunds simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./refunds.html#section-response">
+        Step 4: Parse the refunds response
+      </a>
+    </li>
+  </ol>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-open-sim">
+  <h2 class="section-heading">1. Open the refunds Simulator</h2>
+  <p>
+  For the purposes of making test refunds call, you'll be using the refunds simulator in your Testing Pays account.
+  </p>
+  <p>
+  To open the simulator interface, login to your Testing Pays account and click "OPEN" on the "refunds" bookmark on your dashboard. You'll see the following sections in your simulator:
+  </p>
+
+  <ul>
+    <li>Integrate: coding instructions in various languages to help you connect your code to the simulator.</li>
+    <li>Debug: use the Live Log to watch transactions being processed in real-time. Or download the file-based logs.</li>
+    <li>Test: a map of real refund response codes that you can trigger with values in your test requests. Or custom your own.</li>
+    <li>Reports: real-time test reports showing the frequency and coverage of your refunds testing.</li>
+    <li>Settings: real-world settings you can activate for your testing like latency delays, trigger parameters, etc.</li>
+  </ul>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+<div class="docs-text-block" id="section-first-request">
+  <h2 class="section-heading">2. Build the payload</h2>
+  <p>
+  The simplest option is using cURL. To create a Stripe refund, at minimum you need a charge id and amount. Using cURL, you need to submit these parameters as you would with a form POST.
+  </p>
+</div>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2" ></i> Our Tip: add more details on your refund requests
+    </h5>
+    <p class="docs-card-text text-light">
+     You can add more parameters to your refunds: metadata, reason for refund or the application fee (for connected account). It's important to provide as much detail and metadata as possible for refunds.
+    </p>
+  </div>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-first-request">
+  <h2 class="section-heading">3. Making your first refunds request</h2>
+  <p>
+  Next, your code needs to send the assembled request to the refunds simulator. The URL to POST to can be found under the "Integration" tab of the simulator - make sure to copy&paste this URL from your simulator as it contains your unique API_KEY.
+  </p>
+  <p>
+  The example shown below shows how to make a refunds request using cURL.
+  </p>
+  {% capture code_block %}{% include stripe/code/refunds-curl.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block %}
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-response">
+  <h2 class="section-heading">4. Parse the refunds response</h2>
+  <p>
+  The simulator will send back a JSON object that contains information about the refund - echoing back your call details along with the defaults
+  </p>
+  {% capture code_block %}{% include stripe/code/refunds-json.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block %}
+</div>
+

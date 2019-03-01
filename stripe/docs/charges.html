@@ -1,0 +1,105 @@
+---
+layout: stripe
+active: "charges"
+wnt: "Dealing with your customers."
+wnh: "./customers"
+wnlt: "The customers API"
+---
+
+<h1 class="page-heading">Getting Started with the charges sim</h1>
+
+<div class="docs-text-block">
+  <ol class="doc-list">
+    <li>
+      <a class="doc-link" href="./charges.html#section-open-sim">
+        Step 1: Open the charges simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./charges.html#section-payload">
+        Step 2: Build the payload
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./charges.html#section-first-request">
+        Step 3: Send the request to the charges simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./charges.html#section-response">
+        Step 4: Parse the charges response
+      </a>
+    </li>
+  </ol>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-open-sim">
+  <h2 class="section-heading">1. Open the charges Simulator</h2>
+  <p>
+  For the purposes of making test charge transaction, you'll be using the charges simulator in your Testing Pays account.
+  </p>
+  <p>
+  To open the simulator interface, login to your Testing Pays account and click "OPEN" on the "charges" bookmark on your dashboard. You'll see the following sections in your simulator:
+  </p>
+
+  <ul>
+    <li>Integrate: coding instructions in various languages to help you connect your code to the simulator.</li>
+    <li>Debug: use the Live Log to watch transactions being processed in real-time. Or download the file-based logs.</li>
+    <li>Test: a map of real charge response codes that you can trigger with values in your test requests. Or custom your own.</li>
+    <li>Reports: real-time test reports showing the frequency and coverage of your charge testing.</li>
+    <li>Settings: real-world settings you can activate for your testing like latency delays, trigger parameters, etc.</li>
+  </ul>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+<div class="docs-text-block" id="section-first-request">
+  <h2 class="section-heading">2. Build the payload</h2>
+  <p>
+  The simplest option is using cURL. To create a Stripe charge, at minimum you need an amount, currency and source, where source is the card token you have received using Stripe.js. Using cURL, you need to submit these parameters as you would with a form POST.
+  </p>
+  <p>
+   Add metadata to your request. In that object you can store references, information about the charge or customer or some data you need back when handling the response from Stripe.
+  </p>
+</div>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2" ></i> Our Tip: use the Simulator to try out these real life payment scenarios
+    </h5>
+    <p class="docs-card-text text-light">
+    Remember: you can trigger different responses from the simulator by the values you use in the requests. By default, the simulator will use cvc value as the trigger value.
+    </p>
+  </div>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-first-request">
+  <h2 class="section-heading">3. Making your first charges request</h2>
+  <p>
+  Next, your code needs to send the assembled request to the charges simulator. The URL to POST to can be found under the "Integration" tab of the simulator - make sure to copy&paste this URL from your simulator as it contains your unique API_KEY.
+  </p>
+  <p>
+  The example shown below shows how to make a charges transaction using cURL.
+  </p>
+  {% capture code_block %}{% include stripe/code/charges-curl.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block %}
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-response">
+  <h2 class="section-heading">4. Parse the charges response</h2>
+  <p>
+  The simulator will send back a JSON object that contains information about the transaction: the result from the gateway, the bank authorisation result, source (i.e. card, bank account, etc.), shipping information.
+  </p>
+  <p>
+  The important parameter to look for in the response is the `status` and the `outcome` object. Status will tell you the overall result of the transaction: succeeded, failed, etc. and in outcome you can check the results from the issuer, acquirer and stripe’s internal fraud checks.
+  </p>
+  {% capture code_block %}{% include stripe/code/charges-json.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block %}
+</div>
+

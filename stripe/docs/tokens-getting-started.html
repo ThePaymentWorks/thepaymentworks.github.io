@@ -1,0 +1,139 @@
+---
+layout: stripe
+active: "tokens-getting-started"
+wnt: "Explore how you can use Tokens: for charges, customers, subscriptions, etc."
+wnh: "./charges"
+wnlt: "Charging for goods and services"
+---
+
+<h1 class="page-heading">Getting Started with the tokens sim</h1>
+
+<div class="docs-text-block">
+  <p>
+    Here's how to make your first request - creating a card token - with Testing Pays sims.
+  </p>
+  <ol class="doc-list">
+    <li>
+      <a class="doc-link" href="./tokens-getting-started.html#section-create-account">
+        Create your Testing Pays account
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./tokens-getting-started.html#section-open-sim">
+        Step 1: Open the tokens simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./tokens-getting-started.html#section-payload">
+        Step 2: Build the payload
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./tokens-getting-started.html#section-first-request">
+        Step 3: Send the request to the tokens simulator
+      </a>
+    </li>
+    <li>
+      <a class="doc-link" href="./tokens-getting-started.html#section-response">
+        Step 4: Parse the tokens response
+      </a>
+    </li>
+  </ol>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-create-account">
+  <h2 class="section-heading">Create Your Testing Pays Account</h2>
+  <p>
+    First, you’ll need an account on Testing Pays. It takes seconds.
+  </p>
+
+  {% include docs/components/button-link.html
+    href="https://admin.testingpays.com/sign-up"
+    text="Create your Testing Pays account"
+    classes="mb-45"
+    target="_BLANK"
+    %}
+
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-open-sim">
+  <h2 class="section-heading">1. Open the tokens Simulator</h2>
+  <p>
+  For the purposes of making test token call, you'll be using the tokens simulator in your Testing Pays account.
+  </p>
+  <p>
+  To open the simulator interface, login to your Testing Pays account and click "OPEN" on the "tokens" bookmark on your dashboard. You'll see the following sections in your simulator:
+  </p>
+
+  <ul>
+    <li>Integrate: coding instructions in various languages to help you connect your code to the simulator.</li>
+    <li>Debug: use the Live Log to watch transactions being processed in real-time. Or download the file-based logs.</li>
+    <li>Test: a map of real token response codes that you can trigger with values in your test requests. Or custom your own.</li>
+    <li>Reports: real-time test reports showing the frequency and coverage of your tokens testing.</li>
+    <li>Settings: real-world settings you can activate for your testing like latency delays, trigger parameters, etc.</li>
+  </ul>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+<div class="docs-text-block" id="section-first-request">
+  <h2 class="section-heading">2. Build the payload</h2>
+  <p>
+  The simplest option is using cURL. To create a Stripe token, at minimum you need a card[number], card[exp_month], card[exp_year] and card[cvc]. Using cURL, you need to submit these parameters as you would with a form POST.
+  </p>
+  <p>
+  Add address details to your request. This can be used in billing and customer details later.
+  </p>
+</div>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2" ></i> Our Tip: use the Simulator to try out these real life payment scenarios
+    </h5>
+    <p class="docs-card-text text-light">
+    Remember: you can trigger different responses from the simulator by the values you use in the requests. By default, the simulator will use cvc value as the trigger value.
+    </p>
+  </div>
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-first-request">
+  <h2 class="section-heading">3. Making your first charges request</h2>
+  <p>
+  Next, your code needs to send the assembled request to the tokens simulator. The URL to POST to can be found under the "Integration" tab of the simulator - make sure to copy&paste this URL from your simulator as it contains your unique API_KEY.
+  </p>
+  {% capture code_block %}{% include stripe/code/tokens-curl.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block %}
+</div>
+
+{% include docs/components/text-block-divider.html %}
+
+<div class="docs-text-block" id="section-response">
+  <h2 class="section-heading">4. Parse the tokens response</h2>
+  <p>
+  The simulator will send back a JSON object that contains information about the card or bank account. These details can be saved safely in your own systems (i.e. the last 4 digits and the card type). You can show these to your customer(s), helping them to identify their preferred payment option - this is especially important when a customer has multiple cards saved.
+  </p>
+
+  <p>
+  Take a look at an example response:
+  </p>
+  {% capture code_block %}{% include stripe/code/tokens-json.html %}{% endcapture %}
+  {% include docs/components/code-block.html content=code_block %}
+</div>
+
+<div class="docs-card info raise dark-background mb-45">
+  <div class="docs-card-body">
+    <h5 class="docs-card-title text-info mb-3">
+      <i class="fas fa-info-circle mr-2" ></i> Our Tip: Remember the token ID
+    </h5>
+    <p class="docs-card-text text-light">
+  Tokens are the single reference you need to create charges, so it’s essential to remember them. You need to use it when creating customers, subscribing to plans, etc.
+    </p>
+  </div>
+</div>
+
