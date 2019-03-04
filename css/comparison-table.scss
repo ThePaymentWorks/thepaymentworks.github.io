@@ -1,8 +1,8 @@
 .comparison-table {
   .comparison-table-section-heading {
     padding-top: 2rem;
+    color: $primary;
     font-style: italic;
-    font-color: $gray !important;
     font-weight: 400;
   }
 
@@ -10,14 +10,14 @@
     th {
       min-width: calc(50vw / 3);
       max-width: 300px;
-      padding: 0 1.5rem;
+      padding: 0 1.25rem;
       text-align: center;
 
       img { max-width: calc(50vw / 3); }
     }
 
     td {
-      padding: 0.5rem 1.5rem;
+      padding: 0.5rem 1.25rem;
       text-align: center;
       border-right: 1px solid grey;
       line-height: 1rem;
