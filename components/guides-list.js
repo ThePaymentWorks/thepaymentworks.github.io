@@ -95,7 +95,7 @@ class SupportedGateways extends React.Component {
   render() {
     return (
       <div>
-        <SearchBar title="Search Supported Gateways" searchTerm={this.state.searchTerm} onChange={this.onUpdateSearchTerm.bind(this)}/>
+        <SearchBar title="Search our Guides" searchTerm={this.state.searchTerm} onChange={this.onUpdateSearchTerm.bind(this)}/>
         <GatewaysList gateways={this.state.gateways}/>
       </div>
     );
@@ -103,5 +103,5 @@ class SupportedGateways extends React.Component {
 }
 
 const e = React.createElement;
-const domContainer = document.querySelector('#supported-gateways');
+const domContainer = document.querySelector('#guides-list');
 ReactDOM.render(e(SupportedGateways), domContainer);

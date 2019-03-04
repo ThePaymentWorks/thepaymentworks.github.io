@@ -3,7 +3,7 @@ export const gatewayList = [{
   'logo': 'img/logos/gateways/stripe.png',
   'description': 'Stripe is one of the go-to payment API families out there today. It has everything from one-off payments to peer-to-peer transactions.',
   'tags': [ 'Card payments', 'Subscriptions', 'Webhooks' ],
-  'link': '/sims/stripe'
+  'link': '/stripe/docs/welcome'
 }, {
   'name': 'realex',
   'logo': 'img/logos/gateways/realex-logo.png',

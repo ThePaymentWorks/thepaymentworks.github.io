@@ -149,7 +149,7 @@ var SupportedGateways = function (_React$Component) {
       return React.createElement(
         'div',
         null,
-        React.createElement(SearchBar, { title: 'Search Supported Gateways', searchTerm: this.state.searchTerm, onChange: this.onUpdateSearchTerm.bind(this) }),
+        React.createElement(SearchBar, { title: 'Search our Guides', searchTerm: this.state.searchTerm, onChange: this.onUpdateSearchTerm.bind(this) }),
         React.createElement(GatewaysList, { gateways: this.state.gateways })
       );
     }
@@ -159,5 +159,5 @@ var SupportedGateways = function (_React$Component) {
 }(React.Component);
 
 var e = React.createElement;
-var domContainer = document.querySelector('#supported-gateways');
+var domContainer = document.querySelector('#guides-list');
 ReactDOM.render(e(SupportedGateways), domContainer);
