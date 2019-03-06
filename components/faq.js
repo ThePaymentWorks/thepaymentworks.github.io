@@ -30,7 +30,7 @@ class FAQ extends React.Component {
       this.setState({faq: filteredFaq});
     } else {
       // Reset the list of gateways when there is no input
-      this.setState({faq: faqs[props.gatewayList]});
+      this.setState({faq: faqs[this.state.gateway]});
     }
   }
 
