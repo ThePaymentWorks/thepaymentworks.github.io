@@ -1,4 +1,158 @@
-<!DOCTYPE html>
-<html>
-  <script>window.location.replace('docs/welcome');</script>
-</html>
+---
+layout: default
+---
+
+<section id="" class="d-flex justify-content-center py-5 light-background">
+  <div class="px-3 mx-3" style="max-width: 520px;">
+    <h1 class="mt-3">Adyen</h1>
+    <h5 class="font-weight-light mb-2">
+      Adyen is a technology company. Its software allows individuals and businesses to receive payments over the Internet.
+    </h5>
+
+    <h4 class="mb-3">
+      <span class="badge badge-secondary font-weight-light">Billing</span>
+      <span class="badge badge-secondary font-weight-light">Fraud</span>
+    </h4>
+
+    <a href="https://admin.testingpays.com/signup" class="mt-3 mr-3 btn btn-lg btn-long shadow btn-primary">Signup</a>
+    <a href="/adyen/docs/welcome" class="mt-3 mr-3 btn btn-lg btn-long shadow btn-dark">Guides</a>
+  </div>
+
+  <div class="d-none d-md-block text-center">
+    {% include adyen/landing/sim-card.html %}
+  </div>
+</section>
+
+<div class="text-center white-background clip-background-t border-top">
+  <h4 class="col col-6 mx-auto mt-5 pt-5 mb-3">
+    A Better Testing System
+    <hr class="border-primary mt-1" style="max-width: 350px">
+  </h4>
+</div>
+
+<section id="" class="d-flex justify-content-center py-5 white-background">
+  <table class="comparison-table">
+    <tbody>
+      <tr>
+        <th></th>
+        <th><img height="45px" src="/img/logos/gateways/adyen-logo.png"></th>
+        <th><img src="/img/testingpays-dark-text.png"></th>
+      </tr>
+      <tr>
+        <td class="comparison-table-section-heading">Api Responses</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>On Demand Responses</td>
+        <td>Hard to find in docs</td>
+        <td>All Endpoints</td>
+      </tr>
+      <tr>
+        <td>Response Triggers</td>
+        <td>card numbers</td>
+        <td>Amount, Bank account number, Cvv, House number <br><small>choose your own parameter</small></td>
+      </tr>
+      <tr>
+        <td>API response coverage</td>
+        <td>5% - 10%</td>
+        <td>100%</td>
+      </tr>
+      <tr>
+        <td>Configure Network Latency</td>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Custom Responses</td>
+        <td>No</td>
+        <td>Yes <br> <small>Add any response</small></td>
+      </tr>
+      <tr>
+        <td class="comparison-table-section-heading">User Flows / Usability</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>3D Secure Testing</td>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Load Tests</td>
+        <td>Not allowed</td>
+        <td>Supported <br> <small>Up to 80 calls/sec</td>
+      </tr>
+      <tr>
+        <td class="comparison-table-section-heading">Debugging</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Real-time logs</td>
+        <td>None</td>
+        <td>Live logs</td>
+      </tr>
+      <tr>
+        <td>Persistant Logs</td>
+        <td>Dashboard for 15 days</td>
+        <td>Persistant File Logging</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="text-center dark-background">
+  <h4 class="col col-6 mx-auto my-5 text-white">
+    Power up your Development
+    <hr class="border-primary mt-1" style="max-width: 350px">
+  </h4>
+</div>
+
+{% include runkit.html defaultSource='adyen' %}
+
+<div class="text-center white-background">
+  <h4 class="col col-6 mx-auto my-5">
+    Benefits to your Team
+    <hr class="border-primary mt-1" style="max-width: 350px">
+  </h4>
+</div>
+
+<section id="deliver-text-primary faster" class="text-center white-background py-4">
+  <div class="container">
+
+    <div class="row mb-4">
+      <div class="icon-container col-lg">
+        <i class="text-primary far fa-clock fa-3x mb-2"></i>
+        <br/>
+        <p class="font-weight-normal">Decrease Development Time</p>
+        <p class="text-center">Simulators allow you to roll out new payment options in half the time.</p>
+      </div>
+      <div class="icon-container col-lg">
+        <i class="text-primary fas fa-chart-line fa-3x mb-2"></i>
+        <br/>
+        <p class="font-weight-normal">Increase Checkout Conversion</p>
+        <p class="text-center">Our simulators give you the tools to analyse your customer checkout experience.</p>
+      </div>
+      <div class="col-lg">
+        <i class="text-primary fas fa-trophy fa-3x mb-2"></i>
+        <br/>
+        <p class="font-weight-normal">Protect Revenues</p>
+        <p class="text-center">We make continuous testing of you customer payments easy.</p>
+      </div>
+    </div>
+
+    <div class="row my-5">
+      <div class="col">
+        <a href="https://admin.testingpays.com" class="mt-3 mr-3 btn btn-lg btn-long shadow btn-primary">Signup</a>
+        <a href="/adyen/docs/welcome" class="mt-3 mr-3 btn btn-lg btn-long shadow btn-dark">Guides</a>
+      </div>
+    </div>
+  </div>
+
+</section>
