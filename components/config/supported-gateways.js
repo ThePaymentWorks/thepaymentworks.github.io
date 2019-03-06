@@ -8,7 +8,7 @@ export const gatewayList = [{
   'name': 'realex',
   'logo': 'img/logos/gateways/realex-logo.png',
   'description': 'Realex offers a steady API for e-commerce transactions. You can either do a direct integration or use their hosted pages (HPP) solution.',
-  'tags': [ 'Realex', '3D secure', 'Hosted Pages' ],
+  'tags': [ '3D secure', 'Hosted Pages' ],
   'link': '/sims/realex'
 }, {
   'name': 'authipay',
