@@ -21,7 +21,7 @@
 
         <script>
           var rootElement = document.getElementById("runkit-element");
-          var source = rootElement.getAttribute('data-source');
+          var source = rootElement.getAttribute('data-source') || 'paypal';
           var notebook = RunKit.createNotebook({
             element: document.getElementById("runkit-element"),
             source: getSource(source)
