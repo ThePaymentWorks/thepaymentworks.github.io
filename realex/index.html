@@ -3,19 +3,17 @@ layout: default
 ---
 
 <section id="" class="d-flex justify-content-center py-5 light-background">
-  <div class="px-3 mx-3" style="max-width: 520px;">
-    <h1 class="mt-3">REALEX</h1>
+  <div class="px-3 mx-3" style="max-width: 580px;">
+    <h1 class="mt-3">DevTools for Realex</h1>
     <h5 class="font-weight-light mb-2">
-      Realex is a technology company. Its software allows individuals and businesses to receive payments over the Internet.
+      Use our powerful Realex simulators to take full control over your dev environments. Build better software. Build it faster.
+      <br>
+      <br>
+      If your software project depends on Realex APIs, you need our dev tools.
     </h5>
 
-    <h4 class="mb-3">
-      <span class="badge badge-secondary font-weight-light">3D Secure</span>
-      <span class="badge badge-secondary font-weight-light">Hosted Pages</span>
-    </h4>
-
-    <a href="https://admin.testingpays.com/signup" class="mt-3 mr-3 btn btn-lg btn-long shadow btn-primary">Signup</a>
-    <a href="/stripe/docs/welcome" class="mt-3 mr-3 btn btn-lg btn-long shadow btn-dark">Guides</a>
+    <a href="https://admin.testingpays.com/signup" class="mt-3 mr-3 btn btn-lg btn-long shadow btn-primary">Signup for free</a>
+    <a href="/realex/docs/welcome" class="mt-3 mr-3 btn btn-lg btn-long shadow btn-dark">Read the docs</a>
   </div>
 
   <div class="d-none d-md-block text-center">
@@ -23,10 +21,13 @@ layout: default
   </div>
 </section>
 
-<div class="text-center white-background clip-background-t border-top">
-  <h4 class="col col-6 mx-auto mt-5 pt-5 mb-3">
+{% include sims/landing-pages/build-bar.html %}
+
+<div class="text-center white-background border-top">
+  <h4 class="col col-6 mx-auto my-4 pt-5">
     A Better Testing System
-    <hr class="border-primary mt-1" style="max-width: 350px">
+    <hr class="border-primary my-1" style="max-width: 350px">
+    <small class="text-gray fw-300">Realex Sandbox vs Our Simulators</small>
   </h4>
 </div>
 
@@ -53,7 +54,7 @@ layout: default
         <td>Yes</td>
         <td>No</td>
       </tr>
-    
+
       <tr>
         <td class="comparison-table-section-heading">Api Responses</td>
         <td></td>
@@ -103,43 +104,4 @@ layout: default
   </table>
 </section>
 
-<div class="text-center white-background">
-  <h4 class="col col-6 mx-auto my-5">
-    Benefits to your Team
-    <hr class="border-primary mt-1" style="max-width: 350px">
-  </h4>
-</div>
-
-<section id="deliver-text-primary faster" class="text-center white-background py-4">
-  <div class="container">
-
-    <div class="row mb-4">
-      <div class="icon-container col-lg">
-        <i class="text-primary far fa-clock fa-3x mb-2"></i>
-        <br/>
-        <p class="font-weight-normal">Decrease Development Time</p>
-        <p class="text-center">Simulators allow you to roll out new payment options in half the time.</p>
-      </div>
-      <div class="icon-container col-lg">
-        <i class="text-primary fas fa-chart-line fa-3x mb-2"></i>
-        <br/>
-        <p class="font-weight-normal">Increase Checkout Conversion</p>
-        <p class="text-center">Our simulators give you the tools to analyse your customer checkout experience.</p>
-      </div>
-      <div class="col-lg">
-        <i class="text-primary fas fa-trophy fa-3x mb-2"></i>
-        <br/>
-        <p class="font-weight-normal">Protect Revenues</p>
-        <p class="text-center">We make continuous testing of you customer payments easy.</p>
-      </div>
-    </div>
-
-    <div class="row my-5">
-      <div class="col">
-        <a href="https://admin.testingpays.com" class="mt-3 mr-3 btn btn-lg btn-long shadow btn-primary">Signup</a>
-        <a href="/stripe/docs/welcome" class="mt-3 mr-3 btn btn-lg btn-long shadow btn-dark">Guides</a>
-      </div>
-    </div>
-  </div>
-
-</section>
+{% include sims/landing-pages/benefits.html %}
