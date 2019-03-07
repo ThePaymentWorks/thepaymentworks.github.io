@@ -13,7 +13,10 @@
       padding: 0 1.25rem;
       text-align: center;
 
-      img { max-width: calc(50vw / 3); }
+      img {
+        max-width: calc(200px);
+        object-fit: contain;
+      }
     }
 
     td {
