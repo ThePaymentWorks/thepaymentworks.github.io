@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="412px" height="73px" viewBox="0 0 412 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>tp-logo</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="tp-logo" transform="translate(0.000000, -5.000000)">
+            <g id="Testing-Pays-logo" fill="#67C5A5">
+                <g id="Rectangle-33">
+                    <path d="M6,66.0058587 C6,64.8980535 6.88944209,64 7.99078777,64 L125,64 L133,71 L125,78 L7.99078777,78 C6.89130604,78 6,77.1029399 6,75.9941413 L6,66.0058587 Z"></path>
+                    <rect x="25" y="5" width="105" height="14" rx="2"></rect>
+                    <path d="M-19.0129784,37.6874016 C-19.0940725,36.5868286 -18.2584393,35.7031786 -17.1589012,35.713597 L52.2235557,36.3710123 C53.3286284,36.3814832 54.5153286,37.2346952 54.8729609,38.273335 L58.4594951,48.6893866 C58.8176485,49.7295395 58.2147386,50.5742378 57.1034514,50.5760886 L-16.0495329,50.6979225 C-17.1566085,50.6997663 -18.1199285,49.8074692 -18.2009046,48.7084973 L-19.0129784,37.6874016 Z" transform="translate(19.772161, 43.205716) rotate(-251.000000) translate(-19.772161, -43.205716) "></path>
+                    <path d="M88.3312024,27.5883543 C87.9702721,26.5491528 88.577539,25.6778202 89.6818052,25.6423636 L143.525653,23.913508 L148.220625,38.6946628 L94.5950664,39.8341083 C93.492706,39.8575315 92.3059495,39.0325685 91.9455443,37.9948788 L88.3312024,27.5883543 Z" transform="translate(118.223818, 31.874051) rotate(-251.000000) translate(-118.223818, -31.874051) "></path>
+                </g>
+            </g>
+            <text id="TestingPays" font-family="RobotoCondensed-BoldItalic, Roboto Condensed" font-size="56" font-style="italic" font-weight="bold" fill="#3A3D3D">
+                <tspan x="140" y="56">TestingPays</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
