@@ -52,28 +52,24 @@
 
     {% include footer.html %}
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    {% include layout_assets/bootstrap-js.html %}
+    {% include layout_assets/fontawesome.html %}
+
     {% if page.enable_tooltips %}
       <script src="/js/utils/bootstrap/enable-tooltips.js"></script>
     {% endif %}
+
     {% if page.uses_react %}
       <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
       <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
     {% endif %}
+
     {% if page.scripts %}
       {{page.scripts}}
     {% endif %}
 
-    <!-- Start of HubSpot Embed Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2717535.js"></script>
-    <!-- End of HubSpot Embed Code -->
-
-    <script src="/js/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
-    <script>window.intercomSettings = {app_id: "j6rqtk6h"};</script>
-    <script defer>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/j6rqtk6h';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+    {% include layout_assets/highlight-js.html %}
+    {% include layout_assets/hubspot.html %}
+    {% include layout_assets/intercom.html %}
   </body>
 </html>
