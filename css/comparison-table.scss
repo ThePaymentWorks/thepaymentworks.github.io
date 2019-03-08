@@ -25,6 +25,11 @@
       border-right: 1px solid grey;
       line-height: 1rem;
       color: $black;
+
+      small {
+        font-weight: 300;
+        color: $gray-text;
+      }
     }
     td:first-child { text-align: left; }
     td:last-child { border-right: none; }
