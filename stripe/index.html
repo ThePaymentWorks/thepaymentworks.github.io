@@ -1,5 +1,7 @@
 ---
 layout: default
+uses_react: true
+scripts: '<script type="module" src="/js/components/common-questions.js"></script>'
 ---
 
 <section id="" class="d-flex justify-content-center py-5 light-background">
@@ -134,6 +136,6 @@ layout: default
   </h4>
 </div>
 
-{% include runkit.html defaultSource='stripe' %}
+{% include runkit.html defaultSource="stripe" %}
 {% include sims/landing-pages/benefits.html %}
-{% include sims/landing-pages/common-questions.html %}
+{% include sims/landing-pages/common-questions.html gateway="stripe" singular="Stripe" plural="Stripe's" %}
