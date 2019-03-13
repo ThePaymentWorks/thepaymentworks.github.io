@@ -1,25 +1,31 @@
 export var ListOfCommonQuestions = {
   general: [{
-    question: "What are $singular Simulators?",
-    answer: "Think of a payment company sandbox or an API mock and then super-turbo-charge it - that\u2019s our simulators. We simulate the responses of $plural API endpoints and return the exact same data that they do but with loads of extra controls for you to use.\n      "
+    question: "What is a Simulator?",
+    answer: "Think of a payment company sandbox and then super-turbo-charge it - that\u2019s our Simulators. We simulate the responses of $plural API endpoints and return the exact same data that they do but with loads of extra controls for you to use in your project."
   }, {
-    question: "How do I use a $singular Simulator?",
-    answer: "The first step is signing up for a free account (no card required) here. From there you can select any of our sims and follow our simple instructions to get up and running."
+    question: "$singular have a test mode, why should I use the Simulators?",
+    answer: "$singular have a good test system but its very limited. Our Simulators allow you to do much more. Typical test systems limit your work to a handful of pre-configured test credit cards; the Simulators give you the ability to get any possible API response and a whole lot more. In fact, the Simulators provides you with over 10 times the number of $singular scenarios that you can reproduce with $singular\u2019s test mode. Build much better user experiences than developers using standard sandboxes."
   }, {
-    question: "How do I know your $singular Simulators are up to date?",
-    answer: "We continuously run tests against our simulators and the payment gateways real systems to ensure there are no differences between the two. This ensures consistency and gives us the burden of maintaining these systems."
+    question: "How do I start using the Simulators?",
+    answer: "It takes less than 5 minutes. Sign up your free account (no card required) here. Select the $singular API sims you need, copy your connection URL in the instruction, paste it into your local environment config, send a test transaction. Boom! All done!"
   }, {
-    question: "Which $singular Simulator should I use?",
-    answer: "In order to pick out a simulator you first need to know what payment gateway you want to use such as stripe or paypal. Once you have decided on which one to use you can start writing tests against those simulators on our systems to get up and running."
+    question: "How do I know the Simulator responses are up-to-date with $singular\u2019s APIs?",
+    answer: "We continuously run test transactions against our Simulators and against the $singular systems. This lets us to detect any differences in the responses. We look for $singular changes so you don\u2019t have to worry about tracking them."
   }, {
-    question: "Why should I use a $singular Simulator?",
-    answer: "Our Simulators allow you to do more than you could without them. For instance, we give you the ability to get any possible response back from the api rather than just the predetermined ones attached to test cards. This gives you the ability to handle even more scenarios and provide a much better user experience."
+    question: "Can I use your Simulators in production",
+    answer: "No. Our Simulators will not act as a bypass (currently) for your requests and are not meant to be used in your production environments."
   }, {
-    question: "Do the $singular Simulators replace the native sandbox?",
-    answer: "You can use our simulators to test your systems without requiring the native sandbox, or you can use both in conjunction. It\u2019s up to you as to which flow better suits you."
+    question: "Do you have Simulators than $singular?",
+    answer: "Yes. Login to your free account on TestingPays.com, search for any payment provider (example: Stripe, Paypal, Worldpay), select the Simulators you need. You can start writing code against those Simulators to get up and running."
   }, {
-    question: "Can I use the $singular simulators in production?",
-    answer: "No. Our simulators will not act as a bypass (currently) for your requests and are not meant to be used in your production environments."
+    question: "How much does it cost?",
+    answer: "Our Starter package is absolutely free. You can select from our other packages when your projects demand. <a href=\"/pricing\" class=\"text-primary\">Check out our pricing plans here.</a>"
+  }, {
+    question: "How do you handle upgrading or canceling a subscription?",
+    answer: "Upgrading your subscription in between a subscription period is prorated. You are able to cancel your subscription any time."
+  }, {
+    question: "Do Simulators replace the $singular sandbox?",
+    answer: "You can use both at different stages in your development. Our Simulators are perfect for your local dev environment where you want freedom to try anything. The Simulators are also ideal in shared integration and testing environments where you need reliable setups for manual and automated testing. We also strongly recommend using our Simulators for environments used by your own clients for user acceptance testing of new features - reliability is really important for that.<br/><br/>We then recommend using $plural test system for pre-release testing in staging and production environments.\n      "
   }],
   stripe: [],
   adyen: [],
