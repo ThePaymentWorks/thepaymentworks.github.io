@@ -4,10 +4,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if page.description %}
+    <meta name="description" content="{{page.description}}">
+    {% else %}
     <meta name="description" content="The software testing platform for online payments. A toolkit for software teams to build better payments experiences for online customers.">
+    {% endif %}
+    {% if page.keywords %}
+    <meta name="keywords" content="{{page.keywords}}">
+    {% else %}
     <meta name="keywords" content="payments testing, online payments, test credit card numbers, stripe testing, paypal testing, credit card testing">
+    {% endif %}
     <meta name="author" content="Testing Pays">
+    {% if page.title %}
+    <title>{{page.title}}</title>
+    {% else %}
     <title>Testing Pays - The Software Testing Platform for Online Payments</title>
+    {% endif %}
 
     <link href="/css/main.css" rel="stylesheet">
     {% include layout_assets/favicons.html %}
