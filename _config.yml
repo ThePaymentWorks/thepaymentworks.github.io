@@ -3,5 +3,6 @@ sass:
 
 plugins:
   - jekyll-redirect-from
+  - jekyll-minifier
 
 excludes: components/
