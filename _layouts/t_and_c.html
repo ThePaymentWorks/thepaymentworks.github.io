@@ -21,6 +21,9 @@
     <title>Testing Pays - The Software Testing Platform for Online Payments</title>
     {% endif %}
 
+    {% if page.canonicalUrl %}
+    <link rel="canonical" href="{{page.canonicalUrl}}" />
+    {% endif %}
     <link href="/css/main.css" rel="stylesheet">
     {% include layout_assets/favicons.html %}
     {% include layout_assets/preconnect.html %}
