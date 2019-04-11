@@ -18,7 +18,7 @@ export var SearchBar = function SearchBar(_ref) {
           'div',
           { className: 'col col-sm-6 mx-auto py-3' },
           React.createElement(
-            'h4',
+            'h1',
             { className: 'text-white text-center font-weight-light' },
             title
           ),
