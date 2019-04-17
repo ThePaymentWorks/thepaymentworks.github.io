@@ -56,38 +56,6 @@
     {% include layout_assets/highlight-js.html %}
     {% include layout_assets/hubspot.html %}
     {% include layout_assets/intercom.html %}
-
-    <!-- Global site tag (gtag.js) - Google Ads: 778707240 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-778707240"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-778707240');
-    </script>
-
-    <!-- Event snippet for Sign up to Testing Pays conversion page
-    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-    <script>
-      function gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof(url) != 'undefined') {
-            window.location = url;
-          }
-        };
-        gtag('event', 'conversion', {
-          'send_to': 'AW-778707240/AKY3COz2p5ABEKjCqPMC',
-          'value': 20.0,
-          'currency': 'EUR',
-          'event_callback': callback
-        });
-        return false;
-      }
-    </script>
-    <script>
-      $(".tracking-button").on('click', function(e) {
-          gtag_report_conversion($(e.target).attr('href'));
-        });
-    </script>
+    {% include layout_assets/gtag.html %}
   </body>
 </html>
